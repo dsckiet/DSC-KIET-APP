@@ -1,0 +1,30 @@
+name: dsc_kiet_mobile_app
+description: Mobile application for dsc kiet
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  lottie: ^1.0.1
+  simple_animations: ^3.0.3
+  supercharged: ^2.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+
+  fonts:
+    - family: Sen
+      fonts:
+        - asset: assets/fonts/Sen-Regular.ttf
