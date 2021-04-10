@@ -12,6 +12,8 @@ dependencies:
   lottie: ^1.0.1
   simple_animations: ^3.0.3
   supercharged: ^2.0.0
+  font_awesome_flutter: ^9.0.0
+  flutter_svg: ^0.21.0+1
 
 dev_dependencies:
   flutter_test:
@@ -23,6 +25,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/icons/
 
   fonts:
     - family: Sen
