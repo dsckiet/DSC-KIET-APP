@@ -22,6 +22,24 @@ class DscApp extends StatelessWidget {
               fontSize: 18,
               fontWeight: FontWeight.bold),
         ),
+        textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+            visualDensity: VisualDensity(horizontal: -4, vertical: -3),
+            enableFeedback: true,
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            padding:
+                MaterialStateProperty.all<EdgeInsetsGeometry>(EdgeInsets.zero),
+            foregroundColor: MaterialStateProperty.all<Color>(
+              Color(0xff707070),
+            ),
+            textStyle: MaterialStateProperty.all<TextStyle>(
+              TextStyle(
+                fontSize: 16,
+                fontFamily: 'Sen',
+              ),
+            ),
+          ),
+        ),
         elevatedButtonTheme: ElevatedButtonThemeData(
             style: ButtonStyle(
                 textStyle: MaterialStateProperty.all<TextStyle>(

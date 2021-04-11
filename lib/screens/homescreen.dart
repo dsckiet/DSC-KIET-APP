@@ -204,6 +204,105 @@ class Homescreen extends StatelessWidget {
           Text(
             'Explore',
             style: Theme.of(context).textTheme.bodyText2.copyWith(fontSize: 20),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextButton(
+                child: Text('KIET Group of Institutions'),
+                onPressed: () {},
+              ),
+              TextButton(
+                child: Text('About Us'),
+                onPressed: () {},
+              ),
+              TextButton(
+                child: Text('Become a member'),
+                onPressed: () {},
+              ),
+              Padding(padding: EdgeInsets.only(top: 20)),
+              TextButton(
+                child: Text('Community Guidelines'),
+                onPressed: () {},
+              ),
+              TextButton(
+                child: Text('Meet the team'),
+                onPressed: () {},
+              ),
+              TextButton(
+                child: Text('FAQs'),
+                onPressed: () {},
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(
+                icon: FaIcon(
+                  FontAwesomeIcons.instagram,
+                  color: Color(0xff4285F4),
+                ),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: FaIcon(
+                  FontAwesomeIcons.twitter,
+                  color: Color(0xff4285F4),
+                ),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: FaIcon(
+                  FontAwesomeIcons.github,
+                  color: Color(0xff4285F4),
+                ),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: FaIcon(
+                  FontAwesomeIcons.mediumM,
+                  color: Color(0xff4285F4),
+                ),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: FaIcon(
+                  FontAwesomeIcons.telegramPlane,
+                  color: Color(0xff4285F4),
+                ),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: FaIcon(
+                  FontAwesomeIcons.slack,
+                  color: Color(0xff4285F4),
+                ),
+                onPressed: () {},
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                'Write to us at: ',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText2
+                    .copyWith(fontSize: 16, fontWeight: FontWeight.normal),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  'dsckiet@gmail.com',
+                  style: Theme.of(context).textTheme.bodyText2.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                ),
+              ),
+            ],
           )
         ],
       ),
