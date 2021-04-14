@@ -1,3 +1,4 @@
+import 'package:dsc_kiet_mobile_app/screens/faq_screen.dart';
 import 'package:dsc_kiet_mobile_app/screens/guidelines_screen.dart';
 import 'package:dsc_kiet_mobile_app/widgets/app_drawer.dart';
 import 'package:dsc_kiet_mobile_app/widgets/newsletter_placeholder.dart';
@@ -40,7 +41,7 @@ class Homescreen extends StatelessWidget {
         title: Text('DSC KIET'),
       ),
       endDrawer: AppDrawer(),
-      body: GuidelinesScreen(),
+      body: FAQScreen(),
     );
   }
 }

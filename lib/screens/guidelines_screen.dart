@@ -33,7 +33,8 @@ class GuidelinesScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyText2.copyWith(
                         fontSize: 16,
                         fontWeight: FontWeight.normal,
-                        color: Color(0xff707070)),
+                        color: Color(0xff707070),
+                        height: 1.5),
                   ),
                 ))
           ],
