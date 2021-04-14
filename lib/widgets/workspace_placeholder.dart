@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class WorkspacePlaceholder extends StatelessWidget {
   const WorkspacePlaceholder({
@@ -67,7 +68,10 @@ class WorkspacePlaceholder extends StatelessWidget {
                             MaterialStateProperty.all<Color>(Colors.black),
                       ),
                   icon: FaIcon(FontAwesomeIcons.slack),
-                  onPressed: () {},
+                  onPressed: () {
+                    launch(
+                        'https://join.slack.com/t/dsckiet/shared_invite/zt-ef1q4txj-D77khvaZVgBP2CyH2MQHLA');
+                  },
                   label: Text(
                     'Slack',
                   ),
@@ -78,7 +82,9 @@ class WorkspacePlaceholder extends StatelessWidget {
                             MaterialStateProperty.all<Color>(Colors.black),
                       ),
                   icon: FaIcon(FontAwesomeIcons.telegramPlane),
-                  onPressed: () {},
+                  onPressed: () {
+                    launch('https://t.me/dsckiet');
+                  },
                   label: Text(
                     'Telegram',
                   ),
