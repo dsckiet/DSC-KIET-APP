@@ -44,7 +44,7 @@ class AppDrawer extends ConsumerWidget {
                 )),
             TextButton(
                 onPressed: () {
-                  context.read(selectedScreenProvider).changeScreen(1);
+                  context.read(selectedScreenProvider).changeScreen(2);
                   Navigator.pop(context);
                 },
                 child: Text(
@@ -56,7 +56,7 @@ class AppDrawer extends ConsumerWidget {
                 )),
             TextButton(
                 onPressed: () {
-                  context.read(selectedScreenProvider).changeScreen(2);
+                  context.read(selectedScreenProvider).changeScreen(3);
                   Navigator.pop(context);
                 },
                 child: Text(
@@ -68,7 +68,7 @@ class AppDrawer extends ConsumerWidget {
                 )),
             TextButton(
                 onPressed: () {
-                  context.read(selectedScreenProvider).changeScreen(3);
+                  context.read(selectedScreenProvider).changeScreen(4);
                   Navigator.pop(context);
                 },
                 child: Text(
@@ -80,7 +80,7 @@ class AppDrawer extends ConsumerWidget {
                 )),
             TextButton(
                 onPressed: () {
-                  context.read(selectedScreenProvider).changeScreen(1);
+                  context.read(selectedScreenProvider).changeScreen(5);
                   Navigator.pop(context);
                 },
                 child: Text(

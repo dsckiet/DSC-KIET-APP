@@ -5,13 +5,11 @@ import 'package:url_launcher/url_launcher.dart';
 class WorkspacePlaceholder extends StatelessWidget {
   const WorkspacePlaceholder({
     Key key,
-    @required this.size,
   }) : super(key: key);
-
-  final Size size;
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return PhysicalModel(
       color: Colors.transparent,
       elevation: 4,

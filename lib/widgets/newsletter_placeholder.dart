@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 class NewsletterPlaceholder extends StatelessWidget {
   const NewsletterPlaceholder({
     Key key,
-    @required this.size,
   }) : super(key: key);
-
-  final Size size;
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return PhysicalModel(
       color: Colors.transparent,
       shadowColor: Colors.transparent,

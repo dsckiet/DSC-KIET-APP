@@ -1,4 +1,5 @@
 import 'package:dsc_kiet_mobile_app/repository/data/team.dart';
+import 'package:dsc_kiet_mobile_app/widgets/explore_placeholder.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -27,6 +28,14 @@ class TeamScreen extends StatelessWidget {
             ...team.map(
               (e) => buildTeamMemberPane(context, e),
             ),
+            Padding(padding: EdgeInsets.only(top: 40)),
+            Text(
+              'Explore',
+              style:
+                  Theme.of(context).textTheme.bodyText2.copyWith(fontSize: 20),
+            ),
+            Padding(padding: EdgeInsets.only(top: 10)),
+            ExplorePlaceholder(),
           ],
         ),
       ),
@@ -95,7 +104,7 @@ class TeamScreen extends StatelessWidget {
                       icon: FaIcon(FontAwesomeIcons.linkedin, size: 12),
                       label: Text('')),
                 ],
-              )
+              ),
             ],
           )
         ],

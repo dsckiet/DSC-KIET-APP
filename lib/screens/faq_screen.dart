@@ -1,4 +1,5 @@
 import 'package:dsc_kiet_mobile_app/repository/data/faqs.dart';
+import 'package:dsc_kiet_mobile_app/widgets/explore_placeholder.dart';
 import 'package:flutter/material.dart';
 
 class FAQScreen extends StatelessWidget {
@@ -15,7 +16,15 @@ class FAQScreen extends StatelessWidget {
               style:
                   Theme.of(context).textTheme.bodyText2.copyWith(fontSize: 26),
             ),
-            ...faq.map((e) => buildFAQ(context, e['query'], e['response']))
+            ...faq.map((e) => buildFAQ(context, e['query'], e['response'])),
+            Padding(padding: EdgeInsets.only(top: 40)),
+            Text(
+              'Explore',
+              style:
+                  Theme.of(context).textTheme.bodyText2.copyWith(fontSize: 20),
+            ),
+            Padding(padding: EdgeInsets.only(top: 10)),
+            ExplorePlaceholder(),
           ],
         ),
       ),

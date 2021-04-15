@@ -1,4 +1,5 @@
 import 'package:dsc_kiet_mobile_app/repository/data/community-guidelines.dart';
+import 'package:dsc_kiet_mobile_app/widgets/explore_placeholder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -36,7 +37,15 @@ class GuidelinesScreen extends StatelessWidget {
                         color: Color(0xff707070),
                         height: 1.5),
                   ),
-                ))
+                )),
+            Padding(padding: EdgeInsets.only(top: 40)),
+            Text(
+              'Explore',
+              style:
+                  Theme.of(context).textTheme.bodyText2.copyWith(fontSize: 20),
+            ),
+            Padding(padding: EdgeInsets.only(top: 10)),
+            ExplorePlaceholder(),
           ],
         ),
       ),

@@ -1,7 +1,9 @@
 import 'package:dsc_kiet_mobile_app/provider/screen_provider.dart';
 import 'package:dsc_kiet_mobile_app/screens/faq_screen.dart';
 import 'package:dsc_kiet_mobile_app/screens/guidelines_screen.dart';
+import 'package:dsc_kiet_mobile_app/screens/about_us_screen.dart';
 import 'package:dsc_kiet_mobile_app/screens/team_screen.dart';
+import 'package:dsc_kiet_mobile_app/screens/contact_screen.dart';
 import 'package:dsc_kiet_mobile_app/widgets/app_drawer.dart';
 import 'package:dsc_kiet_mobile_app/widgets/newsletter_placeholder.dart';
 import 'package:dsc_kiet_mobile_app/widgets/workspace_placeholder.dart';
@@ -25,19 +27,19 @@ class Homescreen extends ConsumerWidget {
           return HomescreenBody();
           break;
         case 1:
-          return TeamScreen();
+          return AboutUsScreen();
           break;
         case 2:
-          return GuidelinesScreen();
+          return TeamScreen();
           break;
         case 3:
-          return FAQScreen();
+          return GuidelinesScreen();
           break;
         case 4:
           return FAQScreen();
           break;
         case 5:
-          return FAQScreen();
+          return ContactScreen();
           break;
         default:
           return HomescreenBody();
@@ -82,7 +84,6 @@ class HomescreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return ListView(
       padding: EdgeInsets.symmetric(horizontal: 20),
       children: [
@@ -144,13 +145,11 @@ class HomescreenBody extends StatelessWidget {
         AboutUsSection(),
         //
         //join the workspace
-        WorkspacePlaceholder(size: size),
+        WorkspacePlaceholder(),
         Padding(padding: EdgeInsets.only(bottom: 40)),
         //
         //newsletter
-        NewsletterPlaceholder(
-          size: size,
-        ),
+        NewsletterPlaceholder(),
         Padding(padding: EdgeInsets.only(bottom: 80)),
         //
         //Explore Section
@@ -158,6 +157,7 @@ class HomescreenBody extends StatelessWidget {
           'Explore',
           style: Theme.of(context).textTheme.bodyText2.copyWith(fontSize: 20),
         ),
+        Padding(padding: EdgeInsets.only(top: 10)),
         ExplorePlaceholder(),
         //
         Row(
