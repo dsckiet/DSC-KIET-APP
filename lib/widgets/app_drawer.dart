@@ -1,13 +1,16 @@
+import 'package:dsc_kiet_mobile_app/provider/screen_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class AppDrawer extends StatelessWidget {
+class AppDrawer extends ConsumerWidget {
   const AppDrawer({
     Key key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ScopedReader watch) {
     final size = MediaQuery.of(context).size;
+
     return Drawer(
       child: Padding(
         padding:
@@ -16,7 +19,10 @@ class AppDrawer extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.read(selectedScreenProvider).changeScreen(0);
+                  Navigator.pop(context);
+                },
                 child: Text(
                   'Home',
                   style: Theme.of(context)
@@ -25,7 +31,10 @@ class AppDrawer extends StatelessWidget {
                       .copyWith(fontSize: 16, color: Color(0xff707070)),
                 )),
             TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.read(selectedScreenProvider).changeScreen(1);
+                  Navigator.pop(context);
+                },
                 child: Text(
                   'About',
                   style: Theme.of(context)
@@ -34,7 +43,10 @@ class AppDrawer extends StatelessWidget {
                       .copyWith(fontSize: 16, color: Color(0xff707070)),
                 )),
             TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.read(selectedScreenProvider).changeScreen(1);
+                  Navigator.pop(context);
+                },
                 child: Text(
                   'Team',
                   style: Theme.of(context)
@@ -43,7 +55,10 @@ class AppDrawer extends StatelessWidget {
                       .copyWith(fontSize: 16, color: Color(0xff707070)),
                 )),
             TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.read(selectedScreenProvider).changeScreen(2);
+                  Navigator.pop(context);
+                },
                 child: Text(
                   'Guidelines',
                   style: Theme.of(context)
@@ -52,7 +67,10 @@ class AppDrawer extends StatelessWidget {
                       .copyWith(fontSize: 16, color: Color(0xff707070)),
                 )),
             TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.read(selectedScreenProvider).changeScreen(3);
+                  Navigator.pop(context);
+                },
                 child: Text(
                   'FAQs',
                   style: Theme.of(context)
@@ -61,7 +79,10 @@ class AppDrawer extends StatelessWidget {
                       .copyWith(fontSize: 16, color: Color(0xff707070)),
                 )),
             TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.read(selectedScreenProvider).changeScreen(1);
+                  Navigator.pop(context);
+                },
                 child: Text(
                   'Contact',
                   style: Theme.of(context)

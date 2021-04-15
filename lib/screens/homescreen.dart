@@ -1,3 +1,6 @@
+import 'package:dsc_kiet_mobile_app/provider/screen_provider.dart';
+import 'package:dsc_kiet_mobile_app/screens/faq_screen.dart';
+import 'package:dsc_kiet_mobile_app/screens/guidelines_screen.dart';
 import 'package:dsc_kiet_mobile_app/screens/team_screen.dart';
 import 'package:dsc_kiet_mobile_app/widgets/app_drawer.dart';
 import 'package:dsc_kiet_mobile_app/widgets/newsletter_placeholder.dart';
@@ -5,14 +8,42 @@ import 'package:dsc_kiet_mobile_app/widgets/workspace_placeholder.dart';
 import 'package:dsc_kiet_mobile_app/widgets/explore_placeholder.dart';
 import 'package:dsc_kiet_mobile_app/widgets/about_us_section.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class Homescreen extends StatelessWidget {
+class Homescreen extends ConsumerWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ScopedReader watch) {
+    final selectedScreenNotifier = watch(selectedScreenProvider);
+
+    Widget returnScreen() {
+      switch (selectedScreenNotifier.value) {
+        case 0:
+          return HomescreenBody();
+          break;
+        case 1:
+          return TeamScreen();
+          break;
+        case 2:
+          return GuidelinesScreen();
+          break;
+        case 3:
+          return FAQScreen();
+          break;
+        case 4:
+          return FAQScreen();
+          break;
+        case 5:
+          return FAQScreen();
+          break;
+        default:
+          return HomescreenBody();
+      }
+    }
+
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
@@ -23,7 +54,6 @@ class Homescreen extends StatelessWidget {
             padding: EdgeInsets.only(right: 20.0),
             child: GestureDetector(
               onTap: () {
-                print('1');
                 _scaffoldKey.currentState.openEndDrawer();
               },
               child: Center(
@@ -40,7 +70,7 @@ class Homescreen extends StatelessWidget {
         title: Text('DSC KIET'),
       ),
       endDrawer: AppDrawer(),
-      body: TeamScreen(),
+      body: returnScreen(),
     );
   }
 }
