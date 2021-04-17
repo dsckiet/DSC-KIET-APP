@@ -2,9 +2,17 @@ import 'package:dsc_kiet_mobile_app/repository/data/team.dart';
 import 'package:dsc_kiet_mobile_app/widgets/explore_placeholder.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:supercharged/supercharged.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class TeamScreen extends StatelessWidget {
+class TeamScreen extends StatefulWidget {
+  @override
+  _TeamScreenState createState() => _TeamScreenState();
+}
+
+class _TeamScreenState extends State<TeamScreen> {
+  int selected = -1;
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -26,7 +34,7 @@ class TeamScreen extends StatelessWidget {
             ),
             Padding(padding: EdgeInsets.only(top: 16)),
             ...team.map(
-              (e) => buildTeamMemberPane(context, e),
+              (e) => buildTeamMemberPane(context, e, team.indexOf(e)),
             ),
             Padding(padding: EdgeInsets.only(top: 40)),
             Text(
@@ -42,20 +50,30 @@ class TeamScreen extends StatelessWidget {
     );
   }
 
-  Widget buildTeamMemberPane(BuildContext context, Map<String, String> data) {
+  Widget buildTeamMemberPane(
+      BuildContext context, Map<String, String> data, int i) {
     final size = MediaQuery.of(context).size;
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 16.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
+          AnimatedContainer(
+            duration: 500.milliseconds,
             padding: EdgeInsets.all(3),
             decoration: BoxDecoration(
-                shape: BoxShape.circle, border: Border.all(color: Colors.grey)),
-            child: CircleAvatar(
-              radius: 48,
-              backgroundImage: AssetImage(data['image']),
+                color: selected == i ? Color(0xff4285f4) : Colors.white,
+                shape: BoxShape.circle,
+                border: Border.all(color: Colors.grey)),
+            child: GestureDetector(
+              onTap: () {
+                selected = i;
+                setState(() {});
+              },
+              child: CircleAvatar(
+                radius: 48,
+                backgroundImage: AssetImage(data['image']),
+              ),
             ),
           ),
           Padding(padding: EdgeInsets.only(right: 32)),
