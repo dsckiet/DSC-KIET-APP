@@ -8,3 +8,9 @@ void main() {
     child: DscApp(),
   ));
 }
+
+//newsletter size
+//workspace size
+//fontsize
+//bottom navbar
+//size.height / 72 60 48 36

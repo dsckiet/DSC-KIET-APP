@@ -84,6 +84,7 @@ class HomescreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return ListView(
       padding: EdgeInsets.symmetric(horizontal: 20),
       children: [
@@ -112,10 +113,12 @@ class HomescreenBody extends StatelessWidget {
             ])),
         Padding(padding: EdgeInsets.only(top: 10)),
         Padding(
-          padding: const EdgeInsets.only(right: 128.0),
+          padding: EdgeInsets.only(right: size.width / 2.5),
           child: ElevatedButton(
               onPressed: () {
                 launch('https://forms.gle/YFTsmarHBrW57k5N8');
+                print(size.height);
+                print(size.width);
               },
               child: Container(
                 child: Center(
@@ -134,12 +137,12 @@ class HomescreenBody extends StatelessWidget {
               child: Text(
                 'Join Community Platform by Google Developers',
                 style: Theme.of(context).textTheme.bodyText2.copyWith(
-                    fontSize: 16,
+                    fontSize: size.height / 60,
                     fontWeight: FontWeight.bold,
                     color: Color(0xff0f9d58)),
               )),
         ),
-        Padding(padding: EdgeInsets.only(top: 10)),
+        Padding(padding: EdgeInsets.only(top: size.height / 16)),
         //
         //About us section
         AboutUsSection(),

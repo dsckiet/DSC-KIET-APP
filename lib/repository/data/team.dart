@@ -62,7 +62,7 @@ List<Map<String, String>> team = [
     "domain": "Web",
     "other_url": "https://www.hackerrank.com/dhruvagg987",
     "dob": "11/29/2000",
-    "role": "",
+    "role": "Python Developer",
     "image": "assets/images/dhruv_aggarwal.jpg"
   },
   {
@@ -84,7 +84,7 @@ List<Map<String, String>> team = [
     "domain": "ML",
     "other_url": "https://www.stopstalk.com/user/profile/lakshaykumar0510",
     "dob": "5/10/2001",
-    "role": "",
+    "role": "Competitive Programmer",
     "image": "assets/images/Lakshay_Kumar.jpg"
   },
   {
@@ -197,4 +197,49 @@ List<Map<String, String>> team = [
     "role": "Android Developer",
     "image": "assets/images/vidit_jha.jpg"
   },
+  {
+    "name": "Aakash Goel",
+    "linkedin": "https://www.linkedin.com/in/goelaakash79/",
+    "github": "https://github.com/goelaakash79",
+    "email": "goelaakash79@gmail.com",
+    "domain": "Web",
+    "other_url": "https://goelaakash79.github.io/",
+    "dob": "3/4/1998",
+    "role": "Class of 2020",
+    "image": "assets/images/aakash_goel.jpg"
+  },
+  {
+    "name": "Ritwick Bhargav",
+    "linkedin": "https://www.linkedin.com/in/ritwickbhargav80",
+    "github": "https://github.com/ritwickbhargav80",
+    "email": "ritwickbhargav80@gmail.com",
+    "domain": "Web",
+    "other_url":
+        "https://drive.google.com/file/d/1W6aFjVFJLH8t_9o9vL7LpY0ABfn4Z3ct/view?usp=sharing",
+    "dob": "1/28/1999",
+    "role": "Class of 2020",
+    "image": "assets/images/ritwick_bhargav.jpeg"
+  },
+  {
+    "name": "Shubham Goswami",
+    "linkedin": "https://linkedin.com/in/sgshubham98",
+    "github": "https://github.com/sgshubham98",
+    "email": "sgshubham98@gmail.com",
+    "domain": "Flutter",
+    "other_url": "https://sgshubham98.github.io",
+    "dob": "1/7/1998",
+    "role": "Class of 2020",
+    "image": "assets/images/shubham_goswami.jpg"
+  },
+  {
+    "name": "Shreeyanshi Gupta",
+    "linkedin": "https://www.linkedin.com/in/shrynshigupta06",
+    "github": "https://github.com/shrynshigupta06",
+    "email": "shree21gupta@gmail.com",
+    "domain": "Web",
+    "other_url": "https://www.linkedin.com/in/shrynshigupta06",
+    "dob": "11/21/1997",
+    "role": "Class of 2020",
+    "image": "assets/images/shreeyanshi_gupta.jpeg"
+  }
 ];

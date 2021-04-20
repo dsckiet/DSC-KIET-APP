@@ -14,9 +14,7 @@ class WorkspacePlaceholder extends StatelessWidget {
       color: Colors.transparent,
       elevation: 4,
       child: Container(
-        width: size.width / 3,
-        height: size.height / 3.7,
-        padding: EdgeInsets.all(30),
+        padding: EdgeInsets.all(size.height / 27.5),
         decoration: BoxDecoration(
           color: Color(0xffDB4437),
           borderRadius: BorderRadius.circular(10),
@@ -31,7 +29,7 @@ class WorkspacePlaceholder extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .bodyText2
-                    .copyWith(fontSize: 24, color: Colors.white),
+                    .copyWith(fontSize: size.height / 32, color: Colors.white),
               ),
             ),
             Padding(
@@ -44,7 +42,7 @@ class WorkspacePlaceholder extends StatelessWidget {
                     TextSpan(
                       text: '#activities, #sessions ',
                       style: Theme.of(context).textTheme.bodyText2.copyWith(
-                          fontSize: 14,
+                          fontSize: size.height / 54,
                           fontWeight: FontWeight.bold,
                           color: Color(0xfff1f1f1)),
                     ),
@@ -52,7 +50,7 @@ class WorkspacePlaceholder extends StatelessWidget {
                   ],
                 ),
                 style: Theme.of(context).textTheme.bodyText2.copyWith(
-                    fontSize: 14,
+                    fontSize: size.height / 54,
                     fontWeight: FontWeight.normal,
                     color: Color(0xfff1f1f1)),
               ),

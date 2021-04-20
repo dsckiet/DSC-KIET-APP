@@ -1,20 +1,22 @@
+import 'package:dsc_kiet_mobile_app/provider/screen_provider.dart';
 import 'package:dsc_kiet_mobile_app/widgets/google_map_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ExplorePlaceholder extends StatefulWidget {
+class ExplorePlaceholder extends ConsumerWidget {
   const ExplorePlaceholder({
     Key key,
   }) : super(key: key);
 
-  @override
-  _ExplorePlaceholderState createState() => _ExplorePlaceholderState();
-}
+//   @override
+//   _ExplorePlaceholderState createState() => _ExplorePlaceholderState();
+// }
 
-class _ExplorePlaceholderState extends State<ExplorePlaceholder> {
+// class _ExplorePlaceholderState extends State<ExplorePlaceholder> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ScopedReader watch) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -26,7 +28,9 @@ class _ExplorePlaceholderState extends State<ExplorePlaceholder> {
         ),
         TextButton(
           child: Text('About Us'),
-          onPressed: () {},
+          onPressed: () {
+            context.read(selectedScreenProvider).changeScreen(1);
+          },
         ),
         TextButton(
           child: Text('Become a member'),
@@ -37,15 +41,21 @@ class _ExplorePlaceholderState extends State<ExplorePlaceholder> {
         Padding(padding: EdgeInsets.only(top: 20)),
         TextButton(
           child: Text('Community Guidelines'),
-          onPressed: () {},
+          onPressed: () {
+            context.read(selectedScreenProvider).changeScreen(3);
+          },
         ),
         TextButton(
           child: Text('Meet the team'),
-          onPressed: () {},
+          onPressed: () {
+            context.read(selectedScreenProvider).changeScreen(2);
+          },
         ),
         TextButton(
           child: Text('FAQs'),
-          onPressed: () {},
+          onPressed: () {
+            context.read(selectedScreenProvider).changeScreen(4);
+          },
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

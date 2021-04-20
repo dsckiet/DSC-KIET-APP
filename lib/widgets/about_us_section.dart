@@ -41,13 +41,13 @@ class _AboutUsSectionState extends State<AboutUsSection> {
         Text(
           whatWeDo,
           style: Theme.of(context).textTheme.bodyText2.copyWith(
-              fontSize: 14,
+              fontSize: size.height / 54,
               fontWeight: FontWeight.normal,
               color: Color(0xff707070)),
         ),
         Padding(padding: EdgeInsets.only(top: 20)),
         Padding(
-          padding: const EdgeInsets.only(right: 200.0),
+          padding: EdgeInsets.only(right: size.width / 1.7),
           child: ElevatedButton(
               onPressed: () {
                 launch(
@@ -69,7 +69,7 @@ class _AboutUsSectionState extends State<AboutUsSection> {
               child: Text(
                 'Learn more about the program',
                 style: Theme.of(context).textTheme.bodyText2.copyWith(
-                    fontSize: 16,
+                    fontSize: size.height / 60,
                     fontWeight: FontWeight.bold,
                     color: Color(0xff0f9d58)),
               )),
@@ -77,31 +77,32 @@ class _AboutUsSectionState extends State<AboutUsSection> {
         //projects placeholder
         placeholderType1(
           context,
+          size,
           svg: 'rocket',
           title: 'Projects',
           content: 'Projects with a social impact that help a lot of people.',
           color: Color(0xffDB4437),
         ),
         //hackathons placeholder
-        placeholderType1(context,
+        placeholderType1(context, size,
             svg: 'hackathon',
             title: 'Hackathons',
             content: 'Dream. Explore. Wonder. Build it together.',
             color: Color(0xff4285F4)),
         //webinars placeholder
-        placeholderType1(context,
+        placeholderType1(context, size,
             svg: 'webinar',
             title: 'Webinars',
             content: 'Join live coding sessions and AMAs to explore.',
             color: Color(0xffC8A83D)),
         //bootcamps placeholder
-        placeholderType1(context,
+        placeholderType1(context, size,
             svg: 'bootcamp',
             title: 'Bootcamps',
             content: 'Learn & implement with us in detailed bootcamps.',
             color: Color(0xff0F9D58)),
         Padding(
-          padding: EdgeInsets.only(top: 48, bottom: 16),
+          padding: EdgeInsets.only(top: size.height / 12, bottom: 16),
           child: Text(
             'What DSC KIET does?',
             style: Theme.of(context).textTheme.bodyText2.copyWith(fontSize: 28),
@@ -110,7 +111,7 @@ class _AboutUsSectionState extends State<AboutUsSection> {
         Text(
           'Developer Student Club KIET is inspired by Google Developers\' Family.\n\nThe motive is to create a ecosystem of programmers & developers in the campus by helping them to learn and build projects.',
           style: Theme.of(context).textTheme.bodyText2.copyWith(
-              fontSize: 16,
+              fontSize: size.height / 54,
               fontWeight: FontWeight.normal,
               color: Color(0xff707070)),
         ),
@@ -171,7 +172,7 @@ class _AboutUsSectionState extends State<AboutUsSection> {
     );
   }
 
-  Column placeholderType1(BuildContext context,
+  Column placeholderType1(BuildContext context, Size size,
       {String svg, String title, String content, Color color}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -182,7 +183,7 @@ class _AboutUsSectionState extends State<AboutUsSection> {
             alignment: Alignment.centerLeft,
             child: SvgPicture.asset(
               'assets/icons/$svg.svg',
-              height: 48,
+              height: size.height / 17,
               color: color,
             ),
           ),
@@ -192,13 +193,13 @@ class _AboutUsSectionState extends State<AboutUsSection> {
             child: Text(
               title,
               style: Theme.of(context).textTheme.bodyText2.copyWith(
-                    fontSize: 24,
+                    fontSize: size.height / 32,
                   ),
             )),
         Text(
           content,
           style: Theme.of(context).textTheme.bodyText2.copyWith(
-              fontSize: 12,
+              fontSize: size.height / 60,
               fontWeight: FontWeight.normal,
               color: Color(0xff707070)),
         )

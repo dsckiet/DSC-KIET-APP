@@ -23,16 +23,16 @@ class ButtonType1 extends StatelessWidget {
         child: CircleAvatar(
           radius: 24,
           backgroundColor: Color(0xff222222),
-          child: IconButton(
-              iconSize: 22,
-              icon: FaIcon(
+          child: InkWell(
+              child: FaIcon(
                 icon,
                 color: Colors.white,
+                size: 22,
               ),
               hoverColor: Colors.blue,
               splashColor: Colors.blue,
               highlightColor: Colors.blue,
-              onPressed: () {
+              onTap: () {
                 launch(url);
               }),
         ),

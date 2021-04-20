@@ -10,15 +10,14 @@ class NewsletterPlaceholder extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return PhysicalModel(
       color: Colors.transparent,
-      shadowColor: Colors.transparent,
+      // shadowColor: Colors.transparent,
       elevation: 4,
       child: Container(
-        width: size.width / 3,
-        height: size.height / 2.7,
-        padding: EdgeInsets.all(30),
+        padding: EdgeInsets.all(size.height / 27.5),
         decoration: BoxDecoration(
           border: Border.all(color: Color(0xffDB4437)),
           borderRadius: BorderRadius.circular(10),
+          color: Colors.white,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,7 +27,7 @@ class NewsletterPlaceholder extends StatelessWidget {
               child: Text(
                 'Subscribe to our newsletter',
                 style: Theme.of(context).textTheme.bodyText2.copyWith(
-                      fontSize: 24,
+                      fontSize: size.height / 32,
                       color: Colors.black,
                     ),
               ),
@@ -38,7 +37,7 @@ class NewsletterPlaceholder extends StatelessWidget {
               child: Text(
                 'Subscribe to our newsletter to get the latest updates about our events and hacks right in your inbox.',
                 style: Theme.of(context).textTheme.bodyText2.copyWith(
-                    fontSize: 14,
+                    fontSize: size.height / 54,
                     fontWeight: FontWeight.normal,
                     color: Color(0xff707070)),
               ),
@@ -50,7 +49,7 @@ class NewsletterPlaceholder extends StatelessWidget {
                   hintStyle: Theme.of(context).textTheme.bodyText2.copyWith(
                         color: Color(0xff707070),
                         fontWeight: FontWeight.bold,
-                        fontSize: 16,
+                        fontSize: size.height / 48,
                       ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -79,7 +78,7 @@ class NewsletterPlaceholder extends StatelessWidget {
             ElevatedButton(
               onPressed: () {},
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                padding: EdgeInsets.symmetric(horizontal: size.width / 48),
                 child: Text('Subscribe'),
               ),
               style: Theme.of(context).elevatedButtonTheme.style.copyWith(
