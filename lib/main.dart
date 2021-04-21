@@ -14,3 +14,11 @@ void main() {
 //fontsize
 //bottom navbar
 //size.height / 72 60 48 36
+//about us
+// 1 para
+// 4 link
+// join workspace
+// newsletter
+// Guideline
+// FAQ
+// Map

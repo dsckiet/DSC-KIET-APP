@@ -4,19 +4,17 @@ import 'package:dsc_kiet_mobile_app/screens/guidelines_screen.dart';
 import 'package:dsc_kiet_mobile_app/screens/about_us_screen.dart';
 import 'package:dsc_kiet_mobile_app/screens/team_screen.dart';
 import 'package:dsc_kiet_mobile_app/screens/contact_screen.dart';
-import 'package:dsc_kiet_mobile_app/widgets/app_drawer.dart';
+import 'package:dsc_kiet_mobile_app/widgets/bottom_nav_bar.dart';
 import 'package:dsc_kiet_mobile_app/widgets/newsletter_placeholder.dart';
 import 'package:dsc_kiet_mobile_app/widgets/workspace_placeholder.dart';
 import 'package:dsc_kiet_mobile_app/widgets/explore_placeholder.dart';
 import 'package:dsc_kiet_mobile_app/widgets/about_us_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Homescreen extends ConsumerWidget {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     final selectedScreenNotifier = watch(selectedScreenProvider);
@@ -27,18 +25,9 @@ class Homescreen extends ConsumerWidget {
           return HomescreenBody();
           break;
         case 1:
-          return AboutUsScreen();
-          break;
-        case 2:
           return TeamScreen();
           break;
-        case 3:
-          return GuidelinesScreen();
-          break;
-        case 4:
-          return FAQScreen();
-          break;
-        case 5:
+        case 2:
           return ContactScreen();
           break;
         default:
@@ -47,32 +36,13 @@ class Homescreen extends ConsumerWidget {
     }
 
     return Scaffold(
-      key: _scaffoldKey,
-      appBar: AppBar(
-        leadingWidth: 72.0,
-        titleSpacing: 8,
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 20.0),
-            child: GestureDetector(
-              onTap: () {
-                _scaffoldKey.currentState.openEndDrawer();
-              },
-              child: Center(
-                  child:
-                      FaIcon(FontAwesomeIcons.ellipsisV, color: Colors.black)),
-            ),
-          )
+      body: Stack(
+        children: [
+          returnScreen(),
+          //bottom nav bar
+          BottomNavBar()
         ],
-        leading: Container(
-            padding: EdgeInsets.only(left: 16, top: 4, bottom: 4),
-            child: Image.asset(
-              'assets/images/logo.png',
-            )),
-        title: Text('DSC KIET'),
       ),
-      endDrawer: AppDrawer(),
-      body: returnScreen(),
     );
   }
 }
@@ -88,10 +58,7 @@ class HomescreenBody extends StatelessWidget {
     return ListView(
       padding: EdgeInsets.symmetric(horizontal: 20),
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 28.0, vertical: 4),
-          child: Lottie.asset('assets/images/splash_animation.json'),
-        ),
+        Padding(padding: EdgeInsets.only(top: size.height / 12)),
         Text(
           'Devlopers Student Clubs KIET Group of Institutions',
         ),
@@ -111,6 +78,10 @@ class HomescreenBody extends StatelessWidget {
                     color: Color(0xff707070)),
               ),
             ])),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 28.0, vertical: 4),
+          child: Lottie.asset('assets/images/splash_animation.json'),
+        ),
         Padding(padding: EdgeInsets.only(top: 10)),
         Padding(
           padding: EdgeInsets.only(right: size.width / 2.5),
@@ -142,7 +113,8 @@ class HomescreenBody extends StatelessWidget {
                     color: Color(0xff0f9d58)),
               )),
         ),
-        Padding(padding: EdgeInsets.only(top: size.height / 16)),
+
+        Padding(padding: EdgeInsets.only(top: size.height / 12)),
         //
         //About us section
         AboutUsSection(),
