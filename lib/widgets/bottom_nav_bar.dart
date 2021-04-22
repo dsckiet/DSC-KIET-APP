@@ -1,21 +1,33 @@
 import 'package:dsc_kiet_mobile_app/clipper/myclipper.dart';
-import 'package:dsc_kiet_mobile_app/provider/screen_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:supercharged/supercharged.dart';
 
-enum AnimProps {
-  homeButtonColor,
-}
-
 class BottomNavBar extends StatefulWidget {
+  final PageController controller;
+
+  const BottomNavBar({Key key, this.controller}) : super(key: key);
   @override
   _BottomNavBarState createState() => _BottomNavBarState();
 }
 
-class _BottomNavBarState extends State<BottomNavBar> {
+class _BottomNavBarState extends State<BottomNavBar>
+    with TickerProviderStateMixin {
   int _selected = 0;
+  AnimationController controller1, controller2;
+
+  @override
+  void initState() {
+    super.initState();
+    controller1 = AnimationController(
+      duration: 300.milliseconds,
+      vsync: this,
+    );
+    controller2 = AnimationController(
+      duration: 300.milliseconds,
+      vsync: this,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +42,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
         shadowColor: Colors.transparent,
         child: Container(
           width: double.infinity,
-          // height: size.height / 16,
           child: Stack(
             alignment: AlignmentDirectional.center,
             children: [
@@ -62,111 +73,73 @@ class _BottomNavBarState extends State<BottomNavBar> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsets.only(left: 32.0),
+                                      padding:
+                                          EdgeInsets.only(left: size.width / 5),
                                       child: InkWell(
                                         onTap: () {
-                                          context
-                                              .read(selectedScreenProvider)
-                                              .changeScreen(1);
+                                          widget.controller.animateToPage(0,
+                                              duration: 300.milliseconds,
+                                              curve: Curves.easeIn);
                                           _selected = 1;
+                                          controller1.forward();
+                                          controller2.reverse();
                                           setState(() {});
                                         },
                                         child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
-                                            AnimatedContainer(
-                                              duration: 450.milliseconds,
-                                              width: _selected == 1
-                                                  ? size.width / 8
-                                                  : size.width / 10,
-                                              child: AnimatedOpacity(
-                                                duration: _selected == 1
-                                                    ? 100.milliseconds
-                                                    : 1.milliseconds,
-                                                opacity: _selected == 1 ? 1 : 0,
-                                                child: Text(
-                                                  'Team',
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .bodyText2
-                                                      .copyWith(
-                                                        fontSize: 16,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        color:
-                                                            Color(0xff4285f4),
-                                                      ),
-                                                ),
-                                              ),
-                                            ),
-                                            SvgPicture.asset(
-                                              'assets/icons/team.svg',
-                                              height: 28,
-                                              color: _selected == 1
-                                                  ? Color(0xff4285f4)
-                                                  : Color(0xff707070),
+                                            AnimatedBuilder(
+                                              animation: controller1,
+                                              builder: (context, child) {
+                                                return SvgPicture.asset(
+                                                  'assets/icons/team.svg',
+                                                  height: Tween<double>(
+                                                          begin: 28, end: 36)
+                                                      .animatedBy(controller1)
+                                                      .value,
+                                                  color: _selected == 1
+                                                      ? Color(0xff4285f4)
+                                                      : Color(0xff707070),
+                                                );
+                                              },
                                             ),
                                           ],
                                         ),
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.only(right: 32.0),
+                                      padding: EdgeInsets.only(
+                                          right: size.width / 6),
                                       child: InkWell(
                                         onTap: () {
-                                          context
-                                              .read(selectedScreenProvider)
-                                              .changeScreen(2);
+                                          widget.controller.animateToPage(2,
+                                              duration: 300.milliseconds,
+                                              curve: Curves.easeIn);
                                           _selected = 2;
+                                          controller2.forward();
+                                          controller1.reverse();
                                           setState(() {});
                                         },
-                                        child: Container(
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              SvgPicture.asset(
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            AnimatedBuilder(
+                                              animation: controller2,
+                                              builder: (context, child) =>
+                                                  SvgPicture.asset(
                                                 'assets/icons/support.svg',
                                                 color: _selected == 2
                                                     ? Color(0xff4285f4)
                                                     : Color(0xff707070),
-                                                height: 28,
+                                                height: Tween<double>(
+                                                        begin: 28, end: 36)
+                                                    .animatedBy(controller2)
+                                                    .value,
                                               ),
-                                              Padding(
-                                                  padding: EdgeInsets.only(
-                                                      right: 10)),
-                                              AnimatedContainer(
-                                                duration: 450.milliseconds,
-                                                width: _selected == 2
-                                                    ? size.width / 5.8
-                                                    : size.width / 10,
-                                                child: AnimatedOpacity(
-                                                  duration: _selected == 2
-                                                      ? 100.milliseconds
-                                                      : 1.milliseconds,
-                                                  opacity:
-                                                      _selected == 2 ? 1 : 0,
-                                                  child: Text(
-                                                    'Support',
-                                                    style: Theme.of(context)
-                                                        .textTheme
-                                                        .bodyText2
-                                                        .copyWith(
-                                                          fontSize: 16,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                          color: _selected == 2
-                                                              ? Color(
-                                                                  0xff4285f4)
-                                                              : Color(
-                                                                  0xff707070),
-                                                        ),
-                                                  ),
-                                                ),
-                                              )
-                                            ],
-                                          ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ),
@@ -198,8 +171,11 @@ class _BottomNavBarState extends State<BottomNavBar> {
                     padding: EdgeInsets.all(3),
                     child: InkWell(
                       onTap: () {
-                        context.read(selectedScreenProvider).changeScreen(0);
+                        widget.controller.animateToPage(1,
+                            duration: 300.milliseconds, curve: Curves.easeIn);
                         _selected = 0;
+                        controller1.reverse();
+                        controller2.reverse();
                         setState(() {});
                       },
                       child: CircleAvatar(

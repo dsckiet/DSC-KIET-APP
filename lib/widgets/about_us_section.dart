@@ -1,8 +1,23 @@
-import 'package:dsc_kiet_mobile_app/widgets/button_type_1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+class AboutUsSection extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.only(top: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AboutUsSectionBody(),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
 List<String> gridSVG = [
   'html',
@@ -16,16 +31,16 @@ List<String> gridSVG = [
   'android',
 ];
 
-class AboutUsSection extends StatefulWidget {
-  const AboutUsSection({
+class AboutUsSectionBody extends StatefulWidget {
+  const AboutUsSectionBody({
     Key key,
   }) : super(key: key);
 
   @override
-  _AboutUsSectionState createState() => _AboutUsSectionState();
+  _AboutUsSectionBodyState createState() => _AboutUsSectionBodyState();
 }
 
-class _AboutUsSectionState extends State<AboutUsSection> {
+class _AboutUsSectionBodyState extends State<AboutUsSectionBody> {
   int _selected = -1;
   @override
   Widget build(BuildContext context) {
@@ -41,7 +56,7 @@ class _AboutUsSectionState extends State<AboutUsSection> {
         Text(
           whatWeDo,
           style: Theme.of(context).textTheme.bodyText2.copyWith(
-              fontSize: size.height / 54,
+              fontSize: 17,
               fontWeight: FontWeight.normal,
               color: Color(0xff707070)),
         ),
@@ -69,7 +84,7 @@ class _AboutUsSectionState extends State<AboutUsSection> {
               child: Text(
                 'Learn more about the program',
                 style: Theme.of(context).textTheme.bodyText2.copyWith(
-                    fontSize: size.height / 60,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Color(0xff0f9d58)),
               )),
@@ -111,34 +126,11 @@ class _AboutUsSectionState extends State<AboutUsSection> {
         Text(
           'Developer Student Club KIET is inspired by Google Developers\' Family.\n\nThe motive is to create a ecosystem of programmers & developers in the campus by helping them to learn and build projects.',
           style: Theme.of(context).textTheme.bodyText2.copyWith(
-              fontSize: size.height / 54,
+              fontSize: 17,
               fontWeight: FontWeight.normal,
               color: Color(0xff707070)),
         ),
-        Padding(
-          padding: EdgeInsets.only(top: 20.0, bottom: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              ButtonType1(
-                icon: FontAwesomeIcons.mediumM,
-                url: 'https://medium.com/dsckiet',
-              ),
-              ButtonType1(
-                icon: FontAwesomeIcons.instagram,
-                url: 'https://instagram.com/dsckiet',
-              ),
-              ButtonType1(
-                icon: FontAwesomeIcons.twitter,
-                url: 'https://twitter.com/dsckiet',
-              ),
-              ButtonType1(
-                icon: FontAwesomeIcons.github,
-                url: 'https://github.com/dsckiet',
-              ),
-            ],
-          ),
-        ),
+        Padding(padding: EdgeInsets.only(top: 40)),
         //grid for html css etc..
         Container(
           height: size.height / 2.88,
@@ -199,7 +191,7 @@ class _AboutUsSectionState extends State<AboutUsSection> {
         Text(
           content,
           style: Theme.of(context).textTheme.bodyText2.copyWith(
-              fontSize: size.height / 60,
+              fontSize: 16,
               fontWeight: FontWeight.normal,
               color: Color(0xff707070)),
         )

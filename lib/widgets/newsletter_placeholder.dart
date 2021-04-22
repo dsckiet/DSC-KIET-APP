@@ -10,10 +10,9 @@ class NewsletterPlaceholder extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return PhysicalModel(
       color: Colors.transparent,
-      // shadowColor: Colors.transparent,
       elevation: 4,
       child: Container(
-        padding: EdgeInsets.all(size.height / 27.5),
+        padding: EdgeInsets.all(size.height / 32),
         decoration: BoxDecoration(
           border: Border.all(color: Color(0xffDB4437)),
           borderRadius: BorderRadius.circular(10),
@@ -75,16 +74,20 @@ class NewsletterPlaceholder extends StatelessWidget {
                   contentPadding:
                       EdgeInsets.symmetric(vertical: 0, horizontal: 16)),
             ),
-            ElevatedButton(
-              onPressed: () {},
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: size.width / 48),
-                child: Text('Subscribe'),
-              ),
-              style: Theme.of(context).elevatedButtonTheme.style.copyWith(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.black),
+            Padding(padding: EdgeInsets.only(top: 10)),
+            Row(
+              children: [
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Subscribe'),
+                    style: Theme.of(context).elevatedButtonTheme.style.copyWith(
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(Colors.black),
+                        ),
                   ),
+                ),
+              ],
             )
           ],
         ),

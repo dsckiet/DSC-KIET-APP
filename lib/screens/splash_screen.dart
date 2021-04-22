@@ -2,11 +2,6 @@ import 'package:dsc_kiet_mobile_app/screens/homescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:supercharged/supercharged.dart';
 
-// enum Animprops {
-//   bottomPadding,
-//   opacity,
-// }
-
 class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();
@@ -48,20 +43,3 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
-
-// AnimatedBuilder(
-//               animation: controller,
-//               builder: (context, child) {
-//                 return Opacity(
-//                   opacity: animation.value.get(Animprops.opacity),
-//                   child: Padding(
-//                     padding: EdgeInsets.only(
-//                         bottom: animation.value.get(Animprops.bottomPadding)),
-//                     child: Center(
-//                       child: Text(
-//                         'DSC KIET',
-//                       ),
-//                     ),
-//                   ),
-//                 );
-//               }),

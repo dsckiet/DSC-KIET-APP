@@ -1,47 +1,38 @@
-import 'package:dsc_kiet_mobile_app/provider/screen_provider.dart';
-import 'package:dsc_kiet_mobile_app/screens/faq_screen.dart';
-import 'package:dsc_kiet_mobile_app/screens/guidelines_screen.dart';
-import 'package:dsc_kiet_mobile_app/screens/about_us_screen.dart';
 import 'package:dsc_kiet_mobile_app/screens/team_screen.dart';
 import 'package:dsc_kiet_mobile_app/screens/contact_screen.dart';
-import 'package:dsc_kiet_mobile_app/widgets/bottom_nav_bar.dart';
-import 'package:dsc_kiet_mobile_app/widgets/newsletter_placeholder.dart';
-import 'package:dsc_kiet_mobile_app/widgets/workspace_placeholder.dart';
-import 'package:dsc_kiet_mobile_app/widgets/explore_placeholder.dart';
 import 'package:dsc_kiet_mobile_app/widgets/about_us_section.dart';
+import 'package:dsc_kiet_mobile_app/widgets/bottom_nav_bar.dart';
+import 'package:dsc_kiet_mobile_app/widgets/footer.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class Homescreen extends ConsumerWidget {
+List<Widget> screens = [
+  TeamScreen(),
+  HomescreenBody(),
+  ContactScreen(),
+];
+
+class Homescreen extends StatelessWidget {
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final selectedScreenNotifier = watch(selectedScreenProvider);
+  Widget build(BuildContext context) {
+    PageController controller = PageController(initialPage: 1);
 
-    Widget returnScreen() {
-      switch (selectedScreenNotifier.value) {
-        case 0:
-          return HomescreenBody();
-          break;
-        case 1:
-          return TeamScreen();
-          break;
-        case 2:
-          return ContactScreen();
-          break;
-        default:
-          return HomescreenBody();
-      }
-    }
-
-    return Scaffold(
-      body: Stack(
-        children: [
-          returnScreen(),
-          //bottom nav bar
-          BottomNavBar()
-        ],
+    return SafeArea(
+      child: Scaffold(
+        body: Stack(
+          children: [
+            PageView(
+              children: screens,
+              physics: NeverScrollableScrollPhysics(),
+              controller: controller,
+            ),
+            //bottom nav bar
+            BottomNavBar(
+              controller: controller,
+            )
+          ],
+        ),
       ),
     );
   }
@@ -55,10 +46,11 @@ class HomescreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
     return ListView(
       padding: EdgeInsets.symmetric(horizontal: 20),
       children: [
-        Padding(padding: EdgeInsets.only(top: size.height / 12)),
+        Padding(padding: EdgeInsets.only(top: size.height / 18)),
         Text(
           'Devlopers Student Clubs KIET Group of Institutions',
         ),
@@ -88,8 +80,6 @@ class HomescreenBody extends StatelessWidget {
           child: ElevatedButton(
               onPressed: () {
                 launch('https://forms.gle/YFTsmarHBrW57k5N8');
-                print(size.height);
-                print(size.width);
               },
               child: Container(
                 child: Center(
@@ -108,7 +98,7 @@ class HomescreenBody extends StatelessWidget {
               child: Text(
                 'Join Community Platform by Google Developers',
                 style: Theme.of(context).textTheme.bodyText2.copyWith(
-                    fontSize: size.height / 60,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Color(0xff0f9d58)),
               )),
@@ -118,22 +108,8 @@ class HomescreenBody extends StatelessWidget {
         //
         //About us section
         AboutUsSection(),
-        //
-        //join the workspace
-        WorkspacePlaceholder(),
-        Padding(padding: EdgeInsets.only(bottom: 40)),
-        //
-        //newsletter
-        NewsletterPlaceholder(),
-        Padding(padding: EdgeInsets.only(bottom: 80)),
-        //
-        //Explore Section
-        Text(
-          'Explore',
-          style: Theme.of(context).textTheme.bodyText2.copyWith(fontSize: 20),
-        ),
-        Padding(padding: EdgeInsets.only(top: 10)),
-        ExplorePlaceholder(),
+        //footer section
+        Footer(),
       ],
     );
   }

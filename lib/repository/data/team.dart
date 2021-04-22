@@ -55,17 +55,6 @@ List<Map<String, String>> team = [
     "image": "assets/images/anshul_gupta.jpg"
   },
   {
-    "name": "Dhruv Aggarwal",
-    "linkedin": "https://www.linkedin.com/in/dhruv-aggarwal-902aa31a0",
-    "github": "https://github.com/dhruvagg987",
-    "email": "dhruv.1822it1051@kiet.edu",
-    "domain": "Web",
-    "other_url": "https://www.hackerrank.com/dhruvagg987",
-    "dob": "11/29/2000",
-    "role": "Python Developer",
-    "image": "assets/images/dhruv_aggarwal.jpg"
-  },
-  {
     "name": "Ishita Jaiswal",
     "linkedin": "http://www.linkedin.com/in/ishita-jaiswal-5838b116a",
     "github": "https://github.com/ishitajaiswal4m",
@@ -86,17 +75,6 @@ List<Map<String, String>> team = [
     "dob": "5/10/2001",
     "role": "Competitive Programmer",
     "image": "assets/images/Lakshay_Kumar.jpg"
-  },
-  {
-    "name": "Manvendra Pratap Singh",
-    "linkedin": "https://www.linkedin.com/in/manvendra-pratap-singh-54b2861a2/",
-    "github": "https://github.com/MANNU-BOT",
-    "email": "manvendra.1923en1094@kiet.edu",
-    "domain": "Android",
-    "other_url": "https://www.instagram.com/manvendra966/?hl=en",
-    "dob": "7/22/2000",
-    "role": "Android Developer",
-    "image": "assets/images/Manvendra_Singh.jpg"
   },
   {
     "name": "Mayank Shakya",

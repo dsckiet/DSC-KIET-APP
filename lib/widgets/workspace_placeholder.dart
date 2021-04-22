@@ -14,7 +14,7 @@ class WorkspacePlaceholder extends StatelessWidget {
       color: Colors.transparent,
       elevation: 4,
       child: Container(
-        padding: EdgeInsets.all(size.height / 27.5),
+        padding: EdgeInsets.all(size.height / 32),
         decoration: BoxDecoration(
           color: Color(0xffDB4437),
           borderRadius: BorderRadius.circular(10),
@@ -58,31 +58,38 @@ class WorkspacePlaceholder extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                ElevatedButton.icon(
-                  style: Theme.of(context).elevatedButtonTheme.style.copyWith(
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.black),
-                      ),
-                  icon: FaIcon(FontAwesomeIcons.slack),
-                  onPressed: () {
-                    launch(
-                        'https://join.slack.com/t/dsckiet/shared_invite/zt-ef1q4txj-D77khvaZVgBP2CyH2MQHLA');
-                  },
-                  label: Text(
-                    'Slack',
+                Expanded(
+                  child: ElevatedButton.icon(
+                    style: Theme.of(context).elevatedButtonTheme.style.copyWith(
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(Colors.black),
+                        ),
+                    icon: FaIcon(FontAwesomeIcons.slack),
+                    onPressed: () {
+                      launch(
+                          'https://join.slack.com/t/dsckiet/shared_invite/zt-ef1q4txj-D77khvaZVgBP2CyH2MQHLA');
+                    },
+                    label: Text(
+                      'Slack',
+                    ),
                   ),
                 ),
-                ElevatedButton.icon(
-                  style: Theme.of(context).elevatedButtonTheme.style.copyWith(
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.black),
-                      ),
-                  icon: FaIcon(FontAwesomeIcons.telegramPlane),
-                  onPressed: () {
-                    launch('https://t.me/dsckiet');
-                  },
-                  label: Text(
-                    'Telegram',
+                SizedBox(
+                  width: 20,
+                ),
+                Expanded(
+                  child: ElevatedButton.icon(
+                    style: Theme.of(context).elevatedButtonTheme.style.copyWith(
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(Colors.black),
+                        ),
+                    icon: FaIcon(FontAwesomeIcons.telegramPlane),
+                    onPressed: () {
+                      launch('https://t.me/dsckiet');
+                    },
+                    label: Text(
+                      'Telegram',
+                    ),
                   ),
                 )
               ],

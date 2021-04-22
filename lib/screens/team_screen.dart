@@ -1,5 +1,5 @@
 import 'package:dsc_kiet_mobile_app/repository/data/team.dart';
-import 'package:dsc_kiet_mobile_app/widgets/explore_placeholder.dart';
+import 'package:dsc_kiet_mobile_app/widgets/footer.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:supercharged/supercharged.dart';
@@ -13,8 +13,11 @@ class TeamScreen extends StatefulWidget {
 class _TeamScreenState extends State<TeamScreen> {
   int selected = -1;
 
+  ImageProvider teamImage = AssetImage('assets/images/team.png');
+
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.only(left: 20, right: 20, top: 32.0),
@@ -23,27 +26,40 @@ class _TeamScreenState extends State<TeamScreen> {
           children: [
             Text(
               'Team',
-              style:
-                  Theme.of(context).textTheme.bodyText2.copyWith(fontSize: 26),
             ),
             Padding(padding: EdgeInsets.only(top: 16)),
-            Text(
-              'We are a group of excited people with a clear sense of purpose. We believe in continuous learning and development. We are adaptive to upcoming challenges in technology and management. We learn, code, preach, and grow together. Here at DSC KIET, we are not just a team, we are a growing family of developers.',
-              style: Theme.of(context).textTheme.bodyText2.copyWith(
-                  fontSize: 16, fontWeight: FontWeight.normal, height: 1.5),
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: teamImage,
+                  colorFilter: ColorFilter.mode(
+                      Colors.black.withOpacity(0.18), BlendMode.dstIn),
+                ),
+              ),
+              child: Text(
+                'We are a group of excited people with a clear sense of purpose. We believe in continuous learning and development. We are adaptive to upcoming challenges in technology and management. We learn, code, preach, and grow together. Here at DSC KIET, we are not just a team, we are a growing family of developers.',
+                style: Theme.of(context).textTheme.bodyText2.copyWith(
+                    fontSize: 16,
+                    fontWeight: FontWeight.normal,
+                    height: 1.6,
+                    wordSpacing: 1.6,
+                    color: Color(0xff707070)),
+              ),
             ),
             Padding(padding: EdgeInsets.only(top: 16)),
-            ...team.map(
-              (e) => buildTeamMemberPane(context, e, team.indexOf(e)),
-            ),
-            Padding(padding: EdgeInsets.only(top: 40)),
-            Text(
-              'Explore',
-              style:
-                  Theme.of(context).textTheme.bodyText2.copyWith(fontSize: 20),
+            AspectRatio(
+              aspectRatio: size.aspectRatio / 3.67,
+              child: ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                cacheExtent: 10,
+                itemCount: team.length,
+                itemBuilder: (context, index) {
+                  return buildTeamMemberPane(context, team[index], index);
+                },
+              ),
             ),
             Padding(padding: EdgeInsets.only(top: 10)),
-            ExplorePlaceholder(),
+            Footer(),
           ],
         ),
       ),
@@ -57,6 +73,7 @@ class _TeamScreenState extends State<TeamScreen> {
       padding: EdgeInsets.symmetric(vertical: 16.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
         children: [
           AnimatedContainer(
             duration: 500.milliseconds,
