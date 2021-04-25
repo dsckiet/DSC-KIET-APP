@@ -17,7 +17,6 @@ class _TeamScreenState extends State<TeamScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.only(left: 20, right: 20, top: 32.0),
@@ -47,15 +46,11 @@ class _TeamScreenState extends State<TeamScreen> {
               ),
             ),
             Padding(padding: EdgeInsets.only(top: 16)),
-            AspectRatio(
-              aspectRatio: size.aspectRatio / 3.67,
-              child: ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
-                cacheExtent: 10,
-                itemCount: team.length,
-                itemBuilder: (context, index) {
-                  return buildTeamMemberPane(context, team[index], index);
-                },
+            ...team.map(
+              (e) => buildTeamMemberPane(
+                context,
+                e,
+                team.indexOf(e),
               ),
             ),
             Padding(padding: EdgeInsets.only(top: 10)),

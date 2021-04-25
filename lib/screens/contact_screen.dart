@@ -1,4 +1,6 @@
+import 'package:dsc_kiet_mobile_app/screens/guidelines_screen.dart';
 import 'package:dsc_kiet_mobile_app/widgets/button_type_1.dart';
+import 'package:dsc_kiet_mobile_app/widgets/faq_widget.dart';
 import 'package:dsc_kiet_mobile_app/widgets/footer.dart';
 // import 'package:dsc_kiet_mobile_app/widgets/google_map_widget.dart';
 import 'package:dsc_kiet_mobile_app/widgets/newsletter_placeholder.dart';
@@ -84,6 +86,13 @@ class ContactScreen extends StatelessWidget {
               ],
             ),
             Padding(padding: EdgeInsets.only(top: size.height / 24)),
+            //faqs
+            FAQPanel(),
+
+            Padding(padding: EdgeInsets.only(top: size.height / 48)),
+            //guidelines
+            GuidelinesPanel(),
+            Padding(padding: EdgeInsets.only(top: size.height / 24)),
             Container(width: double.infinity, child: WorkspacePlaceholder()),
             Padding(padding: EdgeInsets.only(bottom: 40)),
             Container(width: double.infinity, child: NewsletterPlaceholder()),
@@ -96,5 +105,6 @@ class ContactScreen extends StatelessWidget {
         ),
       ),
     );
+    // https://dsckiet.com/guidelines
   }
 }
