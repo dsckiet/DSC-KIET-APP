@@ -108,6 +108,9 @@ class HomescreenBody extends StatelessWidget {
         //
         //About us section
         AboutUsSection(),
+        Padding(
+            padding:
+                EdgeInsets.only(top: MediaQuery.of(context).size.height / 10)),
       ],
     );
   }

@@ -27,23 +27,14 @@ class _TeamScreenState extends State<TeamScreen> {
               'Team',
             ),
             Padding(padding: EdgeInsets.only(top: 16)),
-            Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: teamImage,
-                  colorFilter: ColorFilter.mode(
-                      Colors.black.withOpacity(0.18), BlendMode.dstIn),
-                ),
-              ),
-              child: Text(
-                'We are a group of excited people with a clear sense of purpose. We believe in continuous learning and development. We are adaptive to upcoming challenges in technology and management. We learn, code, preach, and grow together. Here at DSC KIET, we are not just a team, we are a growing family of developers.',
-                style: Theme.of(context).textTheme.bodyText2.copyWith(
-                    fontSize: 16,
-                    fontWeight: FontWeight.normal,
-                    height: 1.6,
-                    wordSpacing: 1.6,
-                    color: Color(0xff707070)),
-              ),
+            Text(
+              'We are a group of excited people with a clear sense of purpose. We believe in continuous learning and development. We are adaptive to upcoming challenges in technology and management. We learn, code, preach, and grow together. Here at DSC KIET, we are not just a team, we are a growing family of developers.',
+              style: Theme.of(context).textTheme.bodyText2.copyWith(
+                  fontSize: 16,
+                  fontWeight: FontWeight.normal,
+                  height: 1.6,
+                  wordSpacing: 1.6,
+                  color: Color(0xff707070)),
             ),
             Padding(padding: EdgeInsets.only(top: 16)),
             ...team.map(
@@ -53,7 +44,9 @@ class _TeamScreenState extends State<TeamScreen> {
                 team.indexOf(e),
               ),
             ),
-            Padding(padding: EdgeInsets.only(top: 10)),
+            Padding(
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height / 10)),
           ],
         ),
       ),
