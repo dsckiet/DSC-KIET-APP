@@ -11,7 +11,7 @@ List<Map<String, String>> team = [
     "image": "assets/images/aakanksha_shivani.JPG"
   },
   {
-    "name": "Aayush sharma",
+    "name": "Aayush Sharma",
     "linkedin": "https://www.linkedin.com/in/ayushb58/",
     "github": "https://github.com/Ayush783",
     "email": "ayushc45xxx@gmail.com",

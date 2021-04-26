@@ -1,4 +1,4 @@
-import 'package:dsc_kiet_mobile_app/screens/guidelines_screen.dart';
+import 'package:dsc_kiet_mobile_app/widgets/guidelines_widget.dart';
 import 'package:dsc_kiet_mobile_app/widgets/button_type_1.dart';
 import 'package:dsc_kiet_mobile_app/widgets/faq_widget.dart';
 import 'package:dsc_kiet_mobile_app/widgets/footer.dart';
