@@ -56,7 +56,7 @@ class _AboutUsSectionBodyState extends State<AboutUsSectionBody> {
         Text(
           whatWeDo,
           style: Theme.of(context).textTheme.bodyText2.copyWith(
-              fontSize: 17,
+              fontSize: 16,
               fontWeight: FontWeight.normal,
               color: Color(0xff707070)),
         ),
@@ -70,11 +70,11 @@ class _AboutUsSectionBodyState extends State<AboutUsSectionBody> {
               },
               child: Container(
                 child: Center(
-                  child: Text('SIGN UP'),
+                  child: Text('Sign up'),
                 ),
               )),
         ),
-        Padding(padding: EdgeInsets.only(top: 4)),
+        Padding(padding: EdgeInsets.only(top: 16)),
         Align(
           alignment: Alignment.centerLeft,
           child: TextButton(
@@ -89,6 +89,7 @@ class _AboutUsSectionBodyState extends State<AboutUsSectionBody> {
                     color: Color(0xff0f9d58)),
               )),
         ),
+        Padding(padding: EdgeInsets.only(top: 12)),
         //projects placeholder
         placeholderType1(
           context,
@@ -126,7 +127,7 @@ class _AboutUsSectionBodyState extends State<AboutUsSectionBody> {
         Text(
           'Developer Student Club KIET is inspired by Google Developers\' Family.\n\nThe motive is to create a ecosystem of programmers & developers in the campus by helping them to learn and build projects.',
           style: Theme.of(context).textTheme.bodyText2.copyWith(
-              fontSize: 17,
+              fontSize: 16,
               fontWeight: FontWeight.normal,
               color: Color(0xff707070)),
         ),

@@ -104,7 +104,7 @@ class HomescreenBody extends StatelessWidget {
               )),
         ),
 
-        Padding(padding: EdgeInsets.only(top: size.height / 12)),
+        Padding(padding: EdgeInsets.only(top: size.height / 20)),
         //
         //About us section
         AboutUsSection(),
