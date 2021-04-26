@@ -17,8 +17,6 @@ class _FAQPanelState extends State<FAQPanel> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 8),
-      decoration: BoxDecoration(
-          color: Color(0xfff1f1f1), borderRadius: BorderRadius.circular(10)),
       child: ExpansionTile(
         title: Text('FAQ\'s',
             style: Theme.of(context).textTheme.bodyText2.copyWith(

@@ -88,10 +88,10 @@ class ContactScreen extends StatelessWidget {
             Padding(padding: EdgeInsets.only(top: size.height / 24)),
             //faqs
             FAQPanel(),
-
             Padding(padding: EdgeInsets.only(top: size.height / 48)),
             //guidelines
             GuidelinesPanel(),
+
             Padding(padding: EdgeInsets.only(top: size.height / 24)),
             Container(width: double.infinity, child: WorkspacePlaceholder()),
             Padding(padding: EdgeInsets.only(bottom: 40)),
