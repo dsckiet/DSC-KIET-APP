@@ -109,7 +109,7 @@ class _AboutUsSectionBodyState extends State<AboutUsSectionBody> {
             svg: 'webinar',
             title: 'Webinars',
             content: 'Join live coding sessions and AMAs to explore.',
-            color: Color(0xffC8A83D)),
+            color: Color(0xffF4B400)),
         //bootcamps placeholder
         placeholderType1(context, size,
             svg: 'bootcamp',
