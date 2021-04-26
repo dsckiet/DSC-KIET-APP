@@ -105,6 +105,5 @@ class ContactScreen extends StatelessWidget {
         ),
       ),
     );
-    // https://dsckiet.com/guidelines
   }
 }

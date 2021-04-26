@@ -54,7 +54,6 @@ class _TeamScreenState extends State<TeamScreen> {
               ),
             ),
             Padding(padding: EdgeInsets.only(top: 10)),
-            Footer(),
           ],
         ),
       ),

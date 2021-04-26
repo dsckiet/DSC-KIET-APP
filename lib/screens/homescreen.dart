@@ -108,8 +108,6 @@ class HomescreenBody extends StatelessWidget {
         //
         //About us section
         AboutUsSection(),
-        //footer section
-        Footer(),
       ],
     );
   }
