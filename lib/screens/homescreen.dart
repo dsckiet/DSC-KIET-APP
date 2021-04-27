@@ -1,9 +1,10 @@
+import 'package:dsc_kiet_mobile_app/provider/screen_notifier_provider.dart';
 import 'package:dsc_kiet_mobile_app/screens/team_screen.dart';
 import 'package:dsc_kiet_mobile_app/screens/contact_screen.dart';
 import 'package:dsc_kiet_mobile_app/widgets/about_us_section.dart';
 import 'package:dsc_kiet_mobile_app/widgets/bottom_nav_bar.dart';
-import 'package:dsc_kiet_mobile_app/widgets/footer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -13,26 +14,16 @@ List<Widget> screens = [
   ContactScreen(),
 ];
 
-class Homescreen extends StatelessWidget {
+class Homescreen extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
-    PageController controller = PageController(initialPage: 1);
+  Widget build(BuildContext context, ScopedReader watch) {
+    final screenNotifier = watch(selectedScreenProvider);
 
     return SafeArea(
       child: Scaffold(
-        body: Stack(
-          children: [
-            PageView(
-              children: screens,
-              physics: NeverScrollableScrollPhysics(),
-              controller: controller,
-            ),
-            //bottom nav bar
-            BottomNavBar(
-              controller: controller,
-            )
-          ],
-        ),
+        body: screens[screenNotifier.value],
+        bottomNavigationBar: const BottomNavBar(),
+        resizeToAvoidBottomInset: true,
       ),
     );
   }
@@ -51,7 +42,7 @@ class HomescreenBody extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20),
       children: [
         Padding(padding: EdgeInsets.only(top: size.height / 18)),
-        Text(
+        const Text(
           'Devlopers Student Clubs KIET Group of Institutions',
         ),
         Padding(padding: EdgeInsets.only(top: 20)),
@@ -108,9 +99,7 @@ class HomescreenBody extends StatelessWidget {
         //
         //About us section
         AboutUsSection(),
-        Padding(
-            padding:
-                EdgeInsets.only(top: MediaQuery.of(context).size.height / 10)),
+        Padding(padding: EdgeInsets.only(top: 20)),
       ],
     );
   }

@@ -1,9 +1,10 @@
 import 'package:dsc_kiet_mobile_app/repository/data/team.dart';
-import 'package:dsc_kiet_mobile_app/widgets/footer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:supercharged/supercharged.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:dsc_kiet_mobile_app/provider/team_member_selected_notifier.dart';
 
 class TeamScreen extends StatefulWidget {
   @override
@@ -38,28 +39,33 @@ class _TeamScreenState extends State<TeamScreen> {
             ),
             Padding(padding: EdgeInsets.only(top: 16)),
             ...team.map(
-              (e) => buildTeamMemberPane(
-                context,
-                e,
-                team.indexOf(e),
-              ),
+              (e) => TeamMemberPanel(data: e, i: team.indexOf(e)),
             ),
-            Padding(
-                padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height / 10)),
+            Padding(padding: EdgeInsets.only(top: 20)),
           ],
         ),
       ),
     );
   }
+}
 
-  Widget buildTeamMemberPane(
-      BuildContext context, Map<String, String> data, int i) {
+class TeamMemberPanel extends ConsumerWidget {
+  const TeamMemberPanel({
+    Key key,
+    @required this.data,
+    @required this.i,
+  });
+
+  final Map<String, String> data;
+  final int i;
+
+  @override
+  Widget build(BuildContext context, ScopedReader watch) {
     final size = MediaQuery.of(context).size;
+    final notifier = watch(selectedTeamMember);
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 16.0),
       child: Container(
-        // color: Colors.red,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
@@ -68,13 +74,12 @@ class _TeamScreenState extends State<TeamScreen> {
               duration: 500.milliseconds,
               padding: EdgeInsets.all(3),
               decoration: BoxDecoration(
-                  color: selected == i ? Color(0xff4285f4) : Colors.white,
+                  color: notifier.value == i ? Color(0xff4285f4) : Colors.white,
                   shape: BoxShape.circle,
                   border: Border.all(color: Colors.grey)),
               child: GestureDetector(
                 onTap: () {
-                  selected = i;
-                  setState(() {});
+                  context.read(selectedTeamMember).selectMember(i);
                 },
                 child: CircleAvatar(
                   radius: 48,

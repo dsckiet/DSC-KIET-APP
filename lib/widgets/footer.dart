@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Column(
       children: [
         Padding(padding: EdgeInsets.only(top: 20)),
@@ -45,7 +44,7 @@ class Footer extends StatelessWidget {
             )),
         Padding(
             padding: EdgeInsets.only(
-          top: size.height / 10,
+          top: 20,
         )),
       ],
     );
