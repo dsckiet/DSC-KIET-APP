@@ -10,13 +10,15 @@ dependencies:
   flutter:
     sdk: flutter
   lottie: ^1.0.1
-  simple_animations: ^3.0.3
   supercharged: ^2.0.0
   font_awesome_flutter: ^9.0.0
   flutter_svg: ^0.21.0+1
   url_launcher: ^6.0.3
-  flutter_riverpod: ^0.14.0+1
   google_maps_flutter: ^2.0.1
+  curved_navigation_bar: ^0.3.7
+  flutter_riverpod: ^0.14.0+1
+  flutter_bloc: ^7.0.0
+  dio: ^4.0.0
 
 dev_dependencies:
   flutter_test:

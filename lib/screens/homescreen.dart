@@ -1,78 +1,30 @@
-import 'package:dsc_kiet_mobile_app/provider/screen_provider.dart';
-import 'package:dsc_kiet_mobile_app/screens/faq_screen.dart';
-import 'package:dsc_kiet_mobile_app/screens/guidelines_screen.dart';
-import 'package:dsc_kiet_mobile_app/screens/about_us_screen.dart';
+import 'package:dsc_kiet_mobile_app/provider/screen_notifier_provider.dart';
 import 'package:dsc_kiet_mobile_app/screens/team_screen.dart';
 import 'package:dsc_kiet_mobile_app/screens/contact_screen.dart';
-import 'package:dsc_kiet_mobile_app/widgets/app_drawer.dart';
-import 'package:dsc_kiet_mobile_app/widgets/newsletter_placeholder.dart';
-import 'package:dsc_kiet_mobile_app/widgets/workspace_placeholder.dart';
-import 'package:dsc_kiet_mobile_app/widgets/explore_placeholder.dart';
 import 'package:dsc_kiet_mobile_app/widgets/about_us_section.dart';
+import 'package:dsc_kiet_mobile_app/widgets/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+List<Widget> screens = [
+  TeamScreen(),
+  HomescreenBody(),
+  ContactScreen(),
+];
+
 class Homescreen extends ConsumerWidget {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    final selectedScreenNotifier = watch(selectedScreenProvider);
+    final screenNotifier = watch(selectedScreenProvider);
 
-    Widget returnScreen() {
-      switch (selectedScreenNotifier.value) {
-        case 0:
-          return HomescreenBody();
-          break;
-        case 1:
-          return AboutUsScreen();
-          break;
-        case 2:
-          return TeamScreen();
-          break;
-        case 3:
-          return GuidelinesScreen();
-          break;
-        case 4:
-          return FAQScreen();
-          break;
-        case 5:
-          return ContactScreen();
-          break;
-        default:
-          return HomescreenBody();
-      }
-    }
-
-    return Scaffold(
-      key: _scaffoldKey,
-      appBar: AppBar(
-        leadingWidth: 72.0,
-        titleSpacing: 8,
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 20.0),
-            child: GestureDetector(
-              onTap: () {
-                _scaffoldKey.currentState.openEndDrawer();
-              },
-              child: Center(
-                  child:
-                      FaIcon(FontAwesomeIcons.ellipsisV, color: Colors.black)),
-            ),
-          )
-        ],
-        leading: Container(
-            padding: EdgeInsets.only(left: 16, top: 4, bottom: 4),
-            child: Image.asset(
-              'assets/images/logo.png',
-            )),
-        title: Text('DSC KIET'),
+    return SafeArea(
+      child: Scaffold(
+        body: screens[screenNotifier.value],
+        bottomNavigationBar: const BottomNavBar(),
+        resizeToAvoidBottomInset: true,
       ),
-      endDrawer: AppDrawer(),
-      body: returnScreen(),
     );
   }
 }
@@ -84,14 +36,13 @@ class HomescreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return ListView(
       padding: EdgeInsets.symmetric(horizontal: 20),
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 28.0, vertical: 4),
-          child: Lottie.asset('assets/images/splash_animation.json'),
-        ),
-        Text(
+        Padding(padding: EdgeInsets.only(top: size.height / 18)),
+        const Text(
           'Devlopers Student Clubs KIET Group of Institutions',
         ),
         Padding(padding: EdgeInsets.only(top: 20)),
@@ -110,9 +61,13 @@ class HomescreenBody extends StatelessWidget {
                     color: Color(0xff707070)),
               ),
             ])),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 28.0, vertical: 4),
+          child: Lottie.asset('assets/images/splash_animation.json'),
+        ),
         Padding(padding: EdgeInsets.only(top: 10)),
         Padding(
-          padding: const EdgeInsets.only(right: 128.0),
+          padding: EdgeInsets.only(right: size.width / 2.5),
           child: ElevatedButton(
               onPressed: () {
                 launch('https://forms.gle/YFTsmarHBrW57k5N8');
@@ -139,26 +94,12 @@ class HomescreenBody extends StatelessWidget {
                     color: Color(0xff0f9d58)),
               )),
         ),
-        Padding(padding: EdgeInsets.only(top: 10)),
+
+        Padding(padding: EdgeInsets.only(top: size.height / 20)),
         //
         //About us section
         AboutUsSection(),
-        //
-        //join the workspace
-        WorkspacePlaceholder(),
-        Padding(padding: EdgeInsets.only(bottom: 40)),
-        //
-        //newsletter
-        NewsletterPlaceholder(),
-        Padding(padding: EdgeInsets.only(bottom: 80)),
-        //
-        //Explore Section
-        Text(
-          'Explore',
-          style: Theme.of(context).textTheme.bodyText2.copyWith(fontSize: 20),
-        ),
-        Padding(padding: EdgeInsets.only(top: 10)),
-        ExplorePlaceholder(),
+        Padding(padding: EdgeInsets.only(top: 20)),
       ],
     );
   }

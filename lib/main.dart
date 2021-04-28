@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'dsc_app.dart';
 
 void main() {
-  runApp(ProviderScope(
-    child: DscApp(),
-  ));
+  runApp(
+    ProviderScope(child: DscApp()),
+  );
 }

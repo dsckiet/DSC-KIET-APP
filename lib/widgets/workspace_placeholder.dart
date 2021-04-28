@@ -14,9 +14,7 @@ class WorkspacePlaceholder extends StatelessWidget {
       color: Colors.transparent,
       elevation: 4,
       child: Container(
-        width: size.width / 3,
-        height: size.height / 3.7,
-        padding: EdgeInsets.all(30),
+        padding: EdgeInsets.all(size.height / 32),
         decoration: BoxDecoration(
           color: Color(0xffDB4437),
           borderRadius: BorderRadius.circular(10),
@@ -31,7 +29,7 @@ class WorkspacePlaceholder extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .bodyText2
-                    .copyWith(fontSize: 24, color: Colors.white),
+                    .copyWith(fontSize: size.height / 32, color: Colors.white),
               ),
             ),
             Padding(
@@ -44,7 +42,7 @@ class WorkspacePlaceholder extends StatelessWidget {
                     TextSpan(
                       text: '#activities, #sessions ',
                       style: Theme.of(context).textTheme.bodyText2.copyWith(
-                          fontSize: 14,
+                          fontSize: size.height / 54,
                           fontWeight: FontWeight.bold,
                           color: Color(0xfff1f1f1)),
                     ),
@@ -52,7 +50,7 @@ class WorkspacePlaceholder extends StatelessWidget {
                   ],
                 ),
                 style: Theme.of(context).textTheme.bodyText2.copyWith(
-                    fontSize: 14,
+                    fontSize: size.height / 54,
                     fontWeight: FontWeight.normal,
                     color: Color(0xfff1f1f1)),
               ),
@@ -60,31 +58,38 @@ class WorkspacePlaceholder extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                ElevatedButton.icon(
-                  style: Theme.of(context).elevatedButtonTheme.style.copyWith(
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.black),
-                      ),
-                  icon: FaIcon(FontAwesomeIcons.slack),
-                  onPressed: () {
-                    launch(
-                        'https://join.slack.com/t/dsckiet/shared_invite/zt-ef1q4txj-D77khvaZVgBP2CyH2MQHLA');
-                  },
-                  label: Text(
-                    'Slack',
+                Expanded(
+                  child: ElevatedButton.icon(
+                    style: Theme.of(context).elevatedButtonTheme.style.copyWith(
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(Colors.black),
+                        ),
+                    icon: FaIcon(FontAwesomeIcons.slack),
+                    onPressed: () {
+                      launch(
+                          'https://join.slack.com/t/dsckiet/shared_invite/zt-ef1q4txj-D77khvaZVgBP2CyH2MQHLA');
+                    },
+                    label: Text(
+                      'Slack',
+                    ),
                   ),
                 ),
-                ElevatedButton.icon(
-                  style: Theme.of(context).elevatedButtonTheme.style.copyWith(
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.black),
-                      ),
-                  icon: FaIcon(FontAwesomeIcons.telegramPlane),
-                  onPressed: () {
-                    launch('https://t.me/dsckiet');
-                  },
-                  label: Text(
-                    'Telegram',
+                SizedBox(
+                  width: 20,
+                ),
+                Expanded(
+                  child: ElevatedButton.icon(
+                    style: Theme.of(context).elevatedButtonTheme.style.copyWith(
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(Colors.black),
+                        ),
+                    icon: FaIcon(FontAwesomeIcons.telegramPlane),
+                    onPressed: () {
+                      launch('https://t.me/dsckiet');
+                    },
+                    label: Text(
+                      'Telegram',
+                    ),
                   ),
                 )
               ],
