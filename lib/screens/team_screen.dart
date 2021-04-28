@@ -123,18 +123,30 @@ class TeamMemberPanel extends ConsumerWidget {
                           launch(data['other_url']);
                         },
                         icon: FaIcon(FontAwesomeIcons.link, size: 16),
+                        style: Theme.of(context)
+                            .textButtonTheme
+                            .style
+                            .copyWith(alignment: Alignment.centerLeft),
                         label: Text('')),
                     TextButton.icon(
                         onPressed: () {
                           launch(data['github']);
                         },
                         icon: FaIcon(FontAwesomeIcons.github, size: 16),
+                        style: Theme.of(context)
+                            .textButtonTheme
+                            .style
+                            .copyWith(alignment: Alignment.centerLeft),
                         label: Text('')),
                     TextButton.icon(
                         onPressed: () {
                           launch(data['linkedin']);
                         },
                         icon: FaIcon(FontAwesomeIcons.linkedin, size: 16),
+                        style: Theme.of(context)
+                            .textButtonTheme
+                            .style
+                            .copyWith(alignment: Alignment.centerLeft),
                         label: Text('')),
                   ],
                 ),

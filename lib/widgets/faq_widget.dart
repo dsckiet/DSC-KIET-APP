@@ -29,7 +29,7 @@ class _FAQPanelState extends State<FAQPanel> {
         tilePadding: EdgeInsets.all(0),
         leading: SvgPicture.asset(
           'assets/icons/faq.svg',
-          height: 36,
+          height: 24,
           color: _selected ? Colors.black : Color(0xff707070),
         ),
         onExpansionChanged: (value) {

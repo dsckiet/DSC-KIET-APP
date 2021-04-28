@@ -17,6 +17,8 @@ dependencies:
   google_maps_flutter: ^2.0.1
   curved_navigation_bar: ^0.3.7
   flutter_riverpod: ^0.14.0+1
+  flutter_bloc: ^7.0.0
+  dio: ^4.0.0
 
 dev_dependencies:
   flutter_test:

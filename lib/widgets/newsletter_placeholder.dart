@@ -1,4 +1,6 @@
+import 'package:dsc_kiet_mobile_app/bloc/subscribe_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NewsletterPlaceholder extends StatefulWidget {
   const NewsletterPlaceholder({
@@ -10,7 +12,18 @@ class NewsletterPlaceholder extends StatefulWidget {
 }
 
 class _NewsletterPlaceholderState extends State<NewsletterPlaceholder> {
+  final subscribeBloc = SubscribeBloc();
+
   final _formKey = GlobalKey<FormState>();
+
+  TextEditingController controller = TextEditingController();
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -50,6 +63,7 @@ class _NewsletterPlaceholderState extends State<NewsletterPlaceholder> {
             Form(
               key: _formKey,
               child: TextFormField(
+                controller: controller,
                 keyboardType: TextInputType.emailAddress,
                 scrollPadding: EdgeInsets.only(bottom: 120),
                 validator: (value) {
@@ -96,22 +110,65 @@ class _NewsletterPlaceholderState extends State<NewsletterPlaceholder> {
             Padding(padding: EdgeInsets.only(top: 10)),
             Row(
               children: [
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      _formKey.currentState.validate();
-                    },
-                    child: Text('Subscribe'),
-                    style: Theme.of(context).elevatedButtonTheme.style.copyWith(
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(Colors.black),
+                BlocListener<SubscribeBloc, SubscribeState>(
+                  bloc: subscribeBloc,
+                  listener: (context, state) {
+                    if (state is SubscribeFailed) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(state.error),
+                          backgroundColor: Colors.black,
+                          elevation: 8,
                         ),
+                      );
+                    }
+                    if (state is Subscribed) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text("You are now subscribed to DSC KIET!"),
+                        ),
+                      );
+                    }
+                  },
+                  child: BlocBuilder<SubscribeBloc, SubscribeState>(
+                    bloc: subscribeBloc,
+                    builder: (context, state) {
+                      if (state is SubscribeInitial)
+                        return buildSubscribeButton(context);
+                      else if (state is SubscribingInProcess)
+                        return Expanded(
+                          child: Container(
+                            child: Center(
+                              child: CircularProgressIndicator(
+                                strokeWidth: 3,
+                              ),
+                            ),
+                          ),
+                        );
+                      else
+                        return buildSubscribeButton(context);
+                    },
                   ),
                 ),
               ],
             )
           ],
         ),
+      ),
+    );
+  }
+
+  Expanded buildSubscribeButton(BuildContext context) {
+    return Expanded(
+      child: ElevatedButton(
+        onPressed: () {
+          if (_formKey.currentState.validate())
+            subscribeBloc.add(Subscirbing(controller.text));
+        },
+        child: Text('Subscribe'),
+        style: Theme.of(context).elevatedButtonTheme.style.copyWith(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
+            ),
       ),
     );
   }

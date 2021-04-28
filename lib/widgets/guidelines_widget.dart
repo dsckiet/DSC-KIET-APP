@@ -32,7 +32,7 @@ class _GuidelinesPanelState extends State<GuidelinesPanel> {
         leading: SvgPicture.asset(
           'assets/icons/guidelines.svg',
           color: _selected ? Colors.black : Color(0xff707070),
-          height: 36,
+          height: 28,
         ),
         onExpansionChanged: (value) {
           _selected = value;
