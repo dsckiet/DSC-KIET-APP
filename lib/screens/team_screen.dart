@@ -1,3 +1,4 @@
+import 'package:dsc_kiet_mobile_app/constants.dart';
 import 'package:dsc_kiet_mobile_app/repository/data/team.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -26,6 +27,7 @@ class _TeamScreenState extends State<TeamScreen> {
           children: [
             Text(
               'Team',
+              style: heading(context),
             ),
             Padding(padding: EdgeInsets.only(top: 16)),
             Text(
@@ -76,7 +78,10 @@ class TeamMemberPanel extends ConsumerWidget {
               decoration: BoxDecoration(
                   color: notifier.value == i ? Color(0xff4285f4) : Colors.white,
                   shape: BoxShape.circle,
-                  border: Border.all(color: Colors.grey)),
+                  border: Border.all(
+                      color: notifier.value == i
+                          ? Colors.transparent
+                          : Colors.grey)),
               child: GestureDetector(
                 onTap: () {
                   context.read(selectedTeamMember).selectMember(i);
@@ -85,7 +90,7 @@ class TeamMemberPanel extends ConsumerWidget {
                   radius: 48,
                   backgroundColor: Colors.white,
                   child: CircleAvatar(
-                    radius: 46,
+                    radius: 44,
                     backgroundImage: AssetImage(data['image']),
                   ),
                 ),
@@ -102,7 +107,7 @@ class TeamMemberPanel extends ConsumerWidget {
                       .bodyText2
                       .copyWith(fontSize: 16, color: Color(0xff4285F4)),
                 ),
-                Padding(padding: EdgeInsets.only(top: 16)),
+                Padding(padding: EdgeInsets.only(top: 8)),
                 Container(
                   // height: 40,
                   width: size.width / 1.9,
@@ -123,30 +128,20 @@ class TeamMemberPanel extends ConsumerWidget {
                           launch(data['other_url']);
                         },
                         icon: FaIcon(FontAwesomeIcons.link, size: 16),
-                        style: Theme.of(context)
-                            .textButtonTheme
-                            .style
-                            .copyWith(alignment: Alignment.centerLeft),
                         label: Text('')),
+                    Padding(padding: EdgeInsets.only(right: 8)),
                     TextButton.icon(
                         onPressed: () {
                           launch(data['github']);
                         },
                         icon: FaIcon(FontAwesomeIcons.github, size: 16),
-                        style: Theme.of(context)
-                            .textButtonTheme
-                            .style
-                            .copyWith(alignment: Alignment.centerLeft),
                         label: Text('')),
+                    Padding(padding: EdgeInsets.only(right: 8)),
                     TextButton.icon(
                         onPressed: () {
                           launch(data['linkedin']);
                         },
                         icon: FaIcon(FontAwesomeIcons.linkedin, size: 16),
-                        style: Theme.of(context)
-                            .textButtonTheme
-                            .style
-                            .copyWith(alignment: Alignment.centerLeft),
                         label: Text('')),
                   ],
                 ),

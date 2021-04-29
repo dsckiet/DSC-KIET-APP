@@ -1,3 +1,4 @@
+import 'package:dsc_kiet_mobile_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -29,6 +30,9 @@ List<String> gridSVG = [
   'django',
   'flutter',
   'android',
+  'adobe',
+  'figma',
+  'kotlin',
 ];
 
 class AboutUsSectionBody extends StatefulWidget {
@@ -46,21 +50,19 @@ class _AboutUsSectionBodyState extends State<AboutUsSectionBody> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final String whatWeDo =
-        '\nGoogle collaborates with university students who are passionate about growing developer communities.\n\nDeveloper Student Clubs powered by Google Developers is an initiative to help students to grow their knowledge on developer\ntechnologies and more through peer to peer workshops and events, and gain relevant industry experience.';
+        '\nGoogle collaborates with university students who are passionate about growing developer communities.\n\nDeveloper Student Clubs powered by Google Developers is an initiative to help students to grow their knowledge on developer technologies and more through peer to peer workshops and events, and gain relevant industry experience.';
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           'What we do?',
+          style: subHeading(context),
         ),
         Text(
           whatWeDo,
-          style: Theme.of(context).textTheme.bodyText2.copyWith(
-              fontSize: 16,
-              fontWeight: FontWeight.normal,
-              color: Color(0xff707070)),
+          style: body1(context),
         ),
-        Padding(padding: EdgeInsets.only(top: 20)),
+        smallPadding,
         Padding(
           padding: EdgeInsets.only(right: size.width / 1.7),
           child: ElevatedButton(
@@ -74,7 +76,7 @@ class _AboutUsSectionBodyState extends State<AboutUsSectionBody> {
                 ),
               )),
         ),
-        Padding(padding: EdgeInsets.only(top: 16)),
+        smallPadding,
         Align(
           alignment: Alignment.centerLeft,
           child: TextButton(
@@ -83,10 +85,8 @@ class _AboutUsSectionBodyState extends State<AboutUsSectionBody> {
               },
               child: Text(
                 'Learn more about the program',
-                style: Theme.of(context).textTheme.bodyText2.copyWith(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xff0f9d58)),
+                style: body1(context)
+                    .copyWith(color: green, fontWeight: FontWeight.bold),
               )),
         ),
         Padding(padding: EdgeInsets.only(top: 12)),
@@ -121,20 +121,17 @@ class _AboutUsSectionBodyState extends State<AboutUsSectionBody> {
           padding: EdgeInsets.only(top: size.height / 12, bottom: 16),
           child: Text(
             'What DSC KIET does?',
-            style: Theme.of(context).textTheme.bodyText2.copyWith(fontSize: 28),
+            style: subHeading(context),
           ),
         ),
         Text(
           'Developer Student Club KIET is inspired by Google Developers\' Family.\n\nThe motive is to create a ecosystem of programmers & developers in the campus by helping them to learn and build projects.',
-          style: Theme.of(context).textTheme.bodyText2.copyWith(
-              fontSize: 16,
-              fontWeight: FontWeight.normal,
-              color: Color(0xff707070)),
+          style: body1(context),
         ),
-        Padding(padding: EdgeInsets.only(top: 40)),
+        largePadding,
         //grid for html css etc..
         Container(
-          height: size.height / 2.88,
+          height: size.height / 2.38,
           padding: EdgeInsets.all(10),
           child: GridView.builder(
             clipBehavior: Clip.none,
@@ -149,7 +146,7 @@ class _AboutUsSectionBodyState extends State<AboutUsSectionBody> {
             itemBuilder: (context, index) => GestureDetector(
               onTap: () {
                 _selected = index;
-                print(_selected);
+                print(1);
                 setState(() {});
               },
               child: Opacity(
@@ -161,42 +158,42 @@ class _AboutUsSectionBodyState extends State<AboutUsSectionBody> {
             ),
           ),
         ),
+        largePadding,
       ],
     );
   }
 
-  Column placeholderType1(BuildContext context, Size size,
+  Padding placeholderType1(BuildContext context, Size size,
       {String svg, String title, String content, Color color}) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: SvgPicture.asset(
-              'assets/icons/$svg.svg',
-              height: size.height / 17,
-              color: color,
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 15),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 10),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: SvgPicture.asset(
+                'assets/icons/$svg.svg',
+                height: size.height / 17,
+                color: color,
+              ),
             ),
           ),
-        ),
-        Padding(
+          Padding(
             padding: EdgeInsets.only(bottom: 10),
             child: Text(
               title,
-              style: Theme.of(context).textTheme.bodyText2.copyWith(
-                    fontSize: size.height / 32,
-                  ),
-            )),
-        Text(
-          content,
-          style: Theme.of(context).textTheme.bodyText2.copyWith(
-              fontSize: 16,
-              fontWeight: FontWeight.normal,
-              color: Color(0xff707070)),
-        )
-      ],
+              style: subHeading(context),
+            ),
+          ),
+          Text(
+            content,
+            style: body1(context),
+          )
+        ],
+      ),
     );
   }
 }

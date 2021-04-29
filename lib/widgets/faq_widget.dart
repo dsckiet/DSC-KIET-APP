@@ -1,3 +1,4 @@
+import 'package:dsc_kiet_mobile_app/constants.dart';
 import 'package:dsc_kiet_mobile_app/repository/data/faqs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -18,11 +19,14 @@ class _FAQPanelState extends State<FAQPanel> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 8),
       child: ExpansionTile(
-        title: Text('FAQ\'s',
-            style: Theme.of(context).textTheme.bodyText2.copyWith(
-                  fontSize: 18,
-                  color: _selected ? Colors.black : Color(0xff707070),
-                )),
+        title: Text(
+          'FAQ\'s',
+          style: body1(context).copyWith(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: _selected ? Colors.black : Color(0xff707070),
+          ),
+        ),
         children: [
           FAQ(),
         ],
@@ -60,17 +64,16 @@ class FAQ extends StatelessWidget {
         children: [
           Text(
             query,
-            style: Theme.of(context).textTheme.bodyText2.copyWith(fontSize: 20),
+            style: body1(context).copyWith(
+              fontWeight: FontWeight.bold,
+              color: Color(0xff424242),
+              fontSize: 20,
+            ),
           ),
-          Padding(padding: EdgeInsets.only(top: 16)),
+          smallPadding,
           Text(
             response,
-            style: Theme.of(context).textTheme.bodyText2.copyWith(
-                fontSize: 16,
-                fontWeight: FontWeight.normal,
-                wordSpacing: 2,
-                height: 1.5,
-                color: Color(0xff707070)),
+            style: body1(context),
           ),
         ],
       ),

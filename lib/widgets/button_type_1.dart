@@ -23,18 +23,28 @@ class ButtonType1 extends StatelessWidget {
         child: CircleAvatar(
           radius: 24,
           backgroundColor: Color(0xff222222),
-          child: InkWell(
-              child: FaIcon(
-                icon,
-                color: Colors.white,
-                size: 22,
-              ),
+          child: Material(
+            type: MaterialType.circle,
+            color: Colors.transparent,
+            child: InkWell(
               hoverColor: Colors.blue,
               splashColor: Colors.blue,
               highlightColor: Colors.blue,
+              borderRadius: BorderRadius.circular(24),
               onTap: () {
                 launch(url);
-              }),
+              },
+              child: CircleAvatar(
+                backgroundColor: Colors.transparent,
+                radius: 24,
+                child: FaIcon(
+                  icon,
+                  color: Colors.white,
+                  size: 22,
+                ),
+              ),
+            ),
+          ),
         ),
       ),
     );

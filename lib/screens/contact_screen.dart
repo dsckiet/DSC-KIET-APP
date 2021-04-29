@@ -1,3 +1,5 @@
+import 'package:dsc_kiet_mobile_app/constants.dart';
+import 'package:dsc_kiet_mobile_app/widgets/google_map_widget.dart';
 import 'package:dsc_kiet_mobile_app/widgets/guidelines_widget.dart';
 import 'package:dsc_kiet_mobile_app/widgets/button_type_1.dart';
 import 'package:dsc_kiet_mobile_app/widgets/faq_widget.dart';
@@ -19,19 +21,15 @@ class ContactScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('About Us'),
-            Padding(padding: EdgeInsets.only(top: 16)),
             Text(
-              'Developer Student Club KIET is inspired by Google Developers Family. We started our journey in Feb 2019. We try to engage student developers through our hack events, codelabs and meetups. The motive is to create a local ecosystem of programmers & hackers in and around the Campus. The technology awareness is main goal for first few years of the group.',
-              style: Theme.of(context).textTheme.bodyText2.copyWith(
-                    fontSize: 17,
-                    fontWeight: FontWeight.normal,
-                    color: Color(0xff707070),
-                    wordSpacing: 1.3,
-                    height: 1.4,
-                  ),
+              'About Us',
+              style: heading(context),
             ),
-            Padding(padding: EdgeInsets.only(top: size.height / 36)),
+            smallPadding,
+            Text(
+                'Developer Student Club KIET is inspired by Google Developers Family. We started our journey in Feb 2019. We try to engage student developers through our hack events, codelabs and meetups. The motive is to create a local ecosystem of programmers & hackers in and around the Campus. The technology awareness is main goal for first few years of the group.',
+                style: body1(context)),
+            smallPadding,
             Padding(
               padding: EdgeInsets.only(bottom: size.height / 36),
               child: Row(
@@ -61,10 +59,7 @@ class ContactScreen extends StatelessWidget {
               children: [
                 Text(
                   'Write to us at: ',
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyText2
-                      .copyWith(fontSize: 16, fontWeight: FontWeight.normal),
+                  style: body1(context),
                 ),
                 TextButton(
                   onPressed: () {
@@ -77,29 +72,34 @@ class ContactScreen extends StatelessWidget {
                   },
                   child: Text(
                     'dsckiet@gmail.com',
-                    style: Theme.of(context).textTheme.bodyText2.copyWith(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
+                    style: body1(context).copyWith(fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
             ),
-            Padding(padding: EdgeInsets.only(top: size.height / 24)),
-            //faqs
-            FAQPanel(),
-            Padding(padding: EdgeInsets.only(top: size.height / 48)),
-            //guidelines
-            GuidelinesPanel(),
-
-            Padding(padding: EdgeInsets.only(top: size.height / 24)),
+            largePadding,
+            Container(
+              decoration: BoxDecoration(
+                color: Color(0xfff1f1f1),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: FAQPanel(),
+            ),
+            smallPadding,
+            Container(
+              decoration: BoxDecoration(
+                color: Color(0xfff1f1f1),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: GuidelinesPanel(),
+            ),
+            smallPadding,
             Container(width: double.infinity, child: WorkspacePlaceholder()),
-            Padding(padding: EdgeInsets.only(bottom: 40)),
+            largePadding,
             Container(width: double.infinity, child: NewsletterPlaceholder()),
-            Padding(padding: EdgeInsets.only(top: 40)),
-            // Padding(padding: EdgeInsets.only(top: 20)),
-            // GooglemapWidget(),
-            // Padding(padding: EdgeInsets.only(top: size.height / 48)),
+            largePadding,
+            GooglemapWidget(),
+            smallPadding,
             Footer(),
           ],
         ),

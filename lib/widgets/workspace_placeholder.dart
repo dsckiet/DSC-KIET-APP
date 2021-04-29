@@ -1,3 +1,4 @@
+import 'package:dsc_kiet_mobile_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -26,10 +27,7 @@ class WorkspacePlaceholder extends StatelessWidget {
               padding: EdgeInsets.only(bottom: 12.0),
               child: Text(
                 'Join the workspace',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyText2
-                    .copyWith(fontSize: size.height / 32, color: Colors.white),
+                style: subHeading(context).copyWith(color: Colors.white),
               ),
             ),
             Padding(
@@ -40,19 +38,14 @@ class WorkspacePlaceholder extends StatelessWidget {
                       'Join our Slack and Telegram Channels get instant updates about our ',
                   children: [
                     TextSpan(
-                      text: '#activities, #sessions ',
-                      style: Theme.of(context).textTheme.bodyText2.copyWith(
-                          fontSize: size.height / 54,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xfff1f1f1)),
-                    ),
+                        text: '#activities, #sessions ',
+                        style: body1(context).copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xfff1f1f1))),
                     TextSpan(text: 'and other fun stuff.')
                   ],
                 ),
-                style: Theme.of(context).textTheme.bodyText2.copyWith(
-                    fontSize: size.height / 54,
-                    fontWeight: FontWeight.normal,
-                    color: Color(0xfff1f1f1)),
+                style: body1(context).copyWith(color: Color(0xfff1f1f1)),
               ),
             ),
             Row(

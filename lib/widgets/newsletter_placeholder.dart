@@ -1,4 +1,5 @@
 import 'package:dsc_kiet_mobile_app/bloc/subscribe_bloc.dart';
+import 'package:dsc_kiet_mobile_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -44,20 +45,14 @@ class _NewsletterPlaceholderState extends State<NewsletterPlaceholder> {
               padding: EdgeInsets.only(bottom: 12.0),
               child: Text(
                 'Subscribe to our newsletter',
-                style: Theme.of(context).textTheme.bodyText2.copyWith(
-                      fontSize: size.height / 32,
-                      color: Colors.black,
-                    ),
+                style: subHeading(context).copyWith(color: Colors.black),
               ),
             ),
             Padding(
               padding: EdgeInsets.only(bottom: 20.0),
               child: Text(
                 'Subscribe to our newsletter to get the latest updates about our events and hacks right in your inbox.',
-                style: Theme.of(context).textTheme.bodyText2.copyWith(
-                    fontSize: size.height / 54,
-                    fontWeight: FontWeight.normal,
-                    color: Color(0xff707070)),
+                style: body1(context),
               ),
             ),
             Form(
@@ -74,14 +69,13 @@ class _NewsletterPlaceholderState extends State<NewsletterPlaceholder> {
                   else
                     return 'please enter a valid email';
                 },
-                style: TextStyle(fontSize: 16, color: Color(0xff707070)),
+                style: body1(context)
+                    .copyWith(fontWeight: FontWeight.bold, color: Colors.black),
                 decoration: InputDecoration(
                     hintText: 'email address',
-                    hintStyle: Theme.of(context).textTheme.bodyText2.copyWith(
-                          color: Color(0xff707070),
-                          fontWeight: FontWeight.bold,
-                          fontSize: size.height / 48,
-                        ),
+                    hintStyle: body1(context).copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(4),
                       borderSide: BorderSide(

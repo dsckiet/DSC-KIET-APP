@@ -1,3 +1,4 @@
+import 'package:dsc_kiet_mobile_app/constants.dart';
 import 'package:dsc_kiet_mobile_app/provider/screen_notifier_provider.dart';
 import 'package:dsc_kiet_mobile_app/screens/team_screen.dart';
 import 'package:dsc_kiet_mobile_app/screens/contact_screen.dart';
@@ -41,31 +42,24 @@ class HomescreenBody extends StatelessWidget {
     return ListView(
       padding: EdgeInsets.symmetric(horizontal: 20),
       children: [
-        Padding(padding: EdgeInsets.only(top: size.height / 18)),
-        const Text(
+        largePadding,
+        Text(
           'Devlopers Student Clubs KIET Group of Institutions',
+          style: heading(context),
         ),
-        Padding(padding: EdgeInsets.only(top: 20)),
-        Text.rich(TextSpan(
-            text: 'powered by ',
-            style: Theme.of(context).textTheme.bodyText2.copyWith(
-                fontSize: 18,
-                fontWeight: FontWeight.normal,
-                color: Color(0xff707070)),
-            children: [
-              TextSpan(
-                text: 'Google Developers',
-                style: Theme.of(context).textTheme.bodyText2.copyWith(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xff707070)),
-              ),
-            ])),
+        smallPadding,
+        Text.rich(
+            TextSpan(text: 'powered by ', style: body2(context), children: [
+          TextSpan(
+            text: 'Google Developers',
+            style: body2(context).copyWith(fontWeight: FontWeight.bold),
+          ),
+        ])),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 28.0, vertical: 4),
+          padding: const EdgeInsets.only(right: 28.0, top: 4, bottom: 4),
           child: Lottie.asset('assets/images/splash_animation.json'),
         ),
-        Padding(padding: EdgeInsets.only(top: 10)),
+        smallPadding,
         Padding(
           padding: EdgeInsets.only(right: size.width / 2.5),
           child: ElevatedButton(
@@ -88,18 +82,14 @@ class HomescreenBody extends StatelessWidget {
               },
               child: Text(
                 'Join Community Platform by Google Developers',
-                style: Theme.of(context).textTheme.bodyText2.copyWith(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xff0f9d58)),
+                style: body1(context)
+                    .copyWith(color: green, fontWeight: FontWeight.bold),
               )),
         ),
-
-        Padding(padding: EdgeInsets.only(top: size.height / 20)),
+        largePadding,
         //
         //About us section
         AboutUsSection(),
-        Padding(padding: EdgeInsets.only(top: 20)),
       ],
     );
   }
