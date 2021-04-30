@@ -111,7 +111,7 @@ class _NewsletterPlaceholderState extends State<NewsletterPlaceholder> {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text(state.error),
-                          backgroundColor: Colors.black,
+                          backgroundColor: red,
                           elevation: 8,
                         ),
                       );
@@ -120,6 +120,8 @@ class _NewsletterPlaceholderState extends State<NewsletterPlaceholder> {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text("You are now subscribed to DSC KIET!"),
+                          backgroundColor: blue,
+                          elevation: 8,
                         ),
                       );
                     }
