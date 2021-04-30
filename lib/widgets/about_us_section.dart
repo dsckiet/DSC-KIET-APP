@@ -55,7 +55,7 @@ class _AboutUsSectionBodyState extends State<AboutUsSectionBody> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'What we do?',
+          'What is DSC?',
           style: subHeading(context),
         ),
         Text(
@@ -125,7 +125,7 @@ class _AboutUsSectionBodyState extends State<AboutUsSectionBody> {
           ),
         ),
         Text(
-          'Developer Student Club KIET is inspired by Google Developers\' Family.\n\nThe motive is to create a ecosystem of programmers & developers in the campus by helping them to learn and build projects.',
+          'Developer Student Club KIET is inspired by Google Developers\' Family.\n\nThe motive is to create an ecosystem of programmers & developers in the campus by helping them to learn and build projects.',
           style: body1(context),
         ),
         largePadding,
