@@ -1,3 +1,4 @@
+import 'package:dsc_kiet_mobile_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -23,18 +24,26 @@ class ButtonType1 extends StatelessWidget {
         child: CircleAvatar(
           radius: 24,
           backgroundColor: Color(0xff222222),
-          child: InkWell(
-              child: FaIcon(
-                icon,
-                color: Colors.white,
-                size: 22,
-              ),
-              hoverColor: Colors.blue,
-              splashColor: Colors.blue,
-              highlightColor: Colors.blue,
+          child: Material(
+            type: MaterialType.circle,
+            color: Colors.transparent,
+            child: InkWell(
+              highlightColor: red,
+              borderRadius: BorderRadius.circular(24),
               onTap: () {
                 launch(url);
-              }),
+              },
+              child: CircleAvatar(
+                backgroundColor: Colors.transparent,
+                radius: 24,
+                child: FaIcon(
+                  icon,
+                  color: Colors.white,
+                  size: 22,
+                ),
+              ),
+            ),
+          ),
         ),
       ),
     );

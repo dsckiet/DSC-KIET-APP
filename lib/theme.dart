@@ -1,3 +1,4 @@
+import 'package:dsc_kiet_mobile_app/constants.dart';
 import 'package:flutter/material.dart';
 
 ThemeData theme = ThemeData(
@@ -36,8 +37,18 @@ ThemeData theme = ThemeData(
           backgroundColor:
               MaterialStateProperty.all<Color>(Color(0xff4285f4)))),
   textTheme: TextTheme(
-    bodyText2: TextStyle(
+    headline1: TextStyle(
         color: Color(0xff424242), fontSize: 32, fontWeight: FontWeight.bold),
-    subtitle1: TextStyle(color: Colors.grey, fontSize: 14),
+    headline2: TextStyle(
+        color: Color(0xff424242), fontSize: 26, fontWeight: FontWeight.bold),
+    bodyText2: TextStyle(
+        color: Color(0xff707070), fontSize: 18, fontWeight: FontWeight.normal),
+    bodyText1: TextStyle(
+      color: Color(0xff707070),
+      fontSize: 17,
+      fontWeight: FontWeight.normal,
+      wordSpacing: 1.3,
+      height: 1.4,
+    ),
   ),
 );

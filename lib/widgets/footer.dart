@@ -1,3 +1,4 @@
+import 'package:dsc_kiet_mobile_app/constants.dart';
 import 'package:flutter/material.dart';
 
 class Footer extends StatelessWidget {
@@ -16,11 +17,7 @@ class Footer extends StatelessWidget {
             Padding(padding: EdgeInsets.only(right: 8)),
             Text(
               'Developer Student Clubs',
-              style: Theme.of(context).textTheme.bodyText2.copyWith(
-                    fontSize: 18,
-                    color: Color(0xff707070),
-                    fontWeight: FontWeight.normal,
-                  ),
+              style: body1(context).copyWith(fontSize: 18),
             )
           ],
         ),
@@ -29,23 +26,16 @@ class Footer extends StatelessWidget {
             child: Text.rich(
               TextSpan(
                   text: '© copyright 2020 DSC KIET - Developed by ',
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyText2
-                      .copyWith(fontSize: 16, fontWeight: FontWeight.normal),
+                  style: body1(context),
                   children: [
                     TextSpan(
                       text: 'DSC KIET',
-                      style: Theme.of(context).textTheme.bodyText2.copyWith(
-                            fontSize: 16,
-                          ),
+                      style:
+                          body1(context).copyWith(fontWeight: FontWeight.bold),
                     ),
                   ]),
             )),
-        Padding(
-            padding: EdgeInsets.only(
-          top: 20,
-        )),
+        smallPadding,
       ],
     );
   }

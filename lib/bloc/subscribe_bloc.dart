@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:bloc/bloc.dart';
-import 'package:dio/dio.dart';
+import 'package:http/http.dart';
 import 'package:meta/meta.dart';
 
 part 'subscribe_event.dart';
@@ -17,35 +18,42 @@ class SubscribeBloc extends Bloc<SubscribeEvent, SubscribeState> {
   ) async* {
     if (event is Subscirbing) {
       yield SubscribingInProcess();
-      Map<String, dynamic> data = {"email": "ayushc45xxx@gmail.com"};
-      final body = jsonEncode(data);
+      final url = Uri.parse(
+          "https://buttondown.email/api/emails/embed-subscribe/dsckiet");
       try {
-        final res = await Dio().post(
-          "https://buttondown.email/api/emails/embed-subscribe/dsckiet",
-          data: {"email": "ayushc45xxx@gmail.com"},
-          options: Options(
-            headers: {
-              "Accept": "application/json",
-              "content-type": "application/json"
-            },
-            followRedirects: false,
-            method: 'POST',
-            validateStatus: (status) {
-              return status < 500;
-            },
-          ),
+        final res = await post(
+          url,
+          body: {"email": event.email},
         );
-        print(res.statusCode);
-        print(res.data);
-        print(res.headers);
+        print(res.body);
         if (res.statusCode == 200)
           yield Subscribed();
-        else
-          yield SubscribeFailed(res.data.toString());
-      } on DioError catch (error) {
-        print(error.response.data);
-        yield SubscribeFailed(error.message.toString());
+        else if (res.statusCode == 302) {
+          final redirectUrl = Uri(
+            scheme: 'https',
+            host: 'buttondown.email',
+            path: res.headers['location'],
+          );
+          final redirectResponse = await get(redirectUrl);
+          print(redirectResponse.body);
+          if (redirectResponse.statusCode == 200)
+            yield Subscribed();
+          else
+            yield SubscribeFailed('Something went wrong! Plese try again.');
+        } else
+          yield SubscribeFailed('Something went wrong! Plese try again.');
+      } catch (error) {
+        print(error);
+        yield SubscribeFailed('Something went wrong! Plese try again.');
       }
     }
   }
 }
+
+Map errorsMap = {
+  'Sorry, our system has previously detected this email to be invalid or spammy.':
+      'Please enter a valid email',
+  'Google is telling Buttondown that this address does not exist': '',
+  'There is no MX record associated with gmail.comgh':
+      'Please enter a valid email',
+};

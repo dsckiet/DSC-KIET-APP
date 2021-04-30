@@ -19,6 +19,7 @@ dependencies:
   flutter_riverpod: ^0.14.0+1
   flutter_bloc: ^7.0.0
   dio: ^4.0.0
+  http: ^0.13.2
 
 dev_dependencies:
   flutter_test:

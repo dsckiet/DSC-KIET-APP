@@ -1,3 +1,4 @@
+import 'package:dsc_kiet_mobile_app/constants.dart';
 import 'package:dsc_kiet_mobile_app/repository/data/community-guidelines.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -20,10 +21,11 @@ class _GuidelinesPanelState extends State<GuidelinesPanel> {
       child: ExpansionTile(
         title: Text(
           'Community Guidelines',
-          style: Theme.of(context).textTheme.bodyText2.copyWith(
-                fontSize: 18,
-                color: _selected ? Colors.black : Color(0xff707070),
-              ),
+          style: body1(context).copyWith(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: _selected ? Colors.black : Color(0xff707070),
+          ),
         ),
         children: [
           GuidelinesWidget(),
@@ -62,11 +64,7 @@ class GuidelinesWidget extends StatelessWidget {
               visualDensity: VisualDensity.standard,
               title: Text(
                 e,
-                style: Theme.of(context).textTheme.bodyText2.copyWith(
-                    fontSize: 16,
-                    fontWeight: FontWeight.normal,
-                    color: Color(0xff707070),
-                    height: 1.5),
+                style: body1(context),
               ),
             )),
       ],
