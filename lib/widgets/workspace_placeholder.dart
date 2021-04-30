@@ -35,7 +35,7 @@ class WorkspacePlaceholder extends StatelessWidget {
               child: Text.rich(
                 TextSpan(
                   text:
-                      'Join our Slack and Telegram Channels get instant updates about our ',
+                      'Join our Slack and Telegram Channels to get instant updates about our ',
                   children: [
                     TextSpan(
                         text: '#activities, #sessions ',

@@ -2,7 +2,7 @@ List<Map<String, String>> faq = [
   {
     "query": "Do I need to be a CS/IT student to join?",
     "response":
-        "No. This club is open to all undergraduate or graduate students, regardless of major."
+        "No. This community is open to all undergraduate or graduate students, regardless of major."
   },
   {
     "query": "How can I join DSC KIET?",
