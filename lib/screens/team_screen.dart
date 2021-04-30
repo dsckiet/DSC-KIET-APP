@@ -102,10 +102,8 @@ class TeamMemberPanel extends ConsumerWidget {
               children: [
                 Text(
                   data['name'],
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyText2
-                      .copyWith(fontSize: 16, color: Color(0xff4285F4)),
+                  style: body1(context).copyWith(
+                      color: Color(0xff4285F4), fontWeight: FontWeight.bold),
                 ),
                 Padding(padding: EdgeInsets.only(top: 8)),
                 Container(

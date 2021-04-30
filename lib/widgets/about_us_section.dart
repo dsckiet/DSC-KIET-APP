@@ -130,34 +130,85 @@ class _AboutUsSectionBodyState extends State<AboutUsSectionBody> {
         ),
         largePadding,
         //grid for html css etc..
-        Container(
-          height: size.height / 2.38,
-          padding: EdgeInsets.all(10),
-          child: GridView.builder(
-            clipBehavior: Clip.none,
-            physics: NeverScrollableScrollPhysics(),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              crossAxisSpacing: 20,
-              mainAxisSpacing: 20,
-              childAspectRatio: 1.5,
-            ),
-            itemCount: gridSVG.length,
-            itemBuilder: (context, index) => GestureDetector(
-              onTap: () {
-                _selected = index;
-                print(1);
-                setState(() {});
-              },
-              child: Opacity(
-                opacity: _selected == index ? 1 : 0.6,
-                child: SvgPicture.asset(
-                  'assets/icons/${gridSVG[index]}.svg',
-                ),
-              ),
-            ),
-          ),
+        Table(
+          children: [
+            TableRow(children: [
+              ...gridSVG.getRange(0, 3).map(
+                    (e) => GestureDetector(
+                      onTap: () {
+                        _selected = gridSVG.indexOf(e);
+                        setState(() {});
+                      },
+                      child: Opacity(
+                        opacity: _selected == gridSVG.indexOf(e) ? 1 : 0.6,
+                        child: SvgPicture.asset(
+                          'assets/icons/$e.svg',
+                          height: 72,
+                        ),
+                      ),
+                    ),
+                  ),
+            ]),
+            TableRow(
+                children: [Container(height: 40), Container(), Container()]),
+            TableRow(children: [
+              ...gridSVG.getRange(3, 6).map(
+                    (e) => GestureDetector(
+                      onTap: () {
+                        _selected = gridSVG.indexOf(e);
+                        setState(() {});
+                      },
+                      child: Opacity(
+                        opacity: _selected == gridSVG.indexOf(e) ? 1 : 0.6,
+                        child: SvgPicture.asset(
+                          'assets/icons/$e.svg',
+                          height: 72,
+                        ),
+                      ),
+                    ),
+                  ),
+            ]),
+            TableRow(
+                children: [Container(height: 40), Container(), Container()]),
+            TableRow(children: [
+              ...gridSVG.getRange(6, 9).map(
+                    (e) => GestureDetector(
+                      onTap: () {
+                        _selected = gridSVG.indexOf(e);
+                        setState(() {});
+                      },
+                      child: Opacity(
+                        opacity: _selected == gridSVG.indexOf(e) ? 1 : 0.6,
+                        child: SvgPicture.asset(
+                          'assets/icons/$e.svg',
+                          height: 72,
+                        ),
+                      ),
+                    ),
+                  ),
+            ]),
+            TableRow(
+                children: [Container(height: 40), Container(), Container()]),
+            TableRow(children: [
+              ...gridSVG.getRange(9, 12).map(
+                    (e) => GestureDetector(
+                      onTap: () {
+                        _selected = gridSVG.indexOf(e);
+                        setState(() {});
+                      },
+                      child: Opacity(
+                        opacity: _selected == gridSVG.indexOf(e) ? 1 : 0.6,
+                        child: SvgPicture.asset(
+                          'assets/icons/$e.svg',
+                          height: 72,
+                        ),
+                      ),
+                    ),
+                  ),
+            ]),
+          ],
         ),
+        largePadding,
         largePadding,
       ],
     );

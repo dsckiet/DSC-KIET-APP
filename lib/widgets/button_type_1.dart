@@ -1,3 +1,4 @@
+import 'package:dsc_kiet_mobile_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -27,9 +28,7 @@ class ButtonType1 extends StatelessWidget {
             type: MaterialType.circle,
             color: Colors.transparent,
             child: InkWell(
-              hoverColor: Colors.blue,
-              splashColor: Colors.blue,
-              highlightColor: Colors.blue,
+              highlightColor: red,
               borderRadius: BorderRadius.circular(24),
               onTap: () {
                 launch(url);

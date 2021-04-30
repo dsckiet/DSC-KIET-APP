@@ -1,5 +1,4 @@
 import 'package:dsc_kiet_mobile_app/constants.dart';
-import 'package:dsc_kiet_mobile_app/widgets/google_map_widget.dart';
 import 'package:dsc_kiet_mobile_app/widgets/guidelines_widget.dart';
 import 'package:dsc_kiet_mobile_app/widgets/button_type_1.dart';
 import 'package:dsc_kiet_mobile_app/widgets/faq_widget.dart';
@@ -97,9 +96,9 @@ class ContactScreen extends StatelessWidget {
             Container(width: double.infinity, child: WorkspacePlaceholder()),
             largePadding,
             Container(width: double.infinity, child: NewsletterPlaceholder()),
-            largePadding,
-            GooglemapWidget(),
-            smallPadding,
+            // largePadding,
+            // GooglemapWidget(),
+            // smallPadding,
             Footer(),
           ],
         ),
