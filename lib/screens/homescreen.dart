@@ -1,9 +1,9 @@
-import 'package:dsc_kiet_mobile_app/constants.dart';
-import 'package:dsc_kiet_mobile_app/provider/screen_notifier_provider.dart';
-import 'package:dsc_kiet_mobile_app/screens/team_screen.dart';
-import 'package:dsc_kiet_mobile_app/screens/contact_screen.dart';
-import 'package:dsc_kiet_mobile_app/widgets/about_us_section.dart';
-import 'package:dsc_kiet_mobile_app/widgets/bottom_nav_bar.dart';
+import 'package:dsckiet/constants.dart';
+import 'package:dsckiet/provider/screen_notifier_provider.dart';
+import 'package:dsckiet/screens/team_screen.dart';
+import 'package:dsckiet/screens/contact_screen.dart';
+import 'package:dsckiet/widgets/about_us_section.dart';
+import 'package:dsckiet/widgets/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';

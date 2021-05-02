@@ -1,5 +1,5 @@
-import 'package:dsc_kiet_mobile_app/bloc/subscribe_bloc/subscribe_bloc.dart';
-import 'package:dsc_kiet_mobile_app/constants.dart';
+import 'package:dsckiet/bloc/subscribe_bloc/subscribe_bloc.dart';
+import 'package:dsckiet/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

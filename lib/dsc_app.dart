@@ -1,5 +1,5 @@
-import 'package:dsc_kiet_mobile_app/screens/splash_screen.dart';
-import 'package:dsc_kiet_mobile_app/theme.dart';
+import 'package:dsckiet/screens/splash_screen.dart';
+import 'package:dsckiet/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
