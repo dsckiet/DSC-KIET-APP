@@ -1,4 +1,4 @@
-import 'package:dsc_kiet_mobile_app/constants.dart';
+import 'package:dsckiet/constants.dart';
 import 'package:flutter/material.dart';
 
 class Footer extends StatelessWidget {

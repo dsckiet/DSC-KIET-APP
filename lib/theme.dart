@@ -1,4 +1,3 @@
-import 'package:dsc_kiet_mobile_app/constants.dart';
 import 'package:flutter/material.dart';
 
 ThemeData theme = ThemeData(

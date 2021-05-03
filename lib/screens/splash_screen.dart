@@ -1,4 +1,4 @@
-import 'package:dsc_kiet_mobile_app/screens/homescreen.dart';
+import 'package:dsckiet/screens/homescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:supercharged/supercharged.dart';
 

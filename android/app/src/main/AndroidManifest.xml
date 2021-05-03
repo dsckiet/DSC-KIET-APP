@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.dsc_kiet_mobile_app">
+    package="com.dsckiet">
    <application
-        android:label="dsc_kiet_mobile_app"
+        android:label="DSC KIET"
         android:icon="@mipmap/ic_launcher">
 
         <meta-data android:name="com.google.android.geo.API_KEY"
