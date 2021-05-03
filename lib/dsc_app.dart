@@ -1,11 +1,54 @@
 import 'package:dsckiet/screens/splash_screen.dart';
 import 'package:dsckiet/theme.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class DscApp extends StatelessWidget {
+class DscApp extends StatefulWidget {
+  @override
+  _DscAppState createState() => _DscAppState();
+}
+
+class _DscAppState extends State<DscApp> {
+  final FirebaseMessaging _fcm = FirebaseMessaging.instance;
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      print('Got a message whilst in the foreground!');
+      print('Message data: ${message.data}');
+
+      if (message.notification != null) {
+        print('Message also contained a notification: ${message.notification}');
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    precacheAllImages(context);
+
+    SystemChrome.setPreferredOrientations([
+      // To Prevent the App from going in Lanscape Mode, We lock it in Potrait
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      // This Allows us to change the Naviagtion and Status Bar Color of Device
+      statusBarColor: Color(0xff4285f4), //top bar color
+      statusBarIconBrightness: Brightness.light, //top bar icons
+      systemNavigationBarColor: Colors.white, //bottom bar color
+      systemNavigationBarIconBrightness: Brightness.dark, //bottom bar icons
+    ));
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: theme,
+      home: SplashScreen(),
+    );
+  }
+
+  void precacheAllImages(BuildContext context) {
     precacheImage(AssetImage('assets/images/logo.png'), context);
     precacheImage(AssetImage('assets/images/team.png'), context);
     precacheImage(AssetImage('assets/images/aakanksha_shivani.JPG'), context);
@@ -29,23 +72,5 @@ class DscApp extends StatelessWidget {
     precacheImage(AssetImage('assets/images/shubham_goswami.jpg'), context);
     precacheImage(AssetImage('assets/images/ritwick_bhargav.jpeg'), context);
     precacheImage(AssetImage('assets/images/shreeyanshi_gupta.jpeg'), context);
-
-    SystemChrome.setPreferredOrientations([
-      // To Prevent the App from going in Lanscape Mode, We lock it in Potrait
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ]);
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      // This Allows us to change the Naviagtion and Status Bar Color of Device
-      statusBarColor: Color(0xff4285f4), //top bar color
-      statusBarIconBrightness: Brightness.light, //top bar icons
-      systemNavigationBarColor: Colors.white, //bottom bar color
-      systemNavigationBarIconBrightness: Brightness.dark, //bottom bar icons
-    ));
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: theme,
-      home: SplashScreen(),
-    );
   }
 }
