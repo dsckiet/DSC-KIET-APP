@@ -4,6 +4,7 @@ import 'package:dsckiet/screens/team_screen.dart';
 import 'package:dsckiet/screens/contact_screen.dart';
 import 'package:dsckiet/widgets/about_us_section.dart';
 import 'package:dsckiet/widgets/bottom_nav_bar.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
@@ -15,18 +16,99 @@ List<Widget> screens = [
   ContactScreen(),
 ];
 
-class Homescreen extends ConsumerWidget {
+class Homescreen extends StatefulWidget {
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final screenNotifier = watch(selectedScreenProvider);
+  _HomescreenState createState() => _HomescreenState();
+}
 
+class _HomescreenState extends State<Homescreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    showMessageFromTerminatedState();
+
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      if (message != null) {
+        showAlertDialog(message);
+      }
+    });
+    FirebaseMessaging.onMessageOpenedApp.listen((message) {
+      if (message != null) showAlertDialog(message);
+    });
+  }
+
+  showMessageFromTerminatedState() async {
+    final messagefromTerminatedstate =
+        await FirebaseMessaging.instance.getInitialMessage();
+    if (messagefromTerminatedstate != null)
+      showAlertDialog(messagefromTerminatedstate);
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        body: screens[screenNotifier.value],
-        bottomNavigationBar: const BottomNavBar(),
-        resizeToAvoidBottomInset: true,
+      child: Consumer(
+        builder: (context, watch, child) {
+          final screenNotifier = watch(selectedScreenProvider);
+          return Scaffold(
+            body: screens[screenNotifier.value],
+            bottomNavigationBar: const BottomNavBar(),
+            resizeToAvoidBottomInset: true,
+          );
+        },
       ),
     );
+  }
+
+  showAlertDialog(RemoteMessage message) {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          final size = MediaQuery.of(context).size;
+          return Container(
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Padding(
+                padding: EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(
+                      message.notification.title,
+                      style: subHeading(context),
+                    ),
+                    if (message.notification.android.imageUrl != null)
+                      Expanded(
+                        child: Center(
+                          child: Image.network(
+                              message.notification.android.imageUrl),
+                        ),
+                      ),
+                    Text(
+                      message.notification.body,
+                      style: body1(context),
+                    ),
+                    Padding(padding: EdgeInsets.only(top: 10)),
+                    if (message.data['link'] != null)
+                      ElevatedButton(
+                        onPressed: () {
+                          launch("https://${message.data['link']}");
+                        },
+                        child: Text('Contest Link'),
+                      ),
+                  ],
+                ),
+              ),
+            ),
+            margin: EdgeInsets.symmetric(
+                vertical: size.height / 4, horizontal: size.width / 12),
+          );
+        });
   }
 }
 

@@ -1,5 +1,5 @@
 import 'package:dsckiet/constants.dart';
-import 'package:dsckiet/repository/data/faqs.dart';
+import 'package:dsckiet/services/data/faqs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

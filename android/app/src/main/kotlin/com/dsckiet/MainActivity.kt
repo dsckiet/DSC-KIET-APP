@@ -1,4 +1,4 @@
-package com.dsc.dsckiet
+package com.dsckiet
 
 import io.flutter.embedding.android.FlutterActivity
 
