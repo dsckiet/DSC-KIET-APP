@@ -1,4 +1,5 @@
 import 'package:dsckiet/screens/splash_screen.dart';
+import 'package:dsckiet/services/create_notification_channel.dart';
 import 'package:dsckiet/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,29 +12,13 @@ class DscApp extends StatefulWidget {
 
 class _DscAppState extends State<DscApp> {
   final FirebaseNotifications _notifications = FirebaseNotifications();
-
-  static const MethodChannel _channel =
-      MethodChannel('notification_channel_dsc');
-
-  Map<String, String> channelMap = {
-    "id": "events_notification_channel",
-    "name": "events notification",
-    "description": "Notifications related to events conducted by dsc kiet",
-  };
-
-  createNotificationChannel() async {
-    try {
-      await _channel.invokeMethod('createNotificationChannel', channelMap);
-    } on PlatformException catch (e) {
-      print(e);
-    }
-  }
+  final CreateNotifChannel _createChannel = CreateNotifChannel();
 
   @override
   void initState() {
     super.initState();
     _notifications.subscribeTonotifications();
-    createNotificationChannel();
+    _createChannel.createNotificationChannel();
   }
 
   @override
