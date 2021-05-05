@@ -1,7 +1,6 @@
 import 'package:dsckiet/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:supercharged/supercharged.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -20,7 +19,7 @@ class _TeamScreenState extends State<TeamScreen> {
 
   ImageProvider teamImage = AssetImage('assets/images/team.png');
 
-  String _value = domains[0];
+  // String _value = domains[0];
   List<Map<String, String>> teamMembers = List.from(team);
 
   @override
@@ -46,65 +45,65 @@ class _TeamScreenState extends State<TeamScreen> {
                   color: Color(0xff707070)),
             ),
             Padding(padding: EdgeInsets.only(top: 16)),
-            Card(
-              elevation: 4,
-              color: blue,
-              child: Container(
-                width: double.infinity,
-                child: Row(
-                  children: [
-                    Padding(padding: EdgeInsets.only(right: 20)),
-                    Text(
-                      'Domain',
-                      style: body1(context).copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                    Spacer(),
-                    DropdownButton(
-                        items: domains
-                            .map(
-                              (e) => DropdownMenuItem(
-                                child: Row(children: [
-                                  if (domains.indexOf(e) != 0)
-                                    SvgPicture.asset(
-                                      'assets/icons/${e.toLowerCase()}.svg',
-                                      height: 24,
-                                    ),
-                                  Padding(padding: EdgeInsets.only(right: 10)),
-                                  Text(e),
-                                ]),
-                                value: e,
-                              ),
-                            )
-                            .toList(),
-                        underline: Container(),
-                        elevation: 8,
-                        style: body1(context).copyWith(
-                            color: Colors.white, fontWeight: FontWeight.bold),
-                        value: _value,
-                        dropdownColor: Color(0xff424242),
-                        iconEnabledColor: Colors.white,
-                        onChanged: (value) {
-                          _value = value;
-                          if (_value != 'All')
-                            teamMembers = List.from(
-                              team.filter(
-                                (element) => element['domain'] == _value,
-                              ),
-                            );
-                          else
-                            teamMembers = List.from(team);
-                          setState(() {});
-                        }),
-                    Spacer(
-                      flex: 2,
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            // Card(
+            //   elevation: 4,
+            //   color: blue,
+            //   child: Container(
+            //     width: double.infinity,
+            //     child: Row(
+            //       children: [
+            //         Padding(padding: EdgeInsets.only(right: 20)),
+            //         Text(
+            //           'Domain',
+            //           style: body1(context).copyWith(
+            //             fontWeight: FontWeight.bold,
+            //             color: Colors.white,
+            //           ),
+            //         ),
+            //         Spacer(),
+            // DropdownButton(
+            //     items: domains
+            //         .map(
+            //           (e) => DropdownMenuItem(
+            //             child: Row(children: [
+            //               if (domains.indexOf(e) != 0)
+            //                 SvgPicture.asset(
+            //                   'assets/icons/${e.toLowerCase()}.svg',
+            //                   height: 24,
+            //                 ),
+            //               Padding(padding: EdgeInsets.only(right: 10)),
+            //               Text(e),
+            //             ]),
+            //             value: e,
+            //           ),
+            //         )
+            //         .toList(),
+            //     underline: Container(),
+            //     elevation: 8,
+            //     style: body1(context).copyWith(
+            //         color: Colors.white, fontWeight: FontWeight.bold),
+            //     value: _value,
+            //     dropdownColor: Color(0xff424242),
+            //     iconEnabledColor: Colors.white,
+            //     onChanged: (value) {
+            //       _value = value;
+            //       if (_value != 'All')
+            //         teamMembers = List.from(
+            //           team.filter(
+            //             (element) => element['domain'] == _value,
+            //           ),
+            //         );
+            //       else
+            //         teamMembers = List.from(team);
+            //       setState(() {});
+            //     }),
+            //         Spacer(
+            //           flex: 2,
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
             Padding(padding: EdgeInsets.only(top: 16)),
             ...teamMembers.map(
               (e) => TeamMemberPanel(data: e, i: team.indexOf(e)),
@@ -156,7 +155,7 @@ class TeamMemberPanel extends ConsumerWidget {
                   radius: 48,
                   backgroundColor: Colors.white,
                   child: CircleAvatar(
-                    radius: 44,
+                    radius: 45,
                     backgroundImage: AssetImage(data['image']),
                   ),
                 ),

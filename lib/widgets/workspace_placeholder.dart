@@ -60,7 +60,8 @@ class WorkspacePlaceholder extends StatelessWidget {
                     icon: FaIcon(FontAwesomeIcons.discord),
                     onPressed: () {
                       launch(
-                          'https://join.slack.com/t/dsckiet/shared_invite/zt-ef1q4txj-D77khvaZVgBP2CyH2MQHLA');
+                        'https://go.dsckiet.com/discord',
+                      );
                     },
                     label: Text(
                       'Discord',

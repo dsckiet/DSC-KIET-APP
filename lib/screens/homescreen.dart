@@ -65,48 +65,46 @@ class _HomescreenState extends State<Homescreen> {
     return showDialog(
         context: context,
         builder: (context) {
-          final size = MediaQuery.of(context).size;
-          return Container(
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          return AlertDialog(
+            title: Text(
+              message.notification.title,
+              style: subHeading(context).copyWith(fontSize: 24),
+            ),
+            content: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (message.notification.android.imageUrl != null)
+                  Center(
+                    child: Image.network(message.notification.android.imageUrl),
+                  ),
+                Padding(
+                  padding: EdgeInsets.only(top: 10),
+                ),
+                Wrap(
                   children: [
-                    Text(
-                      message.notification.title,
-                      style: subHeading(context),
-                    ),
-                    if (message.notification.android.imageUrl != null)
-                      Expanded(
-                        child: Center(
-                          child: Image.network(
-                              message.notification.android.imageUrl),
-                        ),
-                      ),
                     Text(
                       message.notification.body,
                       style: body1(context),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 6,
                     ),
-                    Padding(padding: EdgeInsets.only(top: 10)),
-                    if (message.data['link'] != null)
-                      ElevatedButton(
-                        onPressed: () {
-                          launch("https://${message.data['link']}");
-                        },
-                        child: Text('Contest Link'),
-                      ),
                   ],
                 ),
-              ),
+                Padding(
+                  padding: EdgeInsets.only(top: 10),
+                ),
+                if (message.data['link'] != null)
+                  ElevatedButton(
+                    onPressed: () {
+                      launch("https://${message.data['link']}");
+                    },
+                    child: Text('Contest Link'),
+                  ),
+              ],
             ),
-            margin: EdgeInsets.symmetric(
-                vertical: size.height / 4, horizontal: size.width / 12),
+            insetPadding: EdgeInsets.symmetric(horizontal: 20),
           );
         });
   }

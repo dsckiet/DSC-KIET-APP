@@ -10,17 +10,27 @@ class DscApp extends StatefulWidget {
 }
 
 class _DscAppState extends State<DscApp> {
-  final FirebaseMessaging _fcm = FirebaseMessaging.instance;
+  static const MethodChannel _channel =
+      MethodChannel('notification_channel_dsc');
+
+  Map<String, String> channelMap = {
+    "id": "events_notification_channel",
+    "name": "events notification",
+    "description": "Notifications related to events conducted by dsc kiet",
+  };
+
+  createNotificationChannel() async {
+    try {
+      await _channel.invokeMethod('createNotificationChannel', channelMap);
+    } on PlatformException catch (e) {
+      print(e);
+    }
+  }
 
   @override
   void initState() {
     super.initState();
-    getToken();
-  }
-
-  getToken() async {
-    String token = await _fcm.getToken();
-    print(token);
+    createNotificationChannel();
   }
 
   @override
