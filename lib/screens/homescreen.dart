@@ -2,9 +2,9 @@ import 'package:dsckiet/constants.dart';
 import 'package:dsckiet/provider/screen_notifier_provider.dart';
 import 'package:dsckiet/screens/team_screen.dart';
 import 'package:dsckiet/screens/contact_screen.dart';
+import 'package:dsckiet/services/firebase_messaging.dart';
 import 'package:dsckiet/widgets/about_us_section.dart';
 import 'package:dsckiet/widgets/bottom_nav_bar.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
@@ -22,27 +22,13 @@ class Homescreen extends StatefulWidget {
 }
 
 class _HomescreenState extends State<Homescreen> {
+  final _notifications = FirebaseNotifications();
   @override
   void initState() {
     super.initState();
-
-    showMessageFromTerminatedState();
-
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      if (message != null) {
-        showAlertDialog(message);
-      }
-    });
-    FirebaseMessaging.onMessageOpenedApp.listen((message) {
-      if (message != null) showAlertDialog(message);
-    });
-  }
-
-  showMessageFromTerminatedState() async {
-    final messagefromTerminatedstate =
-        await FirebaseMessaging.instance.getInitialMessage();
-    if (messagefromTerminatedstate != null)
-      showAlertDialog(messagefromTerminatedstate);
+    _notifications.recieveForegroundMesssage(context);
+    _notifications.recieveBackgroundMessage(context);
+    _notifications.showMessageFromTerminatedState(context);
   }
 
   @override
@@ -59,54 +45,6 @@ class _HomescreenState extends State<Homescreen> {
         },
       ),
     );
-  }
-
-  showAlertDialog(RemoteMessage message) {
-    return showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text(
-              message.notification.title,
-              style: subHeading(context).copyWith(fontSize: 24),
-            ),
-            content: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                if (message.notification.android.imageUrl != null)
-                  Center(
-                    child: Image.network(message.notification.android.imageUrl),
-                  ),
-                Padding(
-                  padding: EdgeInsets.only(top: 10),
-                ),
-                Wrap(
-                  children: [
-                    Text(
-                      message.notification.body,
-                      style: body1(context),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 6,
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 10),
-                ),
-                if (message.data['link'] != null)
-                  ElevatedButton(
-                    onPressed: () {
-                      launch("https://${message.data['link']}");
-                    },
-                    child: Text('Contest Link'),
-                  ),
-              ],
-            ),
-            insetPadding: EdgeInsets.symmetric(horizontal: 20),
-          );
-        });
   }
 }
 

@@ -1,8 +1,8 @@
 import 'package:dsckiet/screens/splash_screen.dart';
 import 'package:dsckiet/theme.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:dsckiet/services/firebase_messaging.dart';
 
 class DscApp extends StatefulWidget {
   @override
@@ -10,6 +10,8 @@ class DscApp extends StatefulWidget {
 }
 
 class _DscAppState extends State<DscApp> {
+  final FirebaseNotifications _notifications = FirebaseNotifications();
+
   static const MethodChannel _channel =
       MethodChannel('notification_channel_dsc');
 
@@ -22,7 +24,6 @@ class _DscAppState extends State<DscApp> {
   createNotificationChannel() async {
     try {
       await _channel.invokeMethod('createNotificationChannel', channelMap);
-      print('created');
     } on PlatformException catch (e) {
       print(e);
     }
@@ -31,6 +32,7 @@ class _DscAppState extends State<DscApp> {
   @override
   void initState() {
     super.initState();
+    _notifications.subscribeTonotifications();
     createNotificationChannel();
   }
 
