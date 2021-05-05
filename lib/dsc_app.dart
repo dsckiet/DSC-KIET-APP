@@ -22,6 +22,7 @@ class _DscAppState extends State<DscApp> {
   createNotificationChannel() async {
     try {
       await _channel.invokeMethod('createNotificationChannel', channelMap);
+      print('created');
     } on PlatformException catch (e) {
       print(e);
     }
