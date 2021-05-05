@@ -50,21 +50,21 @@ class MainActivity: FlutterActivity() {
             val name = mapData["name"]
             val descriptionText = mapData["description"]
             val sound = "drop"
-            val importance = NotificationManager.IMPORTANCE_MAX
+            val importance = NotificationManager.IMPORTANCE_HIGH
             val mChannel = NotificationChannel(id, name, importance)
             mChannel.description = descriptionText
 
             val soundUri = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://"+ getApplicationContext().getPackageName() + "/raw/drop");
             val att = AudioAttributes.Builder()
             .setUsage(AudioAttributes.USAGE_NOTIFICATION)
-            .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
             .build();
-
             mChannel.setSound(soundUri, att)
             mChannel.enableLights(true)
             mChannel.enableVibration(true)
             mChannel.setBypassDnd(true)
             mChannel.setAllowBubbles(true)
+            mChannel.setLightColor(-1)
+            mChannel.setImportance(4)
             mChannel.setLockscreenVisibility(1)
             mChannel.setShowBadge(true)
 

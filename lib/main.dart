@@ -6,6 +6,7 @@ import 'dsc_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   try {
     await Firebase.initializeApp();
   } catch (e) {
