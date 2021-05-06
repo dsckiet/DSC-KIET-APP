@@ -3,7 +3,6 @@ import 'package:dsckiet/services/create_notification_channel.dart';
 import 'package:dsckiet/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:dsckiet/services/firebase_messaging.dart';
 
 class DscApp extends StatefulWidget {
   @override
@@ -11,13 +10,11 @@ class DscApp extends StatefulWidget {
 }
 
 class _DscAppState extends State<DscApp> {
-  final FirebaseNotifications _notifications = FirebaseNotifications();
   final CreateNotifChannel _createChannel = CreateNotifChannel();
 
   @override
   void initState() {
     super.initState();
-    _notifications.subscribeTonotifications();
     _createChannel.createNotificationChannel();
   }
 

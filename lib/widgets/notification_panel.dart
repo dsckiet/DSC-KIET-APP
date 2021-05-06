@@ -1,5 +1,5 @@
 import 'package:dsckiet/provider/toggle_notification_panel_provider.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:dsckiet/screens/events_notification_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -91,10 +91,10 @@ class NotificationPanel extends ConsumerWidget {
 class EventListTile extends StatelessWidget {
   const EventListTile({
     Key key,
-    this.message,
+    this.data,
   }) : super(key: key);
 
-  final RemoteMessage message;
+  final Map<String, String> data;
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +102,15 @@ class EventListTile extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         splashColor: Colors.grey,
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => EventNotificationScreen(
+                data: data,
+              ),
+            ),
+          );
+        },
         child: Container(
           padding: EdgeInsets.symmetric(vertical: 8),
           child: Row(

@@ -5,16 +5,19 @@ import 'package:flutter/material.dart';
 
 class FirebaseNotifications {
   final _instance = FirebaseMessaging.instance;
-  Future<void> subscribeTonotifications() async {
-    _instance.subscribeToTopic("events");
-  }
 
   recieveForegroundMesssage(BuildContext context) {
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       if (message != null) {
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => EventNotificationScreen(
-            message: message,
+            data: {
+              'title': message.notification.title,
+              'body': message.notification.body,
+              'image_url': message.notification.android.imageUrl,
+              'time': message.data['time'],
+              'link': message.data['link'],
+            },
           ),
         ));
       }
@@ -26,7 +29,14 @@ class FirebaseNotifications {
     if (messagefromTerminatedstate != null) {
       Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => EventNotificationScreen(
-          message: messagefromTerminatedstate,
+          data: {
+            'title': messagefromTerminatedstate.notification.title,
+            'body': messagefromTerminatedstate.notification.body,
+            'image_url':
+                messagefromTerminatedstate.notification.android.imageUrl,
+            'time': messagefromTerminatedstate.data['time'],
+            'link': messagefromTerminatedstate.data['link'],
+          },
         ),
       ));
     }
@@ -36,7 +46,13 @@ class FirebaseNotifications {
     FirebaseMessaging.onMessageOpenedApp.listen((message) {
       Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => EventNotificationScreen(
-          message: message,
+          data: {
+            'title': message.notification.title,
+            'body': message.notification.body,
+            'image_url': message.notification.android.imageUrl,
+            'time': message.data['time'],
+            'link': message.data['link'],
+          },
         ),
       ));
     });

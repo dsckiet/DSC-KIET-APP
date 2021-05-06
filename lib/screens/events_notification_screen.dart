@@ -1,12 +1,11 @@
 import 'package:dsckiet/constants.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class EventNotificationScreen extends StatelessWidget {
-  final RemoteMessage message;
+  final Map<String, String> data;
 
-  const EventNotificationScreen({Key key, this.message}) : super(key: key);
+  const EventNotificationScreen({Key key, this.data}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -18,25 +17,25 @@ class EventNotificationScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                message.notification.title,
+                data['title'],
                 style: subHeading(context),
               ),
               largePadding,
               Image.network(
-                message.notification.android.imageUrl,
+                data['image_url'],
               ),
               smallPadding,
               Text(
-                message.notification.body,
+                data['body'],
                 style: body2(context).copyWith(
                   height: 1.33,
                   wordSpacing: 1.3,
                 ),
               ),
               smallPadding,
-              if (message.data['time'] != null)
+              if (data['time'] != null)
                 Text(
-                  message.data['time'],
+                  data['time'],
                   style: body1(context).copyWith(fontWeight: FontWeight.bold),
                 ),
               Spacer(),
@@ -45,7 +44,7 @@ class EventNotificationScreen extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     launch(
-                      message.data['link'],
+                      data['link'],
                     );
                   },
                   child: Text('Launch'),
