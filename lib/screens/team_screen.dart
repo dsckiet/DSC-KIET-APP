@@ -186,26 +186,25 @@ class TeamMemberPanel extends ConsumerWidget {
                 Padding(padding: EdgeInsets.only(top: 16)),
                 Row(
                   children: [
-                    TextButton.icon(
-                        onPressed: () {
-                          launch(data['other_url']);
-                        },
-                        icon: FaIcon(FontAwesomeIcons.link, size: 16),
-                        label: Text('')),
+                    TextButton(
+                      onPressed: () {
+                        launch(data['other_url']);
+                      },
+                      child: FaIcon(FontAwesomeIcons.link, size: 16),
+                    ),
                     Padding(padding: EdgeInsets.only(right: 8)),
-                    TextButton.icon(
+                    TextButton(
                         onPressed: () {
-                          launch(data['github']);
+                          launch('https://${data['github']}');
                         },
-                        icon: FaIcon(FontAwesomeIcons.github, size: 16),
-                        label: Text('')),
+                        child: FaIcon(FontAwesomeIcons.github, size: 16)),
                     Padding(padding: EdgeInsets.only(right: 8)),
-                    TextButton.icon(
-                        onPressed: () {
-                          launch(data['linkedin']);
-                        },
-                        icon: FaIcon(FontAwesomeIcons.linkedin, size: 16),
-                        label: Text('')),
+                    TextButton(
+                      onPressed: () {
+                        launch(data['linkedin']);
+                      },
+                      child: FaIcon(FontAwesomeIcons.linkedin, size: 16),
+                    ),
                   ],
                 ),
               ],

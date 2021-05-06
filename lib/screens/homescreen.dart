@@ -55,8 +55,6 @@ class HomescreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
     return ListView(
       padding: EdgeInsets.symmetric(horizontal: 20),
       children: [
@@ -78,19 +76,12 @@ class HomescreenBody extends StatelessWidget {
           child: Lottie.asset('assets/images/splash_animation.json'),
         ),
         smallPadding,
-        Padding(
-          padding: EdgeInsets.only(right: size.width / 2.5),
-          child: ElevatedButton(
-              onPressed: () {
-                launch('https://forms.gle/YFTsmarHBrW57k5N8');
-              },
-              child: Container(
-                child: Center(
-                  child: Text('Become a member'),
-                ),
-              )),
-        ),
-        Padding(padding: EdgeInsets.only(top: 10)),
+        ElevatedButton(
+            onPressed: () {
+              launch('https://forms.gle/YFTsmarHBrW57k5N8');
+            },
+            child: Text('Become a member')),
+        const Padding(padding: EdgeInsets.only(top: 10)),
         Align(
           alignment: Alignment.centerLeft,
           child: TextButton(

@@ -51,7 +51,7 @@ List<Map<String, String>> team = [
     "domain": "Android",
     "other_url": "http://anshul1507.tech/",
     "dob": "7/15/1999",
-    "role": "Head of Anrdoid Dept.",
+    "role": "Head of Android Dept.",
     "image": "assets/images/anshul_gupta.jpg"
   },
   {

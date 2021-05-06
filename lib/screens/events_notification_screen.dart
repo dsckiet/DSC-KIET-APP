@@ -1,7 +1,6 @@
 import 'package:dsckiet/constants.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class EventNotificationScreen extends StatelessWidget {
@@ -35,10 +34,11 @@ class EventNotificationScreen extends StatelessWidget {
                 ),
               ),
               smallPadding,
-              Text(
-                'Timing : 1 PM | 10 April\'21',
-                style: body1(context).copyWith(fontWeight: FontWeight.bold),
-              ),
+              if (message.data['time'] != null)
+                Text(
+                  message.data['time'],
+                  style: body1(context).copyWith(fontWeight: FontWeight.bold),
+                ),
               Spacer(),
               Container(
                 width: double.infinity,
