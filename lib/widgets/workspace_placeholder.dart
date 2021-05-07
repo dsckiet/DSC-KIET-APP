@@ -35,7 +35,7 @@ class WorkspacePlaceholder extends StatelessWidget {
               child: Text.rich(
                 TextSpan(
                   text:
-                      'Join our Slack and Telegram Channels to get instant updates about our ',
+                      'Join our Discord and Telegram Channels to get instant updates about our ',
                   children: [
                     TextSpan(
                         text: '#activities, #sessions ',
@@ -60,7 +60,8 @@ class WorkspacePlaceholder extends StatelessWidget {
                     icon: FaIcon(FontAwesomeIcons.discord),
                     onPressed: () {
                       launch(
-                          'https://join.slack.com/t/dsckiet/shared_invite/zt-ef1q4txj-D77khvaZVgBP2CyH2MQHLA');
+                        'https://go.dsckiet.com/discord',
+                      );
                     },
                     label: Text(
                       'Discord',
