@@ -1,5 +1,5 @@
 import 'package:dsckiet/constants.dart';
-import 'package:dsckiet/provider/toggle_notification_panel_provider.dart';
+import 'package:dsckiet/provider/notification_providers.dart';
 import 'package:dsckiet/widgets/guidelines_widget.dart';
 import 'package:dsckiet/widgets/button_type_1.dart';
 import 'package:dsckiet/widgets/faq_widget.dart';
@@ -33,37 +33,37 @@ class ContactScreen extends StatelessWidget {
                       style: heading(context),
                     ),
                     Spacer(),
-                    Stack(
-                      children: [
+                    Consumer(builder: (context, watch, child) {
+                      final redDot = watch(redDotProvider);
+                      return Stack(children: [
                         Positioned(
                           right: 8,
                           top: 8,
                           child: Container(
                             height: 5,
                             decoration: BoxDecoration(
-                              color: Colors.red,
+                              color: redDot.value
+                                  ? Colors.red
+                                  : Colors.transparent,
                               shape: BoxShape.circle,
                             ),
                             width: 5,
                           ),
                         ),
-                        Consumer(
-                          builder: (context, watch, child) {
-                            return IconButton(
-                              icon: SvgPicture.asset(
-                                'assets/icons/notification.svg',
-                                height: 24,
-                              ),
-                              onPressed: () {
-                                context
-                                    .read(toggleNotificationPanelProvider)
-                                    .togglePanel(true);
-                              },
-                            );
+                        IconButton(
+                          icon: SvgPicture.asset(
+                            'assets/icons/notification.svg',
+                            height: 24,
+                          ),
+                          onPressed: () {
+                            context.read(redDotProvider).toggle(false);
+                            context
+                                .read(toggleNotificationPanelProvider)
+                                .togglePanel(true);
                           },
-                        )
-                      ],
-                    ),
+                        ),
+                      ]);
+                    }),
                   ],
                 ),
                 smallPadding,

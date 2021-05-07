@@ -1,9 +1,11 @@
+import 'package:dsckiet/provider/notification_providers.dart';
 import 'package:dsckiet/screens/events_notification_screen.dart';
 import 'package:dsckiet/services/map_message_to_string.dart';
 import 'package:dsckiet/services/shared_prefrence.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class FirebaseNotifications {
   final _instance = FirebaseMessaging.instance;
@@ -12,6 +14,7 @@ class FirebaseNotifications {
   recieveForegroundMesssage(BuildContext context) {
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       if (message != null) {
+        context.read(redDotProvider).toggle(true);
         sharedPrefService.saveNotification(
             mapMessageToString(message), context);
         Navigator.of(context).push(MaterialPageRoute(
@@ -32,6 +35,7 @@ class FirebaseNotifications {
   showMessageFromTerminatedState(BuildContext context) async {
     final messagefromTerminatedstate = await _instance.getInitialMessage();
     if (messagefromTerminatedstate != null) {
+      context.read(redDotProvider).toggle(true);
       sharedPrefService.saveNotification(
           mapMessageToString(messagefromTerminatedstate), context);
       Navigator.of(context).push(MaterialPageRoute(
@@ -51,6 +55,7 @@ class FirebaseNotifications {
 
   recieveBackgroundMessage(BuildContext context) {
     FirebaseMessaging.onMessageOpenedApp.listen((message) {
+      context.read(redDotProvider).toggle(true);
       sharedPrefService.saveNotification(mapMessageToString(message), context);
       Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => EventNotificationScreen(

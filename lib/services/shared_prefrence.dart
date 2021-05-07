@@ -1,4 +1,4 @@
-import 'package:dsckiet/provider/recent_notifications_provider.dart';
+import 'package:dsckiet/provider/notification_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

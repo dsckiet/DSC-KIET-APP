@@ -1,5 +1,4 @@
-import 'package:dsckiet/provider/recent_notifications_provider.dart';
-import 'package:dsckiet/provider/toggle_notification_panel_provider.dart';
+import 'package:dsckiet/provider/notification_providers.dart';
 import 'package:dsckiet/screens/events_notification_screen.dart';
 import 'package:dsckiet/services/map_message_to_string.dart';
 import 'package:flutter/material.dart';
