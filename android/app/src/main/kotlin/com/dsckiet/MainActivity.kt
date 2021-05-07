@@ -28,27 +28,11 @@ class MainActivity: FlutterActivity() {
 
       if (call.method == "createNotificationChannel"){
         val argData = call.arguments as java.util.HashMap<String, String>
-          val completed = createNotificationChannel(argData)
-          if (completed == true){
-              result.success(completed)
-          }
-          else{
-              result.error("Error Code", "Error Message", null)
-          }
-      } else {
-        result.notImplemented()
-      }
-    }
-
-  }
-
-    private fun createNotificationChannel(mapData: HashMap<String,String>): Boolean {
-        val completed: Boolean
-        if (VERSION.SDK_INT >= VERSION_CODES.O) {
+          if (VERSION.SDK_INT > VERSION_CODES.O) {
             // Create the NotificationChannel
-            val id = mapData["id"]
-            val name = mapData["name"]
-            val descriptionText = mapData["description"]
+            val id = argData["id"]
+            val name = argData["name"]
+            val descriptionText = argData["description"]
             val sound = "drop"
             val importance = NotificationManager.IMPORTANCE_HIGH
             val mChannel = NotificationChannel(id, name, importance)
@@ -72,12 +56,11 @@ class MainActivity: FlutterActivity() {
             // or other notification behaviors after this
             val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(mChannel)
-            completed = true
         }
-        else{
-            completed = false
-        }
-        return completed
+      } else {
+        result.notImplemented()
+      }
     }
-}
+  }
 
+  }
