@@ -1,3 +1,4 @@
+import 'package:dsckiet/provider/recent_notifications_provider.dart';
 import 'package:dsckiet/provider/toggle_notification_panel_provider.dart';
 import 'package:dsckiet/screens/events_notification_screen.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ class NotificationPanel extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
+    final notificationsProvider = watch(recentNotificationsProvider);
     final notificationPanelProvider = watch(toggleNotificationPanelProvider);
     final size = MediaQuery.of(context).size;
     return AnimatedPositioned(
@@ -75,7 +77,20 @@ class NotificationPanel extends ConsumerWidget {
                       ),
                       Divider(),
                       smallPadding,
-                      EventListTile()
+                      ...notificationsProvider.value.map((e) {
+                        final value = e.split('-');
+                        return EventListTile(
+                          data: {
+                            'title': value[0],
+                            'body': value[1],
+                            'image_url': value[2],
+                            'link': value[3] ?? null,
+                            'time': value[4] ?? null,
+                          },
+                        );
+                      }),
+                      if (notificationsProvider.value.length == 0)
+                        Text('No recent Notifications'),
                     ],
                   ),
                 ),
