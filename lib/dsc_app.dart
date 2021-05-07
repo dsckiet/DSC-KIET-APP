@@ -2,7 +2,6 @@ import 'package:dsckiet/screens/splash_screen.dart';
 import 'package:dsckiet/services/create_notification_channel.dart';
 import 'package:dsckiet/services/shared_prefrence.dart';
 import 'package:dsckiet/theme.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -20,12 +19,6 @@ class _DscAppState extends State<DscApp> {
     super.initState();
     _createChannel.createNotificationChannel();
     sharedPrefService.getRecentNotifications(context);
-    getToken();
-  }
-
-  getToken() async {
-    String a = await FirebaseMessaging.instance.getToken();
-    print(a);
   }
 
   @override

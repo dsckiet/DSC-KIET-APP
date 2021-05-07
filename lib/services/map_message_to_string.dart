@@ -9,12 +9,11 @@ String mapMessageToString(RemoteMessage message) {
 
 Map<String, String> mapStringtoMap(String value) {
   final list = value.split("%");
-  print(list);
   return {
     "title": list[0],
     "body": list[1],
     "image_url": list[2],
-    "link": list[3] ?? null,
+    "link": list.length == 4 ? list[3] : null,
     "time": list.length == 5 ? list[4] : null,
   };
 }

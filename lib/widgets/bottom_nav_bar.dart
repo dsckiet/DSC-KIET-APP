@@ -90,7 +90,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
               ),
               margin: EdgeInsets.all(8),
               child: SvgPicture.asset(
-                'assets/icons/support.svg',
+                'assets/icons/contact.svg',
                 height: 28,
               ),
             ),
