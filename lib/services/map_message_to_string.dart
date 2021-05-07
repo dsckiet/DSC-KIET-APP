@@ -1,24 +1,20 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 
 String mapMessageToString(RemoteMessage message) {
-  return message.notification.title +
-          "%" +
-          message.notification.body +
-          "%" +
-          message.notification.android.imageUrl +
-          "%" +
-          message.data['link'] ??
-      "" + "%" + message.data['time'] ??
-      "";
+  String a =
+      "${message.notification.title}%${message.notification.body}%${message.notification.android.imageUrl}%${message.data['link'] != null ? message.data['link'] : ""}%${message.data['time'] != null ? message.data['time'] : ""}";
+
+  return a;
 }
 
 Map<String, String> mapStringtoMap(String value) {
   final list = value.split("%");
+  print(list);
   return {
     "title": list[0],
     "body": list[1],
     "image_url": list[2],
-    "link": list[3],
-    "time": list[4],
+    "link": list[3] ?? null,
+    "time": list.length == 5 ? list[4] : null,
   };
 }

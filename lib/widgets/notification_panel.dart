@@ -1,6 +1,7 @@
 import 'package:dsckiet/provider/recent_notifications_provider.dart';
 import 'package:dsckiet/provider/toggle_notification_panel_provider.dart';
 import 'package:dsckiet/screens/events_notification_screen.dart';
+import 'package:dsckiet/services/map_message_to_string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -39,7 +40,9 @@ class NotificationPanel extends ConsumerWidget {
                     color: Colors.grey,
                   ),
                 ),
-                duration: 800.milliseconds,
+                duration: notificationPanelProvider.value
+                    ? 500.milliseconds
+                    : 2.milliseconds,
                 curve: Curves.easeInExpo,
                 opacity: notificationPanelProvider.value ? 0.4 : 0,
               ),
@@ -78,15 +81,9 @@ class NotificationPanel extends ConsumerWidget {
                       Divider(),
                       smallPadding,
                       ...notificationsProvider.value.map((e) {
-                        final value = e.split('-');
+                        final value = mapStringtoMap(e);
                         return EventListTile(
-                          data: {
-                            'title': value[0],
-                            'body': value[1],
-                            'image_url': value[2],
-                            'link': value[3] ?? null,
-                            'time': value[4] ?? null,
-                          },
+                          data: value,
                         );
                       }),
                       if (notificationsProvider.value.length == 0)
@@ -113,37 +110,40 @@ class EventListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        splashColor: Colors.grey,
-        onTap: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => EventNotificationScreen(
-                data: data,
-              ),
-            ),
-          );
-        },
-        child: Container(
-          padding: EdgeInsets.symmetric(vertical: 8),
-          child: Row(
-            children: [
-              FaIcon(
-                FontAwesomeIcons.solidDotCircle,
-                size: 18,
-                color: Colors.grey,
-              ),
-              Padding(padding: EdgeInsets.only(right: 10)),
-              Expanded(
-                child: Text(
-                  'Code Breeze 1.0',
-                  style: body2(context).copyWith(fontWeight: FontWeight.bold),
-                  overflow: TextOverflow.ellipsis,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10.0),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          splashColor: Colors.grey,
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => EventNotificationScreen(
+                  data: data,
                 ),
               ),
-            ],
+            );
+          },
+          child: Container(
+            padding: EdgeInsets.symmetric(vertical: 8),
+            child: Row(
+              children: [
+                FaIcon(
+                  FontAwesomeIcons.solidDotCircle,
+                  size: 18,
+                  color: Colors.grey,
+                ),
+                Padding(padding: EdgeInsets.only(right: 10)),
+                Expanded(
+                  child: Text(
+                    data['title'],
+                    style: body2(context).copyWith(fontWeight: FontWeight.bold),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
