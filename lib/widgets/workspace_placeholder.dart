@@ -11,7 +11,8 @@ class WorkspacePlaceholder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return PhysicalModel(
+    return Card(
+      margin: EdgeInsets.all(0),
       color: Colors.transparent,
       elevation: 4,
       child: Container(
@@ -19,6 +20,13 @@ class WorkspacePlaceholder extends StatelessWidget {
         decoration: BoxDecoration(
           color: Color(0xffDB4437),
           borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(2, 2),
+              color: Colors.black,
+              spreadRadius: 1,
+            )
+          ],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

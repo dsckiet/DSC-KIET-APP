@@ -129,6 +129,13 @@ class ContactScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Color(0xfff1f1f1),
                     borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(2, 2),
+                        color: Colors.grey,
+                        spreadRadius: 1,
+                      )
+                    ],
                   ),
                   child: FAQPanel(),
                 ),
@@ -137,6 +144,13 @@ class ContactScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Color(0xfff1f1f1),
                     borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(2, 2),
+                        color: Colors.grey,
+                        spreadRadius: 1,
+                      )
+                    ],
                   ),
                   child: GuidelinesPanel(),
                 ),

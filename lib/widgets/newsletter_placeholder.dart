@@ -16,6 +16,7 @@ class _NewsletterPlaceholderState extends State<NewsletterPlaceholder> {
   final subscribeBloc = SubscribeBloc();
 
   final _formKey = GlobalKey<FormState>();
+  bool _error = false;
 
   TextEditingController controller = TextEditingController();
 
@@ -28,7 +29,8 @@ class _NewsletterPlaceholderState extends State<NewsletterPlaceholder> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return PhysicalModel(
+    return Card(
+      margin: EdgeInsets.all(0),
       color: Colors.transparent,
       elevation: 4,
       child: Container(
@@ -36,6 +38,14 @@ class _NewsletterPlaceholderState extends State<NewsletterPlaceholder> {
         decoration: BoxDecoration(
           border: Border.all(color: Color(0xffDB4437)),
           borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 2,
+              offset: Offset(2, 2),
+              color: red,
+              spreadRadius: 1,
+            )
+          ],
           color: Colors.white,
         ),
         child: Column(
@@ -57,48 +67,61 @@ class _NewsletterPlaceholderState extends State<NewsletterPlaceholder> {
             ),
             Form(
               key: _formKey,
-              child: TextFormField(
-                controller: controller,
-                keyboardType: TextInputType.emailAddress,
-                scrollPadding: EdgeInsets.only(bottom: 120),
-                validator: (value) {
-                  if (RegExp(r"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",
-                          caseSensitive: false)
-                      .hasMatch(value))
-                    return null;
-                  else
-                    return 'please enter a valid email';
-                },
-                style: body1(context)
-                    .copyWith(fontWeight: FontWeight.bold, color: Colors.black),
-                decoration: InputDecoration(
-                    hintText: 'email address',
-                    hintStyle: body1(context).copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(4),
-                      borderSide: BorderSide(
-                        color: Colors.black,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(4),
+                  boxShadow: [
+                    BoxShadow(
+                      offset: Offset(2, 2),
+                      color: _error ? Colors.transparent : Colors.black,
+                      spreadRadius: 1,
+                    )
+                  ],
+                ),
+                child: TextFormField(
+                  controller: controller,
+                  keyboardType: TextInputType.emailAddress,
+                  scrollPadding: EdgeInsets.only(bottom: 120),
+                  validator: (value) {
+                    if (RegExp(r"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",
+                            caseSensitive: false)
+                        .hasMatch(value))
+                      return null;
+                    else
+                      return 'please enter a valid email';
+                  },
+                  style: body1(context).copyWith(
+                      fontWeight: FontWeight.bold, color: Colors.black),
+                  decoration: InputDecoration(
+                      hintText: 'email address',
+                      hintStyle: body1(context).copyWith(
+                        fontWeight: FontWeight.bold,
                       ),
-                      gapPadding: 0,
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(4),
-                      borderSide: BorderSide(
-                        color: Colors.black,
-                        width: 2,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(4),
+                        borderSide: BorderSide(
+                          color: Colors.black,
+                        ),
+                        gapPadding: 0,
                       ),
-                    ),
-                    errorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(4),
-                      borderSide: BorderSide(
-                        color: Colors.red,
-                        width: 2,
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(4),
+                        borderSide: BorderSide(
+                          color: Colors.black,
+                          width: 2,
+                        ),
                       ),
-                    ),
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 0, horizontal: 16)),
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(4),
+                        borderSide: BorderSide(
+                          color: Colors.red,
+                          width: 2,
+                        ),
+                      ),
+                      contentPadding:
+                          EdgeInsets.symmetric(vertical: 0, horizontal: 16)),
+                ),
               ),
             ),
             Padding(padding: EdgeInsets.only(top: 10)),
@@ -116,8 +139,14 @@ class _NewsletterPlaceholderState extends State<NewsletterPlaceholder> {
   ElevatedButton buildSubscribeButton(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        if (_formKey.currentState.validate())
+        if (_formKey.currentState.validate()) {
+          _error = false;
           subscribeBloc.add(Subscirbing(controller.text));
+          setState(() {});
+        } else {
+          _error = true;
+          setState(() {});
+        }
       },
       child: BlocListener<SubscribeBloc, SubscribeState>(
         bloc: subscribeBloc,
