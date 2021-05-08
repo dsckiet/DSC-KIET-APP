@@ -60,7 +60,7 @@ class HomescreenBody extends StatelessWidget {
       children: [
         largePadding,
         Text(
-          'Devlopers Student Clubs KIET Group of Institutions',
+          'Developer Student Clubs KIET Group of Institutions',
           style: heading(context),
         ),
         smallPadding,

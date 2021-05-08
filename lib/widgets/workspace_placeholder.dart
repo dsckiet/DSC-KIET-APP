@@ -22,7 +22,7 @@ class WorkspacePlaceholder extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
-              offset: Offset(2, 2),
+              offset: Offset(1, 1),
               color: Colors.black,
               spreadRadius: 1,
             )

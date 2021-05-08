@@ -40,8 +40,7 @@ class _NewsletterPlaceholderState extends State<NewsletterPlaceholder> {
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
-              blurRadius: 2,
-              offset: Offset(2, 2),
+              offset: Offset(1, 1),
               color: red,
               spreadRadius: 1,
             )
@@ -73,7 +72,7 @@ class _NewsletterPlaceholderState extends State<NewsletterPlaceholder> {
                   borderRadius: BorderRadius.circular(4),
                   boxShadow: [
                     BoxShadow(
-                      offset: Offset(2, 2),
+                      offset: Offset(1, 1),
                       color: _error ? Colors.transparent : Colors.black,
                       spreadRadius: 1,
                     )

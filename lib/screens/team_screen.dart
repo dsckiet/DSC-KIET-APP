@@ -200,7 +200,7 @@ class TeamMemberPanel extends ConsumerWidget {
                     Padding(padding: EdgeInsets.only(right: 8)),
                     TextButton(
                         onPressed: () {
-                          launch('https://${data['github']}');
+                          launch(data['github']);
                         },
                         child: FaIcon(FontAwesomeIcons.github, size: 18)),
                     Padding(padding: EdgeInsets.only(right: 8)),

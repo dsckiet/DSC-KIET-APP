@@ -31,8 +31,8 @@ ThemeData theme = ThemeData(
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-          textStyle: MaterialStateProperty.all<TextStyle>(
-              TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          textStyle: MaterialStateProperty.all<TextStyle>(TextStyle(
+              fontSize: 16, fontWeight: FontWeight.bold, fontFamily: 'Sen')),
           backgroundColor:
               MaterialStateProperty.all<Color>(Color(0xff4285f4)))),
   textTheme: TextTheme(
