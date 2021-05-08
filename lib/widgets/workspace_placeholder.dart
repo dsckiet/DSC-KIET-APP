@@ -53,11 +53,15 @@ class WorkspacePlaceholder extends StatelessWidget {
               children: [
                 Expanded(
                   child: ElevatedButton.icon(
-                    style: Theme.of(context).elevatedButtonTheme.style.copyWith(
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(Colors.black),
-                        ),
-                    icon: FaIcon(FontAwesomeIcons.discord),
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.black,
+                        padding: EdgeInsets.symmetric(
+                          vertical: 12,
+                        )),
+                    icon: FaIcon(
+                      FontAwesomeIcons.discord,
+                      size: 18,
+                    ),
                     onPressed: () {
                       launch(
                         'https://go.dsckiet.com/discord',
@@ -73,11 +77,15 @@ class WorkspacePlaceholder extends StatelessWidget {
                 ),
                 Expanded(
                   child: ElevatedButton.icon(
-                    style: Theme.of(context).elevatedButtonTheme.style.copyWith(
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(Colors.black),
-                        ),
-                    icon: FaIcon(FontAwesomeIcons.telegramPlane),
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.black,
+                        padding: EdgeInsets.symmetric(
+                          vertical: 12,
+                        )),
+                    icon: FaIcon(
+                      FontAwesomeIcons.telegramPlane,
+                      size: 18,
+                    ),
                     onPressed: () {
                       launch('https://t.me/dsckiet');
                     },

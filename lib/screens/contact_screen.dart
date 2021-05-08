@@ -1,16 +1,11 @@
 import 'package:dsckiet/constants.dart';
-import 'package:dsckiet/provider/notification_providers.dart';
 import 'package:dsckiet/widgets/guidelines_widget.dart';
 import 'package:dsckiet/widgets/button_type_1.dart';
 import 'package:dsckiet/widgets/faq_widget.dart';
 import 'package:dsckiet/widgets/footer.dart';
-// import 'package:dsckiet/widgets/google_map_widget.dart';
 import 'package:dsckiet/widgets/newsletter_placeholder.dart';
-import 'package:dsckiet/widgets/notification_panel.dart';
 import 'package:dsckiet/widgets/workspace_placeholder.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -33,37 +28,37 @@ class ContactScreen extends StatelessWidget {
                       style: heading(context),
                     ),
                     Spacer(),
-                    Consumer(builder: (context, watch, child) {
-                      final redDot = watch(redDotProvider);
-                      return Stack(children: [
-                        Positioned(
-                          right: 8,
-                          top: 8,
-                          child: Container(
-                            height: 5,
-                            decoration: BoxDecoration(
-                              color: redDot.value
-                                  ? Colors.red
-                                  : Colors.transparent,
-                              shape: BoxShape.circle,
-                            ),
-                            width: 5,
-                          ),
-                        ),
-                        IconButton(
-                          icon: SvgPicture.asset(
-                            'assets/icons/notification.svg',
-                            height: 24,
-                          ),
-                          onPressed: () {
-                            context.read(redDotProvider).toggle(false);
-                            context
-                                .read(toggleNotificationPanelProvider)
-                                .togglePanel(true);
-                          },
-                        ),
-                      ]);
-                    }),
+                    // Consumer(builder: (context, watch, child) {
+                    //   final redDot = watch(redDotProvider);
+                    //   return Stack(children: [
+                    //     Positioned(
+                    //       right: 8,
+                    //       top: 8,
+                    //       child: Container(
+                    //         height: 5,
+                    //         decoration: BoxDecoration(
+                    //           color: redDot.value
+                    //               ? Colors.red
+                    //               : Colors.transparent,
+                    //           shape: BoxShape.circle,
+                    //         ),
+                    //         width: 5,
+                    //       ),
+                    //     ),
+                    //     IconButton(
+                    //       icon: SvgPicture.asset(
+                    //         'assets/icons/notification.svg',
+                    //         height: 24,
+                    //       ),
+                    //       onPressed: () {
+                    //         context.read(redDotProvider).toggle(false);
+                    //         context
+                    //             .read(toggleNotificationPanelProvider)
+                    //             .togglePanel(true);
+                    //       },
+                    //     ),
+                    //   ]);
+                    // }),
                   ],
                 ),
                 smallPadding,
@@ -73,26 +68,36 @@ class ContactScreen extends StatelessWidget {
                 smallPadding,
                 Padding(
                   padding: EdgeInsets.only(bottom: size.height / 36),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      ButtonType1(
-                        icon: FontAwesomeIcons.mediumM,
-                        url: 'https://medium.com/dsckiet',
-                      ),
-                      ButtonType1(
-                        icon: FontAwesomeIcons.instagram,
-                        url: 'https://instagram.com/dsckiet',
-                      ),
-                      ButtonType1(
-                        icon: FontAwesomeIcons.twitter,
-                        url: 'https://twitter.com/dsckiet',
-                      ),
-                      ButtonType1(
-                        icon: FontAwesomeIcons.github,
-                        url: 'https://github.com/dsckiet',
-                      ),
-                    ],
+                  child: FittedBox(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        ButtonType1(
+                          icon: FontAwesomeIcons.mediumM,
+                          url: 'https://medium.com/dsckiet',
+                        ),
+                        ButtonType1(
+                          icon: FontAwesomeIcons.instagram,
+                          url: 'https://instagram.com/dsckiet',
+                        ),
+                        ButtonType1(
+                          icon: FontAwesomeIcons.twitter,
+                          url: 'https://twitter.com/dsckiet',
+                        ),
+                        ButtonType1(
+                          icon: FontAwesomeIcons.github,
+                          url: 'https://github.com/dsckiet',
+                        ),
+                        ButtonType1(
+                          icon: FontAwesomeIcons.linkedinIn,
+                          url: 'https://www.linkedin.com/company/dsckiet',
+                        ),
+                        ButtonType1(
+                          icon: FontAwesomeIcons.youtube,
+                          url: 'https://www.youtube.com/dsckiet',
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Row(
@@ -141,15 +146,12 @@ class ContactScreen extends StatelessWidget {
                 largePadding,
                 Container(
                     width: double.infinity, child: NewsletterPlaceholder()),
-                // largePadding,
-                // GooglemapWidget(),
-                // smallPadding,
                 Footer(),
               ],
             ),
           ),
         ),
-        NotificationPanel(),
+        // NotificationPanel(),
       ],
     );
   }

@@ -39,7 +39,7 @@ class ButtonType1 extends StatelessWidget {
                 child: FaIcon(
                   icon,
                   color: Colors.white,
-                  size: 22,
+                  size: 18,
                 ),
               ),
             ),

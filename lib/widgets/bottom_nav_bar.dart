@@ -19,7 +19,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return CurvedNavigationBar(
-      backgroundColor: Colors.grey.withOpacity(0.1),
+      backgroundColor: Colors.transparent,
+      color: Color(0xfff9f4f4),
       height: 56,
       index: 1,
       animationDuration: 300.milliseconds,
@@ -33,20 +34,19 @@ class _BottomNavBarState extends State<BottomNavBar> {
           duration: 250.milliseconds,
           padding: EdgeInsets.all(2),
           decoration: BoxDecoration(
-              color: _selected == 0 ? Color(0xff4285f4) : Colors.white,
+              color: _selected == 0 ? Color(0xff4285f4) : Color(0xfff9f4f4),
               shape: BoxShape.circle),
           child: CircleAvatar(
             radius: 24,
-            backgroundColor: Colors.white,
+            backgroundColor: Color(0xfff9f4f4),
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color(0xfff9f4f4),
                 shape: BoxShape.circle,
               ),
               margin: EdgeInsets.all(8),
               child: SvgPicture.asset(
                 'assets/icons/team.svg',
-                height: 28,
               ),
             ),
           ),
@@ -55,14 +55,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
           duration: 250.milliseconds,
           padding: EdgeInsets.all(2),
           decoration: BoxDecoration(
-              color: _selected == 1 ? Color(0xff4285f4) : Colors.white,
+              color: _selected == 1 ? Color(0xff4285f4) : Color(0xfff9f4f4),
               shape: BoxShape.circle),
           child: CircleAvatar(
             radius: 24,
-            backgroundColor: Colors.white,
+            backgroundColor: Color(0xfff9f4f4),
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color(0xfff9f4f4),
                 shape: BoxShape.circle,
                 image: DecorationImage(
                   image: AssetImage(
@@ -78,20 +78,19 @@ class _BottomNavBarState extends State<BottomNavBar> {
           duration: 250.milliseconds,
           padding: EdgeInsets.all(2),
           decoration: BoxDecoration(
-              color: _selected == 2 ? Color(0xff4285f4) : Colors.white,
+              color: _selected == 2 ? Color(0xff4285f4) : Color(0xfff9f4f4),
               shape: BoxShape.circle),
           child: CircleAvatar(
             radius: 24,
-            backgroundColor: Colors.white,
+            backgroundColor: Color(0xfff9f4f4),
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color(0xfff9f4f4),
                 shape: BoxShape.circle,
               ),
               margin: EdgeInsets.all(8),
               child: SvgPicture.asset(
                 'assets/icons/contact.svg',
-                height: 28,
               ),
             ),
           ),

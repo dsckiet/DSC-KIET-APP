@@ -70,6 +70,9 @@ class _AboutUsSectionBodyState extends State<AboutUsSectionBody> {
                 launch(
                     'https://dsc.community.dev/kiet-group-of-institutions-ghaziabad/');
               },
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(vertical: 12),
+              ),
               child: Container(
                 child: Center(
                   child: Text('Sign up'),

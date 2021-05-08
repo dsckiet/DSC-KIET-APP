@@ -161,26 +161,31 @@ class TeamMemberPanel extends ConsumerWidget {
                 ),
               ),
             ),
-            Padding(padding: EdgeInsets.only(right: 32)),
+            Padding(padding: EdgeInsets.only(right: 24)),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  data['name'],
-                  style: body1(context).copyWith(
-                      color: Color(0xff4285F4), fontWeight: FontWeight.bold),
+                Padding(
+                  padding: EdgeInsets.only(left: 12.0),
+                  child: Text(
+                    data['name'],
+                    style: body1(context).copyWith(
+                        color: Color(0xff4285F4), fontWeight: FontWeight.bold),
+                  ),
                 ),
                 Padding(padding: EdgeInsets.only(top: 8)),
-                Container(
-                  // height: 40,
-                  width: size.width / 1.9,
-                  child: Text(
-                    data['role'],
-                    style: Theme.of(context).textTheme.bodyText2.copyWith(
-                          fontSize: 14,
-                          fontWeight: FontWeight.normal,
-                          color: Color(0xff707070),
-                        ),
+                Padding(
+                  padding: EdgeInsets.only(left: 12),
+                  child: Container(
+                    width: size.width / 2.0,
+                    child: Text(
+                      data['role'],
+                      style: Theme.of(context).textTheme.bodyText2.copyWith(
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
+                            color: Color(0xff707070),
+                          ),
+                    ),
                   ),
                 ),
                 Padding(padding: EdgeInsets.only(top: 16)),
@@ -190,20 +195,20 @@ class TeamMemberPanel extends ConsumerWidget {
                       onPressed: () {
                         launch(data['other_url']);
                       },
-                      child: FaIcon(FontAwesomeIcons.link, size: 16),
+                      child: FaIcon(FontAwesomeIcons.link, size: 18),
                     ),
                     Padding(padding: EdgeInsets.only(right: 8)),
                     TextButton(
                         onPressed: () {
                           launch('https://${data['github']}');
                         },
-                        child: FaIcon(FontAwesomeIcons.github, size: 16)),
+                        child: FaIcon(FontAwesomeIcons.github, size: 18)),
                     Padding(padding: EdgeInsets.only(right: 8)),
                     TextButton(
                       onPressed: () {
                         launch(data['linkedin']);
                       },
-                      child: FaIcon(FontAwesomeIcons.linkedin, size: 16),
+                      child: FaIcon(FontAwesomeIcons.linkedin, size: 18),
                     ),
                   ],
                 ),

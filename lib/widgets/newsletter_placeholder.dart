@@ -154,17 +154,25 @@ class _NewsletterPlaceholderState extends State<NewsletterPlaceholder> {
     );
   }
 
-  Expanded buildSubscribeButton(BuildContext context) {
-    return Expanded(
-      child: ElevatedButton(
-        onPressed: () {
-          if (_formKey.currentState.validate())
-            subscribeBloc.add(Subscirbing(controller.text));
-        },
-        child: Text('Subscribe'),
-        style: Theme.of(context).elevatedButtonTheme.style.copyWith(
-              backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
-            ),
+  ElevatedButton buildSubscribeButton(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        if (_formKey.currentState.validate())
+          subscribeBloc.add(Subscirbing(controller.text));
+      },
+      child: Text(
+        'Subscribe',
+        style: body1(context).copyWith(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      style: ElevatedButton.styleFrom(
+        primary: Colors.black,
+        padding: EdgeInsets.symmetric(
+          vertical: 12,
+          horizontal: 28,
+        ),
       ),
     );
   }
