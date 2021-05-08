@@ -104,48 +104,7 @@ class _NewsletterPlaceholderState extends State<NewsletterPlaceholder> {
             Padding(padding: EdgeInsets.only(top: 10)),
             Row(
               children: [
-                BlocListener<SubscribeBloc, SubscribeState>(
-                  bloc: subscribeBloc,
-                  listener: (context, state) {
-                    if (state is SubscribeFailed) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(state.error),
-                          backgroundColor: red,
-                          elevation: 8,
-                        ),
-                      );
-                    }
-                    if (state is Subscribed) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text("You are now subscribed to DSC KIET!"),
-                          backgroundColor: blue,
-                          elevation: 8,
-                        ),
-                      );
-                    }
-                  },
-                  child: BlocBuilder<SubscribeBloc, SubscribeState>(
-                    bloc: subscribeBloc,
-                    builder: (context, state) {
-                      if (state is SubscribeInitial)
-                        return buildSubscribeButton(context);
-                      else if (state is SubscribingInProcess)
-                        return Expanded(
-                          child: Container(
-                            child: Center(
-                              child: CircularProgressIndicator(
-                                strokeWidth: 3,
-                              ),
-                            ),
-                          ),
-                        );
-                      else
-                        return buildSubscribeButton(context);
-                    },
-                  ),
-                ),
+                buildSubscribeButton(context),
               ],
             )
           ],
@@ -160,11 +119,58 @@ class _NewsletterPlaceholderState extends State<NewsletterPlaceholder> {
         if (_formKey.currentState.validate())
           subscribeBloc.add(Subscirbing(controller.text));
       },
-      child: Text(
-        'Subscribe',
-        style: body1(context).copyWith(
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
+      child: BlocListener<SubscribeBloc, SubscribeState>(
+        bloc: subscribeBloc,
+        listener: (context, state) {
+          if (state is SubscribeFailed) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.error),
+                backgroundColor: red,
+                elevation: 8,
+              ),
+            );
+          }
+          if (state is Subscribed) {
+            controller.clear();
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text("You are now subscribed to DSC KIET!"),
+                backgroundColor: blue,
+                elevation: 8,
+              ),
+            );
+          }
+        },
+        child: BlocBuilder<SubscribeBloc, SubscribeState>(
+          bloc: subscribeBloc,
+          builder: (context, state) {
+            if (state is SubscribeInitial)
+              return Text(
+                'Subscribe',
+                style: body1(context).copyWith(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              );
+            else if (state is SubscribingInProcess)
+              return Container(
+                height: 20,
+                width: 20,
+                child: CircularProgressIndicator(
+                  strokeWidth: 3,
+                  backgroundColor: Colors.white,
+                ),
+              );
+            else
+              return Text(
+                'Subscribe',
+                style: body1(context).copyWith(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              );
+          },
         ),
       ),
       style: ElevatedButton.styleFrom(
@@ -173,6 +179,7 @@ class _NewsletterPlaceholderState extends State<NewsletterPlaceholder> {
           vertical: 12,
           horizontal: 28,
         ),
+        minimumSize: Size(150, 40),
       ),
     );
   }

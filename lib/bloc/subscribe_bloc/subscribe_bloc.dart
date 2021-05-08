@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:dsckiet/services/api_key.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
 
@@ -16,6 +17,29 @@ class SubscribeBloc extends Bloc<SubscribeEvent, SubscribeState> {
   ) async* {
     if (event is Subscirbing) {
       yield SubscribingInProcess();
+      try {
+        Uri url = Uri.parse('https://api.buttondown.email/v1/subscribers');
+        final res = await post(url, body: {
+          'email': event.email,
+        }, headers: {
+          'Authorization': 'Token $apiKey'
+        });
+        if (res.statusCode == 201)
+          yield Subscribed();
+        else {
+          String message;
+          if (res.body.contains("subscribed"))
+            message = "This email is already subscribed";
+          else if (res.body.contains("does not exist") ||
+              res.body.contains("invalid"))
+            message = "This email does not exist";
+          else
+            message = "Something went Wrong!, please try again";
+          yield SubscribeFailed(message);
+        }
+      } catch (e) {
+        yield SubscribeFailed('Something went Wrong!, please try again');
+      }
     }
   }
 }
