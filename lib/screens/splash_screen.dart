@@ -11,7 +11,7 @@ class _SplashScreenState extends State<SplashScreen> {
   final ImageProvider logo = AssetImage('assets/images/logo.png');
 
   gotoHome() async {
-    await Future.delayed((1.3).seconds);
+    await Future.delayed(2.seconds);
     Navigator.pushReplacement(
         context,
         MaterialPageRoute(

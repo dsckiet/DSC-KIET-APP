@@ -23,7 +23,7 @@ class WorkspacePlaceholder extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               offset: Offset(1, 1),
-              color: Colors.black,
+              color: Colors.grey.withOpacity(0.5),
               spreadRadius: 1,
             )
           ],

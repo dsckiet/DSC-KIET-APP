@@ -20,7 +20,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   Widget build(BuildContext context) {
     return Container(
       child: CurvedNavigationBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.grey.withOpacity(0.2),
         color: Colors.white,
         height: 56,
         index: 1,

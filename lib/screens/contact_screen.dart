@@ -63,7 +63,7 @@ class ContactScreen extends StatelessWidget {
                 ),
                 smallPadding,
                 Text(
-                    'Developer Student Club KIET is inspired by Google Developers Family. We started our journey in Feb 2019. We try to engage student developers through our hack events, codelabs and meetups. The motive is to create a local ecosystem of programmers & hackers in and around the Campus. The technology awareness is main goal for first few years of the group.',
+                    'Developer Student Clubs KIET is inspired by Google Developers Family. We started our journey in Feb 2019. We try to engage student developers through our hack events, codelabs and meetups. The motive is to create a local ecosystem of programmers & hackers in and around the Campus. The technology awareness is main goal for first few years of the group.',
                     style: body1(context)),
                 smallPadding,
                 Padding(

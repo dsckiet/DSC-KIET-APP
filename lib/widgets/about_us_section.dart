@@ -128,7 +128,7 @@ class _AboutUsSectionBodyState extends State<AboutUsSectionBody> {
           ),
         ),
         Text(
-          'Developer Student Club KIET is inspired by Google Developers\' Family.\n\nThe motive is to create an ecosystem of programmers & developers in the campus by helping them to learn and build projects.',
+          'Developer Student Clubs KIET is inspired by Google Developers\' Family.\n\nThe motive is to create an ecosystem of programmers & developers in the campus by helping them to learn and build projects.',
           style: body1(context),
         ),
         largePadding,

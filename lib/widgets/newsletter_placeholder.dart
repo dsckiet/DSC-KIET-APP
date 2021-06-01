@@ -176,7 +176,7 @@ class _NewsletterPlaceholderState extends State<NewsletterPlaceholder> {
             if (state is SubscribeInitial)
               return Text(
                 'Subscribe',
-                style: body1(context).copyWith(
+                style: body2(context).copyWith(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
