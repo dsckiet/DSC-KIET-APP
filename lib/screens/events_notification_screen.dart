@@ -56,7 +56,7 @@ class EventNotificationScreen extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {
                         launch(
-                          data['link'],
+                          "https://${data['link']}",
                         );
                       },
                       child: Text('Launch'),

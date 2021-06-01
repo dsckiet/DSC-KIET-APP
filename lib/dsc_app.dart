@@ -1,6 +1,6 @@
 import 'package:dsckiet/screens/splash_screen.dart';
 import 'package:dsckiet/services/create_notification_channel.dart';
-import 'package:dsckiet/services/shared_prefrence.dart';
+// import 'package:dsckiet/services/shared_prefrence.dart';
 import 'package:dsckiet/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -12,13 +12,13 @@ class DscApp extends StatefulWidget {
 
 class _DscAppState extends State<DscApp> {
   final CreateNotifChannel _createChannel = CreateNotifChannel();
-  final SharedPrefService sharedPrefService = SharedPrefService();
+  // final SharedPrefService sharedPrefService = SharedPrefService();
 
   @override
   void initState() {
     super.initState();
     _createChannel.createNotificationChannel();
-    sharedPrefService.getRecentNotifications(context);
+    // sharedPrefService.getRecentNotifications(context);
   }
 
   @override
@@ -34,7 +34,7 @@ class _DscAppState extends State<DscApp> {
       // This Allows us to change the Naviagtion and Status Bar Color of Device
       statusBarColor: Color(0xff4285f4), //top bar color
       statusBarIconBrightness: Brightness.light, //top bar icons
-      systemNavigationBarColor: Colors.white, //bottom bar color
+      systemNavigationBarColor: Color(0xfff9f4f4), //bottom bar color
       systemNavigationBarIconBrightness: Brightness.dark, //bottom bar icons
     ));
     return MaterialApp(

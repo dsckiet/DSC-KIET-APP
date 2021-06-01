@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:dsckiet/services/api_key.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
 
@@ -16,33 +17,28 @@ class SubscribeBloc extends Bloc<SubscribeEvent, SubscribeState> {
   ) async* {
     if (event is Subscirbing) {
       yield SubscribingInProcess();
-      final url = Uri.parse(
-          "https://buttondown.email/api/emails/embed-subscribe/dsckiet");
       try {
-        final res = await post(
-          url,
-          body: {"email": event.email},
-        );
-        print(res.body);
-        if (res.statusCode == 200)
+        Uri url = Uri.parse('https://api.buttondown.email/v1/subscribers');
+        final res = await post(url, body: {
+          'email': event.email,
+        }, headers: {
+          'Authorization': 'Token $apiKey'
+        });
+        if (res.statusCode == 201)
           yield Subscribed();
-        else if (res.statusCode == 302) {
-          final redirectUrl = Uri(
-            scheme: 'https',
-            host: 'buttondown.email',
-            path: res.headers['location'],
-          );
-          final redirectResponse = await get(redirectUrl);
-          print(redirectResponse.body);
-          if (redirectResponse.statusCode == 200)
-            yield Subscribed();
+        else {
+          String message;
+          if (res.body.contains("subscribed"))
+            message = "This email is already subscribed";
+          else if (res.body.contains("does not exist") ||
+              res.body.contains("invalid"))
+            message = "This email does not exist";
           else
-            yield SubscribeFailed('Something went wrong! Plese try again.');
-        } else
-          yield SubscribeFailed('Something went wrong! Plese try again.');
-      } catch (error) {
-        print(error);
-        yield SubscribeFailed('Something went wrong! Plese try again.');
+            message = "Something went Wrong!, please try again";
+          yield SubscribeFailed(message);
+        }
+      } catch (e) {
+        yield SubscribeFailed('Something went Wrong!, please try again');
       }
     }
   }

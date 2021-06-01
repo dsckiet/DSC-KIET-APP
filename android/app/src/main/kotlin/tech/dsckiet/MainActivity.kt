@@ -1,4 +1,4 @@
-package com.dsckiet
+package tech.dsckiet
 
 import androidx.annotation.NonNull
 import io.flutter.embedding.android.FlutterActivity
@@ -34,7 +34,7 @@ class MainActivity: FlutterActivity() {
             val name = argData["name"]
             val descriptionText = argData["description"]
             val sound = "drop"
-            val importance = NotificationManager.IMPORTANCE_HIGH
+            val importance = NotificationManager.IMPORTANCE_MAX
             val mChannel = NotificationChannel(id, name, importance)
             mChannel.description = descriptionText
 
@@ -45,11 +45,6 @@ class MainActivity: FlutterActivity() {
             mChannel.setSound(soundUri, att)
             mChannel.enableLights(true)
             mChannel.enableVibration(true)
-            mChannel.setBypassDnd(true)
-            mChannel.setAllowBubbles(true)
-            mChannel.setLightColor(-1)
-            mChannel.setImportance(4)
-            mChannel.setLockscreenVisibility(1)
             mChannel.setShowBadge(true)
 
             // Register the channel with the system; you can't change the importance

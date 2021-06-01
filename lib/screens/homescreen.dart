@@ -60,7 +60,7 @@ class HomescreenBody extends StatelessWidget {
       children: [
         largePadding,
         Text(
-          'Devlopers Student Clubs KIET Group of Institutions',
+          'Developer Student Clubs KIET Group of Institutions',
           style: heading(context),
         ),
         smallPadding,
@@ -76,11 +76,18 @@ class HomescreenBody extends StatelessWidget {
           child: Lottie.asset('assets/images/splash_animation.json'),
         ),
         smallPadding,
-        ElevatedButton(
-            onPressed: () {
-              launch('https://forms.gle/YFTsmarHBrW57k5N8');
-            },
-            child: Text('Become a member')),
+        Row(
+          children: [
+            ElevatedButton(
+                onPressed: () {
+                  launch('https://forms.gle/YFTsmarHBrW57k5N8');
+                },
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(vertical: 12, horizontal: 28),
+                ),
+                child: Text('Become a member')),
+          ],
+        ),
         const Padding(padding: EdgeInsets.only(top: 10)),
         Align(
           alignment: Alignment.centerLeft,

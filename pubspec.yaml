@@ -1,7 +1,7 @@
 name: dsckiet
 description: Mobile application for dsc kiet
 publish_to: 'none'
-version: 1.0.1+2
+version: 1.0.0+4
 
 
 environment:

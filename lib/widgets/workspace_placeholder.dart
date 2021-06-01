@@ -11,7 +11,8 @@ class WorkspacePlaceholder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return PhysicalModel(
+    return Card(
+      margin: EdgeInsets.all(0),
       color: Colors.transparent,
       elevation: 4,
       child: Container(
@@ -19,6 +20,13 @@ class WorkspacePlaceholder extends StatelessWidget {
         decoration: BoxDecoration(
           color: Color(0xffDB4437),
           borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(1, 1),
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 1,
+            )
+          ],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,11 +61,15 @@ class WorkspacePlaceholder extends StatelessWidget {
               children: [
                 Expanded(
                   child: ElevatedButton.icon(
-                    style: Theme.of(context).elevatedButtonTheme.style.copyWith(
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(Colors.black),
-                        ),
-                    icon: FaIcon(FontAwesomeIcons.discord),
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.black,
+                        padding: EdgeInsets.symmetric(
+                          vertical: 12,
+                        )),
+                    icon: FaIcon(
+                      FontAwesomeIcons.discord,
+                      size: 18,
+                    ),
                     onPressed: () {
                       launch(
                         'https://go.dsckiet.com/discord',
@@ -73,11 +85,15 @@ class WorkspacePlaceholder extends StatelessWidget {
                 ),
                 Expanded(
                   child: ElevatedButton.icon(
-                    style: Theme.of(context).elevatedButtonTheme.style.copyWith(
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(Colors.black),
-                        ),
-                    icon: FaIcon(FontAwesomeIcons.telegramPlane),
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.black,
+                        padding: EdgeInsets.symmetric(
+                          vertical: 12,
+                        )),
+                    icon: FaIcon(
+                      FontAwesomeIcons.telegramPlane,
+                      size: 18,
+                    ),
                     onPressed: () {
                       launch('https://t.me/dsckiet');
                     },
