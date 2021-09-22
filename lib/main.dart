@@ -10,10 +10,10 @@ void main() async {
 
   try {
     await Firebase.initializeApp();
+    FirebaseMessaging.instance.getToken().then((value) => print(value));
   } catch (e) {
     print(e);
   }
-  FirebaseMessaging.instance.getToken().then((value) => print(value));
   runApp(
     ProviderScope(child: DscApp()),
   );

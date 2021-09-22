@@ -40,6 +40,7 @@ class _DscAppState extends State<DscApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: theme,
+      title: 'DSC KIET',
       home: SplashScreen(),
     );
   }
