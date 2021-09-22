@@ -2,7 +2,20 @@ import 'package:flutter/material.dart';
 
 ThemeData theme = ThemeData(
   primaryColor: Colors.white,
-  accentColor: Colors.black,
+  colorScheme: ColorScheme(
+      secondary: Colors.black,
+      onError: Colors.red,
+      error: Colors.red,
+      onBackground: Colors.white,
+      background: Colors.white,
+      brightness: Brightness.light,
+      onPrimary: Colors.white,
+      onSurface: Colors.white,
+      onSecondary: Colors.black,
+      surface: Color(0xfff1f1f1),
+      primaryVariant: Colors.white,
+      secondaryVariant: Colors.black,
+      primary: Colors.white),
   fontFamily: 'Sen',
   scaffoldBackgroundColor: Colors.white,
   primaryIconTheme: IconThemeData(
