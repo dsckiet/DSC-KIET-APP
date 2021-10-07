@@ -67,7 +67,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   shape: BoxShape.circle,
                   image: DecorationImage(
                     image: AssetImage(
-                      'assets/images/logo.png',
+                      'assets/images/logo.jpeg',
                     ),
                   ),
                 ),
