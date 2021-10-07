@@ -20,7 +20,10 @@ class _TeamScreenState extends State<TeamScreen> {
   ImageProvider teamImage = AssetImage('assets/images/team.png');
 
   // String _value = domains[0];
-  List<Map<String, String>> teamMembers = List.from(team);
+  List<Map<String, dynamic>> teamMembers =
+      List.from(team.where((element) => element['alumni'] == false));
+  List<Map<String, dynamic>> alumniMembers =
+      List.from(team.where((element) => element['alumni'] == true));
 
   @override
   Widget build(BuildContext context) {
@@ -45,70 +48,21 @@ class _TeamScreenState extends State<TeamScreen> {
                   color: Color(0xff707070)),
             ),
             Padding(padding: EdgeInsets.only(top: 16)),
-            // Card(
-            //   elevation: 4,
-            //   color: blue,
-            //   child: Container(
-            //     width: double.infinity,
-            //     child: Row(
-            //       children: [
-            //         Padding(padding: EdgeInsets.only(right: 20)),
-            //         Text(
-            //           'Domain',
-            //           style: body1(context).copyWith(
-            //             fontWeight: FontWeight.bold,
-            //             color: Colors.white,
-            //           ),
-            //         ),
-            //         Spacer(),
-            // DropdownButton(
-            //     items: domains
-            //         .map(
-            //           (e) => DropdownMenuItem(
-            //             child: Row(children: [
-            //               if (domains.indexOf(e) != 0)
-            //                 SvgPicture.asset(
-            //                   'assets/icons/${e.toLowerCase()}.svg',
-            //                   height: 24,
-            //                 ),
-            //               Padding(padding: EdgeInsets.only(right: 10)),
-            //               Text(e),
-            //             ]),
-            //             value: e,
-            //           ),
-            //         )
-            //         .toList(),
-            //     underline: Container(),
-            //     elevation: 8,
-            //     style: body1(context).copyWith(
-            //         color: Colors.white, fontWeight: FontWeight.bold),
-            //     value: _value,
-            //     dropdownColor: Color(0xff424242),
-            //     iconEnabledColor: Colors.white,
-            //     onChanged: (value) {
-            //       _value = value;
-            //       if (_value != 'All')
-            //         teamMembers = List.from(
-            //           team.filter(
-            //             (element) => element['domain'] == _value,
-            //           ),
-            //         );
-            //       else
-            //         teamMembers = List.from(team);
-            //       setState(() {});
-            //     }),
-            //         Spacer(
-            //           flex: 2,
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
             Padding(padding: EdgeInsets.only(top: 16)),
             ...teamMembers.map(
               (e) => TeamMemberPanel(data: e, i: team.indexOf(e)),
             ),
             Padding(padding: EdgeInsets.only(top: 20)),
+            Padding(padding: EdgeInsets.only(top: 16)),
+            Text(
+              'Our Alumni',
+              style: heading(context),
+            ),
+            Padding(padding: EdgeInsets.only(top: 16)),
+            ...alumniMembers.map(
+              (e) => TeamMemberPanel(data: e, i: team.indexOf(e)),
+            ),
+            Padding(padding: EdgeInsets.only(top: 32)),
           ],
         ),
       ),
@@ -123,7 +77,7 @@ class TeamMemberPanel extends ConsumerWidget {
     @required this.i,
   });
 
-  final Map<String, String> data;
+  final Map<String, dynamic> data;
   final int i;
 
   @override
@@ -220,3 +174,64 @@ class TeamMemberPanel extends ConsumerWidget {
     );
   }
 }
+
+
+// Card(
+            //   elevation: 4,
+            //   color: blue,
+            //   child: Container(
+            //     width: double.infinity,
+            //     child: Row(
+            //       children: [
+            //         Padding(padding: EdgeInsets.only(right: 20)),
+            //         Text(
+            //           'Domain',
+            //           style: body1(context).copyWith(
+            //             fontWeight: FontWeight.bold,
+            //             color: Colors.white,
+            //           ),
+            //         ),
+            //         Spacer(),
+            // DropdownButton(
+            //     items: domains
+            //         .map(
+            //           (e) => DropdownMenuItem(
+            //             child: Row(children: [
+            //               if (domains.indexOf(e) != 0)
+            //                 SvgPicture.asset(
+            //                   'assets/icons/${e.toLowerCase()}.svg',
+            //                   height: 24,
+            //                 ),
+            //               Padding(padding: EdgeInsets.only(right: 10)),
+            //               Text(e),
+            //             ]),
+            //             value: e,
+            //           ),
+            //         )
+            //         .toList(),
+            //     underline: Container(),
+            //     elevation: 8,
+            //     style: body1(context).copyWith(
+            //         color: Colors.white, fontWeight: FontWeight.bold),
+            //     value: _value,
+            //     dropdownColor: Color(0xff424242),
+            //     iconEnabledColor: Colors.white,
+            //     onChanged: (value) {
+            //       _value = value;
+            //       if (_value != 'All')
+            //         teamMembers = List.from(
+            //           team.filter(
+            //             (element) => element['domain'] == _value,
+            //           ),
+            //         );
+            //       else
+            //         teamMembers = List.from(team);
+            //       setState(() {});
+            //     }),
+            //         Spacer(
+            //           flex: 2,
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
