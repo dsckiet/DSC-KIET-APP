@@ -60,14 +60,14 @@ class HomescreenBody extends StatelessWidget {
       children: [
         largePadding,
         Text(
-          'Developer Student Clubs KIET Group of Institutions',
+          'Developer Student Circuit KIET Group of Institutions',
           style: heading(context),
         ),
         smallPadding,
         Text.rich(
-            TextSpan(text: 'powered by ', style: body2(context), children: [
+            TextSpan(text: 'driven by ', style: body2(context), children: [
           TextSpan(
-            text: 'Google Developers',
+            text: 'an urge to LEARN',
             style: body2(context).copyWith(fontWeight: FontWeight.bold),
           ),
         ])),
@@ -97,7 +97,7 @@ class HomescreenBody extends StatelessWidget {
                     'https://dsc.community.dev/kiet-group-of-institutions-ghaziabad/');
               },
               child: Text(
-                'Join Community Platform by Google Developers',
+                'Join Community Platform and grow together',
                 style: body1(context)
                     .copyWith(color: green, fontWeight: FontWeight.bold),
               )),

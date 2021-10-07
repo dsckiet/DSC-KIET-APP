@@ -11,12 +11,12 @@ class Footer extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Image.asset(
-              'assets/images/logo.png',
-              height: 18,
+              'assets/images/logo.jpeg',
+              height: 36,
             ),
             Padding(padding: EdgeInsets.only(right: 8)),
             Text(
-              'Developer Student Clubs',
+              'Developer Student Circuit',
               style: body1(context).copyWith(fontSize: 18),
             )
           ],

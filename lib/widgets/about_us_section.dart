@@ -50,7 +50,7 @@ class _AboutUsSectionBodyState extends State<AboutUsSectionBody> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final String whatWeDo =
-        '\nGoogle collaborates with university students who are passionate about growing developer communities.\n\nDeveloper Student Clubs powered by Google Developers is an initiative to help students to grow their knowledge on developer technologies and more through peer to peer workshops and events, and gain relevant industry experience.';
+        '\nDeveloper Student Circuit powered by friendly developers is an initiative to help students to grow their knowledge on developer technologies and more through peer-to-peer workshops and events, and gain relevant industry experience.';
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -128,7 +128,7 @@ class _AboutUsSectionBodyState extends State<AboutUsSectionBody> {
           ),
         ),
         Text(
-          'Developer Student Clubs KIET is inspired by Google Developers\' Family.\n\nThe motive is to create an ecosystem of programmers & developers in the campus by helping them to learn and build projects.',
+          'Developer Student Circuit KIET is driven by an urge to Learn, build and develop innovative tech.\n\nThe motive is to create an ecosystem of programmers & developers in the campus by helping them to learn and build projects.',
           style: body1(context),
         ),
         largePadding,

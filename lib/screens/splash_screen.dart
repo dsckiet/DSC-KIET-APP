@@ -8,7 +8,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  final ImageProvider logo = AssetImage('assets/images/logo.png');
+  final ImageProvider logo = AssetImage('assets/images/logo.jpeg');
 
   gotoHome() async {
     await Future.delayed(2.seconds);
@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Center(
             child: Image(
               image: logo,
-              height: 64,
+              height: 128,
             ),
           )
         ],

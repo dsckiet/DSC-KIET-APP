@@ -1,4 +1,4 @@
-List<Map<String, String>> team = [
+List<Map<String, dynamic>> team = [
   {
     "name": "Aakanksha shivani",
     "linkedin": "https://www.linkedin.com/in/shivaniaakanksha",
@@ -7,8 +7,9 @@ List<Map<String, String>> team = [
     "domain": "Flutter",
     "other_url": "https://twitter.com/akkushivani",
     "dob": "5/15/1998",
-    "role": "Head of Flutter Dept.",
-    "image": "assets/images/aakanksha_shivani.JPG"
+    "role": "Former head of Flutter Dept.",
+    "image": "assets/images/aakanksha_shivani.JPG",
+    "alumni": true,
   },
   {
     "name": "Aayush Sharma",
@@ -18,8 +19,9 @@ List<Map<String, String>> team = [
     "domain": "Flutter",
     "other_url": "https://codeforces.com/profile/Ayush_b58",
     "dob": "5/29/2000",
-    "role": "Flutter Developer",
-    "image": "assets/images/Aayush_Sharma.jpg"
+    "role": "Head of content Dept.",
+    "image": "assets/images/Aayush_Sharma.jpg",
+    "alumni": false,
   },
   {
     "name": "Aditya Pandey",
@@ -30,7 +32,8 @@ List<Map<String, String>> team = [
     "other_url": "http://ydasc815.github.io/",
     "dob": "12/14/1999",
     "role": "Designer | Android Developer",
-    "image": "assets/images/aditya_pandey.jpg"
+    "image": "assets/images/aditya_pandey.jpg",
+    "alumni": false,
   },
   {
     "name": "Aniket Padmansh",
@@ -40,8 +43,9 @@ List<Map<String, String>> team = [
     "domain": "Web",
     "other_url": "https://www.hackerrank.com/padmansh_20",
     "dob": "1/20/2002",
-    "role": "Frontend Developer",
-    "image": "assets/images/Aniket_Padmansh.jpg"
+    "role": "Head of frontend Dept.",
+    "image": "assets/images/Aniket_Padmansh.jpg",
+    "alumni": false,
   },
   {
     "name": "Anshul Gupta",
@@ -51,8 +55,9 @@ List<Map<String, String>> team = [
     "domain": "Android",
     "other_url": "http://anshul1507.tech/",
     "dob": "7/15/1999",
-    "role": "Head of Android Dept.",
-    "image": "assets/images/anshul_gupta.jpg"
+    "role": "Former head of Android Dept.",
+    "image": "assets/images/anshul_gupta.jpg",
+    "alumni": true,
   },
   {
     "name": "Ishita Jaiswal",
@@ -63,7 +68,8 @@ List<Map<String, String>> team = [
     "other_url": "https://www.hackerrank.com/ishita_4m",
     "dob": "3/4/2000",
     "role": "Frontend Developer",
-    "image": "assets/images/ishita_jaiswal.jpg"
+    "image": "assets/images/ishita_jaiswal.jpg",
+    "alumni": false,
   },
   {
     "name": "Lakshay Kumar",
@@ -73,8 +79,9 @@ List<Map<String, String>> team = [
     "domain": "ML",
     "other_url": "https://www.stopstalk.com/user/profile/lakshaykumar0510",
     "dob": "5/10/2001",
-    "role": "Competitive Programmer",
-    "image": "assets/images/Lakshay_Kumar.jpg"
+    "role": "Head of competitive Programming.",
+    "image": "assets/images/Lakshay_Kumar.jpg",
+    "alumni": false,
   },
   {
     "name": "Mayank Shakya",
@@ -84,8 +91,9 @@ List<Map<String, String>> team = [
     "domain": "Web",
     "other_url": "https://twitter.com/mayanksh99",
     "dob": "7/28/1999",
-    "role": "DSC Lead",
-    "image": "assets/images/mayank_shakya.jpg"
+    "role": "Former DSC Lead | Frontend developer",
+    "image": "assets/images/mayank_shakya.jpg",
+    "alumni": false,
   },
   {
     "name": "Nidhaan Srivastava",
@@ -95,8 +103,9 @@ List<Map<String, String>> team = [
     "domain": "Web",
     "other_url": "https://www.hackerearth.com/@nidhanranjan",
     "dob": "9/17/2000",
-    "role": "Frontend Developer",
-    "image": "assets/images/Nidhaan_Srivastava.jpg"
+    "role": "Head of dDesign",
+    "image": "assets/images/Nidhaan_Srivastava.jpg",
+    "alumni": false,
   },
   {
     "name": "Priyanshu Sharma",
@@ -106,8 +115,9 @@ List<Map<String, String>> team = [
     "domain": "Web",
     "other_url": "https://www.hackerrank.com/priyanshus_edu",
     "dob": "12/20/2001",
-    "role": "Backend Developer",
-    "image": "assets/images/priyanshu_sharma.jpg"
+    "role": "DSC lead | Backend Developer",
+    "image": "assets/images/priyanshu_sharma.jpg",
+    "alumni": false,
   },
   {
     "name": "Ritik Srivastava",
@@ -118,7 +128,8 @@ List<Map<String, String>> team = [
     "other_url": "https://ritiksr25.tech",
     "dob": "9/11/2000",
     "role": "Head of Projects",
-    "image": "assets/images/ritik_srivastava.jpeg"
+    "image": "assets/images/ritik_srivastava.jpeg",
+    "alumni": false,
   },
   {
     "name": "Rohan Mehta",
@@ -128,8 +139,9 @@ List<Map<String, String>> team = [
     "domain": "Web",
     "other_url": "https://rhnmht30.dev",
     "dob": "12/30/1997",
-    "role": "Head of Tech",
-    "image": "assets/images/rohan_mehta.jpg"
+    "role": "Former head of Tech",
+    "image": "assets/images/rohan_mehta.jpg",
+    "alumni": true,
   },
   {
     "name": "Satyam Sharma",
@@ -139,8 +151,9 @@ List<Map<String, String>> team = [
     "domain": "Flutter",
     "other_url": "https://www.hackerrank.com/satyamx64?hr_r=1",
     "dob": "7/12/2001",
-    "role": "Flutter Developer",
-    "image": "assets/images/satyam_sharma.jpg"
+    "role": "Head of flutter Dept.",
+    "image": "assets/images/satyam_sharma.jpg",
+    "alumni": false,
   },
   {
     "name": "Shashank Jaitly",
@@ -151,7 +164,8 @@ List<Map<String, String>> team = [
     "other_url": "https://github.com/ShashankJaitly",
     "dob": "9/16/1998",
     "role": "Content Creator | Developer",
-    "image": "assets/images/shashank_jaitly.jpg"
+    "image": "assets/images/shashank_jaitly.jpg",
+    "alumni": false,
   },
   {
     "name": "Shubham Singh",
@@ -161,8 +175,9 @@ List<Map<String, String>> team = [
     "domain": "Flutter",
     "other_url": "https://twitter.com/shubham100ev",
     "dob": "11/10/1998",
-    "role": "Head of Design | Flutter Developer",
-    "image": "assets/images/shubham_singh.jpg"
+    "role": "Former head of Design | Flutter Developer",
+    "image": "assets/images/shubham_singh.jpg",
+    "alumni": false,
   },
   {
     "name": "Vidit Jha",
@@ -172,8 +187,9 @@ List<Map<String, String>> team = [
     "domain": "Android",
     "other_url": "https://www.stopstalk.com/user/profile/jhavidit",
     "dob": "10/28/2000",
-    "role": "Android Developer",
-    "image": "assets/images/vidit_jha.jpg"
+    "role": "Head of Android Dept.",
+    "image": "assets/images/vidit_jha.jpg",
+    "alumni": false,
   },
   {
     "name": "Aakash Goel",
@@ -183,8 +199,9 @@ List<Map<String, String>> team = [
     "domain": "Web",
     "other_url": "https://goelaakash79.github.io/",
     "dob": "3/4/1998",
-    "role": "Class of 2020",
-    "image": "assets/images/aakash_goel.jpg"
+    "role": "Class of 2020 | Founder of DSC KIET",
+    "image": "assets/images/aakash_goel.jpg",
+    "alumni": true,
   },
   {
     "name": "Ritwick Bhargav",
@@ -196,7 +213,8 @@ List<Map<String, String>> team = [
         "https://drive.google.com/file/d/1W6aFjVFJLH8t_9o9vL7LpY0ABfn4Z3ct/view?usp=sharing",
     "dob": "1/28/1999",
     "role": "Class of 2020",
-    "image": "assets/images/ritwick_bhargav.jpeg"
+    "image": "assets/images/ritwick_bhargav.jpeg",
+    "alumni": true,
   },
   {
     "name": "Shubham Goswami",
@@ -207,7 +225,8 @@ List<Map<String, String>> team = [
     "other_url": "https://sgshubham98.github.io",
     "dob": "1/7/1998",
     "role": "Class of 2020",
-    "image": "assets/images/shubham_goswami.jpg"
+    "image": "assets/images/shubham_goswami.jpg",
+    "alumni": true,
   },
   {
     "name": "Shreeyanshi Gupta",
@@ -218,6 +237,7 @@ List<Map<String, String>> team = [
     "other_url": "https://www.linkedin.com/in/shrynshigupta06",
     "dob": "11/21/1997",
     "role": "Class of 2020",
-    "image": "assets/images/shreeyanshi_gupta.jpeg"
+    "image": "assets/images/shreeyanshi_gupta.jpeg",
+    "alumni": true,
   }
 ];
