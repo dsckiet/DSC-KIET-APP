@@ -11,7 +11,7 @@ class Footer extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Image.asset(
-              'assets/images/logo.jpeg',
+              'assets/images/logo.png',
               height: 36,
             ),
             Padding(padding: EdgeInsets.only(right: 8)),
