@@ -63,14 +63,6 @@ class HomescreenBody extends StatelessWidget {
           'Developer Student Circuit KIET Group of Institutions',
           style: heading(context),
         ),
-        smallPadding,
-        Text.rich(
-            TextSpan(text: 'driven by ', style: body2(context), children: [
-          TextSpan(
-            text: 'an urge to LEARN',
-            style: body2(context).copyWith(fontWeight: FontWeight.bold),
-          ),
-        ])),
         Padding(
           padding: const EdgeInsets.only(right: 28.0, top: 4, bottom: 4),
           child: Lottie.asset('assets/images/splash_animation.json'),

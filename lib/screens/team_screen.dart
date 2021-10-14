@@ -20,10 +20,7 @@ class _TeamScreenState extends State<TeamScreen> {
   ImageProvider teamImage = AssetImage('assets/images/team.png');
 
   // String _value = domains[0];
-  List<Map<String, dynamic>> teamMembers =
-      List.from(team.where((element) => element['alumni'] == false));
-  List<Map<String, dynamic>> alumniMembers =
-      List.from(team.where((element) => element['alumni'] == true));
+  List<Map<String, dynamic>> teamMembers = List.from(team);
 
   @override
   Widget build(BuildContext context) {
@@ -53,16 +50,6 @@ class _TeamScreenState extends State<TeamScreen> {
               (e) => TeamMemberPanel(data: e, i: team.indexOf(e)),
             ),
             Padding(padding: EdgeInsets.only(top: 20)),
-            Padding(padding: EdgeInsets.only(top: 16)),
-            Text(
-              'Our Alumni',
-              style: heading(context),
-            ),
-            Padding(padding: EdgeInsets.only(top: 16)),
-            ...alumniMembers.map(
-              (e) => TeamMemberPanel(data: e, i: team.indexOf(e)),
-            ),
-            Padding(padding: EdgeInsets.only(top: 32)),
           ],
         ),
       ),

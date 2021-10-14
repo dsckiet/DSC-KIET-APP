@@ -7,9 +7,8 @@ List<Map<String, dynamic>> team = [
     "domain": "Flutter",
     "other_url": "https://twitter.com/akkushivani",
     "dob": "5/15/1998",
-    "role": "Former head of Flutter Dept.",
+    "role": "Class of 2021",
     "image": "assets/images/aakanksha_shivani.JPG",
-    "alumni": true,
   },
   {
     "name": "Aayush Sharma",
@@ -19,9 +18,8 @@ List<Map<String, dynamic>> team = [
     "domain": "Flutter",
     "other_url": "https://codeforces.com/profile/Ayush_b58",
     "dob": "5/29/2000",
-    "role": "Head of content Dept.",
+    "role": "Flutter developer",
     "image": "assets/images/Aayush_Sharma.jpg",
-    "alumni": false,
   },
   {
     "name": "Aditya Pandey",
@@ -33,7 +31,6 @@ List<Map<String, dynamic>> team = [
     "dob": "12/14/1999",
     "role": "Designer | Android Developer",
     "image": "assets/images/aditya_pandey.jpg",
-    "alumni": false,
   },
   {
     "name": "Aniket Padmansh",
@@ -43,9 +40,8 @@ List<Map<String, dynamic>> team = [
     "domain": "Web",
     "other_url": "https://www.hackerrank.com/padmansh_20",
     "dob": "1/20/2002",
-    "role": "Head of frontend Dept.",
+    "role": "Frontend developer",
     "image": "assets/images/Aniket_Padmansh.jpg",
-    "alumni": false,
   },
   {
     "name": "Anshul Gupta",
@@ -55,9 +51,8 @@ List<Map<String, dynamic>> team = [
     "domain": "Android",
     "other_url": "http://anshul1507.tech/",
     "dob": "7/15/1999",
-    "role": "Former head of Android Dept.",
+    "role": "Class of 2021",
     "image": "assets/images/anshul_gupta.jpg",
-    "alumni": true,
   },
   {
     "name": "Ishita Jaiswal",
@@ -69,7 +64,6 @@ List<Map<String, dynamic>> team = [
     "dob": "3/4/2000",
     "role": "Frontend Developer",
     "image": "assets/images/ishita_jaiswal.jpg",
-    "alumni": false,
   },
   {
     "name": "Lakshay Kumar",
@@ -79,9 +73,8 @@ List<Map<String, dynamic>> team = [
     "domain": "ML",
     "other_url": "https://www.stopstalk.com/user/profile/lakshaykumar0510",
     "dob": "5/10/2001",
-    "role": "Head of competitive Programming.",
+    "role": "Competitive Programmer",
     "image": "assets/images/Lakshay_Kumar.jpg",
-    "alumni": false,
   },
   {
     "name": "Mayank Shakya",
@@ -91,9 +84,8 @@ List<Map<String, dynamic>> team = [
     "domain": "Web",
     "other_url": "https://twitter.com/mayanksh99",
     "dob": "7/28/1999",
-    "role": "Former DSC Lead | Frontend developer",
+    "role": "Frontend developer",
     "image": "assets/images/mayank_shakya.jpg",
-    "alumni": false,
   },
   {
     "name": "Nidhaan Srivastava",
@@ -103,9 +95,8 @@ List<Map<String, dynamic>> team = [
     "domain": "Web",
     "other_url": "https://www.hackerearth.com/@nidhanranjan",
     "dob": "9/17/2000",
-    "role": "Head of dDesign",
+    "role": "Frontend developer",
     "image": "assets/images/Nidhaan_Srivastava.jpg",
-    "alumni": false,
   },
   {
     "name": "Priyanshu Sharma",
@@ -115,9 +106,8 @@ List<Map<String, dynamic>> team = [
     "domain": "Web",
     "other_url": "https://www.hackerrank.com/priyanshus_edu",
     "dob": "12/20/2001",
-    "role": "DSC lead | Backend Developer",
+    "role": "Lead",
     "image": "assets/images/priyanshu_sharma.jpg",
-    "alumni": false,
   },
   {
     "name": "Ritik Srivastava",
@@ -129,7 +119,6 @@ List<Map<String, dynamic>> team = [
     "dob": "9/11/2000",
     "role": "Head of Projects",
     "image": "assets/images/ritik_srivastava.jpeg",
-    "alumni": false,
   },
   {
     "name": "Rohan Mehta",
@@ -139,9 +128,8 @@ List<Map<String, dynamic>> team = [
     "domain": "Web",
     "other_url": "https://rhnmht30.dev",
     "dob": "12/30/1997",
-    "role": "Former head of Tech",
+    "role": "Class of 2021",
     "image": "assets/images/rohan_mehta.jpg",
-    "alumni": true,
   },
   {
     "name": "Satyam Sharma",
@@ -151,9 +139,8 @@ List<Map<String, dynamic>> team = [
     "domain": "Flutter",
     "other_url": "https://www.hackerrank.com/satyamx64?hr_r=1",
     "dob": "7/12/2001",
-    "role": "Head of flutter Dept.",
+    "role": "Flutter developer",
     "image": "assets/images/satyam_sharma.jpg",
-    "alumni": false,
   },
   {
     "name": "Shashank Jaitly",
@@ -165,7 +152,6 @@ List<Map<String, dynamic>> team = [
     "dob": "9/16/1998",
     "role": "Content Creator | Developer",
     "image": "assets/images/shashank_jaitly.jpg",
-    "alumni": false,
   },
   {
     "name": "Shubham Singh",
@@ -175,9 +161,8 @@ List<Map<String, dynamic>> team = [
     "domain": "Flutter",
     "other_url": "https://twitter.com/shubham100ev",
     "dob": "11/10/1998",
-    "role": "Former head of Design | Flutter Developer",
+    "role": "Head of Design | Flutter Developer",
     "image": "assets/images/shubham_singh.jpg",
-    "alumni": false,
   },
   {
     "name": "Vidit Jha",
@@ -187,9 +172,8 @@ List<Map<String, dynamic>> team = [
     "domain": "Android",
     "other_url": "https://www.stopstalk.com/user/profile/jhavidit",
     "dob": "10/28/2000",
-    "role": "Head of Android Dept.",
+    "role": "Android Developer",
     "image": "assets/images/vidit_jha.jpg",
-    "alumni": false,
   },
   {
     "name": "Aakash Goel",
@@ -199,9 +183,8 @@ List<Map<String, dynamic>> team = [
     "domain": "Web",
     "other_url": "https://goelaakash79.github.io/",
     "dob": "3/4/1998",
-    "role": "Class of 2020 | Founder of DSC KIET",
+    "role": "Class of 2020",
     "image": "assets/images/aakash_goel.jpg",
-    "alumni": true,
   },
   {
     "name": "Ritwick Bhargav",
@@ -214,7 +197,6 @@ List<Map<String, dynamic>> team = [
     "dob": "1/28/1999",
     "role": "Class of 2020",
     "image": "assets/images/ritwick_bhargav.jpeg",
-    "alumni": true,
   },
   {
     "name": "Shubham Goswami",
@@ -226,7 +208,6 @@ List<Map<String, dynamic>> team = [
     "dob": "1/7/1998",
     "role": "Class of 2020",
     "image": "assets/images/shubham_goswami.jpg",
-    "alumni": true,
   },
   {
     "name": "Shreeyanshi Gupta",
@@ -238,6 +219,5 @@ List<Map<String, dynamic>> team = [
     "dob": "11/21/1997",
     "role": "Class of 2020",
     "image": "assets/images/shreeyanshi_gupta.jpeg",
-    "alumni": true,
   }
 ];

@@ -50,12 +50,12 @@ class _AboutUsSectionBodyState extends State<AboutUsSectionBody> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final String whatWeDo =
-        '\nDeveloper Student Circuit powered by friendly developers is an initiative to help students to grow their knowledge on developer technologies and more through peer-to-peer workshops and events, and gain relevant industry experience.';
+        '\nDeveloper Student Circuit is an initiative to help students to grow their knowledge on developer technologies and more through peer to peer workshops and events, and gain relevant industry experience.';
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'What is DSC?',
+          'What we do?',
           style: subHeading(context),
         ),
         Text(
@@ -128,7 +128,7 @@ class _AboutUsSectionBodyState extends State<AboutUsSectionBody> {
           ),
         ),
         Text(
-          'Developer Student Circuit KIET is driven by an urge to Learn, build and develop innovative tech.\n\nThe motive is to create an ecosystem of programmers & developers in the campus by helping them to learn and build projects.',
+          'We try to engage student developers through our hack, events, codelabs, and meetups.\n\nThe motive is to create an ecosystem of programmers & developers in the campus by helping them to learn and build projects.',
           style: body1(context),
         ),
         largePadding,
